@@ -12,7 +12,7 @@ int main()
 	if (optionPick == 'N')
 	{
 		categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
-	}
+	}						// Checking if pushing works correctly
 
 	return 0;
 }
