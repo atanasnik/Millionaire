@@ -1,0 +1,71 @@
+//Level: 8
+
+//History (8101-8102);
+
+8101. Which state was not in the USSR?
+A) Kazakhstan
+B) Belarus
+C) Armenia
+D) Slovakia //Correct
+
+8102. Which was not a Bulgarian ruler's name?
+A) Georgi
+B) Yosif //Correct
+C) Ivaylo
+D) Teodor
+
+//Geography (81201-8202);
+
+8201. Which is the capital of Liechtenstein?
+A) Vaduz  //Correct
+B) Graz
+C) Dresden
+D) Fürstenwalde
+
+8202. Which country is not Arabic?
+A) Tunisia
+B) Egypt
+C) Iran //Correct
+D) Jordan
+
+//Science (8301-8302);
+
+8301. What is The Golden Ratio approximately equal to?
+A) 3.14
+B) 2.72
+C) 1.62 //Correct
+D) 6.28
+
+8302. What is the unit of electrical resistance?
+A) Ampere
+B) Ohm //Correct
+C) Farad
+D) Joule
+
+//Literature (8401-8402);
+
+8401. Which famous Greek poet is said to have been blind?
+A) Homer //Correct
+B) Aristotle
+C) Euripides
+D) Sophocles
+
+8402. Which Bulgarian author is not associated to the realism genre?
+A) Elin Pelin
+B) Hristo Smirnenski //Correct
+C) Aleko Konstantinov
+D) Nikola Vapcarov
+
+//Fun facts (8501-8502);
+
+8501. The 'Biathlon' combines cross-country skiing and which other sport?
+A) Rifle shooting //Correct
+B) Ice Skating
+C) Archery
+D) Canoeing
+
+8502. Which of these would you not find in an automatic car?
+A) Clutch pedal //Correct
+B) Handbrake
+C) Rev counter
+D) Dip switch

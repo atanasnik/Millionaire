@@ -1,0 +1,72 @@
+Difficulty: 10
+
+//History (10101-10102);
+
+10101. Which was the last country to surrender in WW2?
+A) Germany
+B) Italy
+C) Japan //Correct
+D) Bulgaria
+
+10102. Which of the statements is false?
+A) The Bloody Mary was Queen Elisabeth's sister
+B) Tsar Ivan The Terrible killed his son
+C) Execution by guillotine was still legal by the time the EU was founded.
+D) China didn't have a name for their currency until the end of WW2. //Correct
+
+//Geography (10201-10202);
+
+10201. Which country's official name is "Republic of China"?
+A) China
+B) Thailand
+C) Taiwan //Correct
+D) Singapore
+
+10202. Which is the biggest city among the following?
+A) Chicago
+B) Mexico City //Correct
+C) Moscow
+D) Paris
+
+//Science (10301-10302);
+
+10301. The most poisonous animal in the world is a species of which creature?
+A) Snake
+B) Scorpion
+C) Frog //Correct
+D) Spider
+
+10302. How long can camels survive without water?
+A) Up to 12 hours
+B) Up to 6 days
+C) Up to 15 days //Correct
+D) Up to one month
+
+//Literature (10401-10402);
+
+10401. How many "... years a slave" is the name of Solomon Northup's famous
+memoir?
+A) Ten
+B) Twelve //Correct
+C) Fourteen
+D) Sixteen
+
+10402. Which Bulgarian writer translates "Hamlet" to Bulgarian?
+A) Valeri Petrov //Correct
+B) Ivan Vazov
+C) Petko Slaveykov
+D) Atanas Dalchev
+
+//Fun facts (10501-10502);
+
+10501. What is the definition of the word "defenestration"?
+A) Act of self defense
+B) Solving a differential equation
+C) Throwing a person out of a window //Correct
+D) Getting fired illegally
+
+10502. Which language is not Germanic?
+A) German
+B) Afrikaans
+C) English
+D) French //Correct

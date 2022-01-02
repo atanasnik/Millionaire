@@ -1,0 +1,72 @@
+//Difficulty: 7
+
+//History (7101-7102);
+
+7101. When did Bulgaria join NATO?
+A) 1989
+B) 2004 //Correct
+C) 2007
+D) 2012
+
+7102. Who was tsar Simeon's brother?
+A) Ivan Vladislav
+B) Vladimir Rasate //Correct
+C) Gavrail Radomir
+D) George Terter
+
+//Geography (7201-7202);
+
+7201. Which of the following states is not a member of the European Union?
+A) Austria
+B) Norway //Correct
+C) Cyprus
+D) Croatia
+
+7202. What can Australia boast to have the biggest of in the world?
+A) Restaurant
+B) Desert
+C) Coral Reef //Correct
+D) Lake
+
+//Science (7301-7302);
+
+7301. What are the products of hydrochloric acid and sodium hydroxide
+(HCL and NaOH)?
+A) Hypochlorous acid and sodium
+B) Sodium oxide and chlorine
+C) Sodium carbonate and Chlorine dioxide
+D) Water and salt //Correct
+
+7302. What kind of star is the Sun?
+A) Blue giant
+B) Yellow dwarf //Correct
+C) White giant
+D) Red dwarf
+
+//Literature (7401-7402);
+
+7401. Which of the following isn't considered Fantasy?
+A) The Lord of the Rings
+B) Game Of Thrones
+C) Dune //Correct
+D) Harry Potter
+
+7402. Where is the fictional character Willy Wonka featured?
+A) Matilda
+B) Danny, the Champion of the World
+C) Charlie and the Chocolate Factory //Correct
+D) The Witches
+
+//Fun facts (7501-7502);
+
+7501. Which country does not own a nuclear weapon?
+A) Pakistan
+B) North Korea
+C) Portugal //Correct
+D) Russia
+
+7502. Which type of nut can give you radiation poisoning?
+A) Almond
+B) Walnut
+C) Brazil nut //Correct
+D) Chestnut

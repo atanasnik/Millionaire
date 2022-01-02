@@ -1,0 +1,72 @@
+//Difficulty: 2
+
+//History (2101-2102);
+
+2101. What is the Head of the Catholic church called?
+A) Patriarch
+B) Pastor
+C) Priest
+D) Pope //Correct
+
+2102. What is the ruler of the Ottoman Empire called?
+A) King
+B) Emperor
+C) Sultan //Correct
+D) Pharaoh
+
+//Geography (2201-2202);
+
+2201. Which is the world's smallest country?
+A) Nepal
+B) San Marino
+C) Malta
+D) The Vatican //Correct
+
+2202. Which is the highest mountain peak in Bulgaria?
+A) Vihren
+B) Moussala //Correct
+C) Botev
+D) Cherni vruh
+
+//Science (2301-2302);
+
+2301. Who discovered Radium?
+A) Nicola Tesla
+B) Marie Curie //Correct
+C) Albert Einstein
+D) Benjamin Franklin
+
+2302. Which of these muscles is the largest?
+A) Tongue
+B) Heart
+C) Buttocks //Correct
+D) Biceps
+
+//Literature (2401-2402);
+
+2401. Who wrote the Harry Potter books?
+A) Paulo Coelho
+B) J.K. Rowling //Correct
+C) Agatha Christie
+D) Ray Bradbury
+
+2402. How is the Holy Book of Muslims called?
+A) The Torah
+B) The Holy Bible
+C) The Noble Quran //Correct
+D) The Vedas
+
+//Fun facts (2501-2502);
+
+2501. What color is normally associated with ecological groups?
+A) Black
+B) Blue
+C) Red
+D) Green //Correct
+
+2502. 'SOS' stands for 'Save Our ...' what?
+
+A) Sandwiches
+B) Sanity
+C) Stamps
+D) Souls //Correct

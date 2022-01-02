@@ -13,6 +13,10 @@ int main()
 	{
 		categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
 	}						// Checking if pushing works correctly
+	if (optionPick == 'X')
+	{
+		return 0;
+	}
 
 	return 0;
 }

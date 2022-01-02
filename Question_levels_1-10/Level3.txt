@@ -1,0 +1,71 @@
+//Difficulty: 3
+
+//History (3101-3102);
+
+3101. Who was the father of khan Asparukh?
+A) Khan Malamir
+B) Khan Omurtag
+C) Khan Kotrag
+D) Khan Kubrat // Correct
+
+3102. Where was Jesus born?
+A) Nazareth
+B) Bethlehem //Correct
+C) Jerusalem
+D) Alexandria
+
+//Geography (3201-3202);
+
+3201. Which is the capital of Poland?
+A) Katowice
+B) Krakow
+C) Warsaw //Correct
+D) Lodz
+
+3202. Which of the listed countries does not exist anymore?
+A) Montenegro
+B) Czechoslovakia //Correct
+C) Mozambique
+D) Bhutan
+
+//Science (3301-3302);
+
+3301. Which science is concerned with all living things?
+A) Chemistry
+B) Physics
+C) Biology //Correct
+D) Astronomy
+
+3302. What is the hardest substance known to man?
+A) Amber
+B) Limestone
+C) Lead
+D) Diamond //Correct
+
+//Literature (3401-3402);
+
+3401. Which character is linked with forty thieves?
+A) Ali Baba //Correct
+B) Aladdin
+C) Rin Van Winkle
+D) Sinbad
+
+3402. Who wrote the Don Quixote book?
+A) Dante Alighieri
+B) Miguel de Cervantes //Correct
+C) William Shakespeare
+D) Giovanni Boccaccio
+
+//Fun facts (3501-3502);
+
+3501. Who are the months July and August named after?
+A) Greek philosophers
+B) American presidents
+C) Roman emperors //Correct
+D) Egyptian gods
+
+3502. What part of his body did Vincent Van Gogh partly cut off?
+A) Nose
+B) Right hand
+C) Left thumb
+D) Left ear //Correct

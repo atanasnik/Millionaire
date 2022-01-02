@@ -1,0 +1,72 @@
+//Level: 9
+
+//History (9101-9102);
+
+9101. Who was not a Bulgarian tsar?
+A) Simeon II
+B) Peter IV
+C) Boris III
+D) Samuel II //Correct
+
+9102. When did the prophet Muhammad move form Mecca to Medina?
+A) 466
+B) 744
+C) 588
+D) 622 //Correct
+
+//Geography (9201-9202);
+
+9201. What is Hungary's official currency?
+A) Euro
+B) Hryvnia
+C) Ruble
+D) Forint //Correct
+
+9202. Which is the capital of Mongolia?
+A) Islamabad
+B) Ulaanbaatar //Correct
+C) Bishkek
+D) Khartoum
+
+//Science (9301-9302);
+
+9301. Ethanol is the most common form of which substance?
+A) Oil
+B) Plastic
+C) Gas
+D) Alcohol //Correct
+
+9302. What is the value of the Roman Numeral 'L'?
+A) Ten
+B) Five hundred
+C) Five
+D) Fifty //Correct
+
+//Literature (9401-9402);
+
+9401. Who is the author of "1984"?
+A) Ernest Hemingway
+B) George Orwell //Correct
+C) J. D. Salinger
+D) Pearl S. Buck
+
+9402. Which book is the character Huckleberry Finn featured on?
+A) The Great Gatsby
+B) Moby-Dick
+C) The Last of the Mohicans
+D) The Adventures of Tom Sawyer //Correct
+
+//Fun facts (9501-9502);
+
+9501. Who is the patron saint of travelers?
+A) St. George
+B) St. John
+C) St. Peter
+D_ St. Christopher //Correct
+
+9502. Complete this phrase from 'Mission Impossible', 'This tape will
+self destruct in ...?
+A) Five seconds //Correct
+B) Ten seconds
+C) Thirty seconds
+D) Sixty seconds
