@@ -2,6 +2,14 @@
 #include <iomanip>			// for the project and also the "using namespace std" directive.
 #include <iostream>
 
+#include <fstream>
+#include <string>
+
+#include <stdlib.h>
+#include <time.h>
+
+
+
 using namespace std;
 
 #ifndef MAINLAYOUT_H

@@ -12,4 +12,11 @@ void primaryScreen(void);		// have in our slides and the wrapped functions that 
 void categories(void);
 void categoriesMenu(void);
 
+void Question(int start);
+void FirstStage(void);
+
+void awardScreen1(void);
+void defeatScreen1_1(void);
+void defeatScreen1_2(void);
+
 #endif

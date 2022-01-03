@@ -9,14 +9,16 @@ int main()
 	char optionPick;
 	cin >> optionPick; // TODO: Secure the cases where the input is wrong.
 
-	if (optionPick == 'N')
+	if (optionPick == 'N' || optionPick == 'n')
 	{
-		categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
-	}						// Checking if pushing works correctly
-	if (optionPick == 'X')
+        FirstStage();	// TODO: still have some modifications to do on arrays on FirstStage and etc.
+	}						
+	if (optionPick == 'X' || optionPick == 'x')
 	{
 		return 0;
 	}
+	
+
 
 	return 0;
 }

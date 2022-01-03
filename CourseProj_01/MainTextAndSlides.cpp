@@ -1,6 +1,8 @@
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 
+char chooseAns;
+
 void centerText1(string textLine)
 {
 	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
@@ -102,4 +104,201 @@ void categoriesMenu()
 	categories();
 	border();
 	space2();
+}
+
+//Specific to the first question:
+
+void awardScreen1()
+{
+	system("CLS");
+	space1();
+	border();
+	space2();
+	centerText1("Congratulations!");
+	centerText1("You've won $1000!");
+	cout << endl;
+	centerText1("Press any key to proceed...");
+	space2();
+	border();
+	space1();
+}
+void defeatScreen1_1()
+{
+	system("CLS");
+	space1();
+	border();
+	space2();
+	centerText1("Wrong answer!");
+	cout << endl;
+	centerText1("The right answer was ");
+}
+void defeatScreen1_2()
+{
+	cout << endl;
+	centerText1("Press any key to go back to the main menu...");
+	cout << endl;
+	border();
+	space1();
+}
+void Question(int start) // TODO: perhaps divide to smaller functions later
+{
+	ifstream file;
+
+	file.open("Level1.txt");
+
+
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row; // We are going to read the file through this string
+
+	string num; // This string will store the serial number of the question
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string ansLetter;
+
+	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+
+	cout << " " << row << endl; // Prints the line where the serial number was
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			ansLetter += row.substr(ans - 2, ans); // TODO: sometimes prints the whole answer
+		}
+
+		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+
+	}
+
+	file.close();
+	for (int i = 0; i < 5; ++i) // temporary!!!!!!
+	{
+		cout << endl;
+	}
+	space2();
+	border();
+	space2();
+	cin >> chooseAns; 
+	if (chooseAns == ansLetter[0] || chooseAns == char(ansLetter[0]) + 32) // If the user picks the right answer
+	{
+		awardScreen1();
+	}
+	else if (chooseAns != ansLetter[0] && chooseAns != char(ansLetter[0]) + 32) // If the user picks the wrong answer
+	{
+		defeatScreen1_1();
+		centerText1(ansLetter);
+		defeatScreen1_2();
+	}
+}
+void FirstStage()
+{
+	categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
+	int categoryPick;
+	cin >> categoryPick; 
+	switch (categoryPick)
+	{
+	case 1:
+	{
+		srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
+
+		int mixArr1[100] = { 1101, 1102 }; // TODO: needs fixing later, so we can add more elements
+		int randIndex = rand() % 2;
+		// The array stores our questions' serial numbers, so we pick a random question to present
+
+		int start = mixArr1[randIndex];
+		Question(start);
+
+	}
+	break;
+	case 2: //same applies for the cases below:
+	{
+		srand(time(NULL));
+
+		int mixArr1[100] = { 1201, 1202 };
+		int randIndex = rand() % 2;
+
+
+		int start = mixArr1[randIndex];
+		Question(start);
+	}
+	break;
+	case 3:
+	{
+		srand(time(NULL));
+
+		int mixArr1[100] = { 1301, 1302 };
+		int randIndex = rand() % 2;
+
+
+		int start = mixArr1[randIndex];
+		Question(start);
+	}
+	break;
+	case 4:
+	{
+		srand(time(NULL));
+
+		int mixArr1[100] = { 1401, 1402 };
+		int randIndex = rand() % 2;
+
+
+		int start = mixArr1[randIndex];
+		Question(start);
+	}
+	break;
+	case 5:
+	{
+		srand(time(NULL));
+
+		int mixArr1[100] = { 1501, 1502 };
+		int randIndex = rand() % 2;
+
+
+		int start = mixArr1[randIndex];
+		Question(start);
+	}
+	break;
+	case 6:
+	{
+		srand(time(NULL));
+
+		int mixArr1[100] = { 1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502 };
+		int randIndex = rand() % 10;
+
+
+		int start = mixArr1[randIndex];
+
+		Question(start);
+	}
+	}
 }
