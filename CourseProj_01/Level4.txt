@@ -1,74 +1,58 @@
-//Difficulty - 4
+Difficulty - 4
 
-//History (4101-4102);
+History questions start with "41",
+Geography questions start with "42",
+Science questions start with "43",
+Literature questions start with "44",
+Fun facts questions start with "45".
 
-4101. What did the murder of Franz Ferdinand result to?
-A) The French Revolution
-B) The unity of Germany
-C) The First Word War //Correct
-D) The Anschluss of Austria
+4101 What did the murder of Franz Ferdinand result to?
 
-4102. Who switched sides during both world wars?
-A) Italy //Correct
-B) Germany
-C) Japan
-D) France
+A) The French Revolution         C)$$ The First Word War  
+B) The Unification of Germany    D) The Anschluss of Austria	
 
-//Geography (4201-4202);
+4102 Who switched sides during both world wars?
 
-4201. Which of the following countries is not located on an archipelago?
-A) Japan
-B) Indonesia
-C) Pakistan //Correct
-D) Philippines
+A)$$ Italy      C) Japan  
+B) Germany    D) France	
 
-4202. Which is the biggest island?
-A) Iceland
-B) Greenland //Correct
-C) Australia
-D) Cyprus
+4201 Which of the following countries is not located on an archipelago?
 
-//Science (4301-4302);
+A) Japan        C)$$ Pakistan  
+B) Indonesia    D) Philippines	
 
-4301. At what temperature on the Centigrade scale does water boil?
+4202 Which is the biggest island?
+A) Iceland        C) Australia  
+B)$$ Greenland      D) Cyprus	
 
-A) Zero degrees
-B) 32 degrees
-C) 100 degrees //Correct
-D) 212 degrees
+4301 At what temperature on the Centigrade scale does water boil?
 
-4302. What name is given to the calm area at the center of a hurricane?
+A) Zero degrees    C)$$ 100 degrees  
+B) 32 degrees      D) 212 degrees	
 
-A) Ear
-B) Mouth
-C) Nose
-D) Eye //Correct
+4302 What name is given to the calm area at the center of a hurricane?
 
-//Literature (4401-4402);
+A) Ear      C) Nose  
+B) Mouth    D)$$ Eye	
 
-4401. What is the missing word in Dan Brown's famous
+4401 What is the missing word in Dan Brown's famous
 novel's name - "The Da Vinci ..."?
-A) Script
-B) Code //Correct
-C) Key
-D) Secret
 
-4402. Which Bulgarian writer is featured on the obverse of the 100 lv bill?
-A) Ivan Vazov
-B) Elin Pelin
-C) Geo Milev
-D) Aleko Konstantinov //Correct
+A) Script    C) Key  
+B)$$ Code      D) Secret	
 
-//Fun facts (4501-4502);
+4402 Which Bulgarian writer is featured on the obverse of the 100 lv bill?
 
-4501. If you suffered from 'arachnophobia', which creepy-crawlies would you fear?
-A) Ants
-B) Wasps
-C) Spiders //Correct
-D) Caterpillars
+A) Ivan Vazov    C) Geo Milev  
+B) Elin Pelin    D)$$ Aleko Konstantinov	
 
-4502. What color is 'azure'?
-A) Red
-B) Black
-C) White
-D) Blue //Correct
+4501 If you suffered from 'arachnophobia', which creepy-crawlies would you fear?
+
+A) Ants     C)$$ Spiders  
+B) Wasps    D) Caterpillars	
+
+4502 What color is 'azure'?
+
+A) Red      C) White  
+B) Black    D)$$ Blue	
+

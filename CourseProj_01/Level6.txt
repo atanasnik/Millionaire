@@ -1,74 +1,62 @@
-//Difficulty: 6
+Difficulty: 6
 
-//History (6101-6102);
+History questions start with "61",
+Geography questions start with "62",
+Science questions start with "63",
+Literature questions start with "64",
+Fun facts questions start with "65".
 
-6101. Which country has Bulgaria not declared war to?
-A) Germany
-B) France
-C) Switzerland //Correct
-D) USA
+6101 Which country has Bulgaria not declared war to?
 
-6102. What was the name of Alexander The Great's horse?
-A) Bucephalus //Correct
-B) Mephistopheles
-D) Theseus
-C) Aegeus
+A) Germany    C)$$ Switzerland  
+B) France     D) USA	
 
-//Geography (6201-6202);
+6102 What was the name of Alexander The Great's horse?
 
-6201. What language is mostly spoken in Iran?
-A) Turkish
-B) Hindi
-C) Persian //Correct
-D) Afghani
+A)$$ Bucephalus        D) Theseus  
+B) Mephistopheles    C) Aegeus	
 
-6202. Which country is not a member of NATO?
-A) USA
-B) Serbia //Correct
-C) Greece
-D) France
+6201 What language is mostly spoken in Iran?
 
-//Science (6301-6302);
+A) Turkish    C)$$ Persian  
+B) Hindi      D) Afghani	
+ 
+6202 Which country is not a member of NATO?
 
-6301. Which group of creatures are characterized by warm blood, fur, and
+A) USA         C) Greece  
+B)$$ Serbia      D) France	
+
+6301 Which group of creatures are characterized by warm blood, fur, and
 suckling their young?
-A) Mammals //Correct
-B) Reptiles
-C) Amphibians
-D) Birds
 
-6302. Which of the following animal species is not extinct?
-A) Sabre-toothed Cat
-B) Dodo
-C) Tortoise //Correct
-D) Woolly Mammoth
+A)$$ Mammals      C) Amphibians  
+B) Reptiles     D) Birds	
 
-//Literature (6401-6402);
+6302 Which of the following animal species is not extinct?
 
-6401. What is the more common name for a 'lexicon'?
+A) Sabre-toothed Cat    C)$$ Tortoise  
+B) Dodo                 D) Woolly Mammoth	
 
-A) Travel guide
-B) Psalm book
-C) Dictionary //Correct
-D) Autobiography
+6401 What is the more common name for a 'lexicon'?
 
-6402. What is a ghostwriter?
-A) A person that writes texts credited to someone else. //Correct
-B) A writer's spirit
-C) A person who writes stories about ghosts
-D) A ghost that writes
+A) Travel guide    C)$$ Dictionary  
+B) Psalm book      D) Autobiography	
 
-//Fun facts (6501-6502);
+// TODO: check the question below
 
-6501. Which actor has been playing James Bond in the recent years?
-A) Sir Sean Connery
-B) Pierce Brosnan
-C) Daniel Craig //Correct
-D) Roger Moore
+6402 What is a ghostwriter?
 
-6502. Which popular animated series is said to have been
+A)$$ Someone who writes texts credited to someone else      C) Someone who writes stories about ghosts  
+B) A writer's spirit                                      D) A ghost that writes	
+
+6501 Which actor has been playing James Bond in the recent years?
+
+A) Sir Sean Connery    C)$$ Daniel Craig  
+B) Pierce Brosnan      D) Roger Moore	
+
+6502 Which popular animated series is said to have been
 "predicting the future?"
-A) Family Guy
-B) South Park
-C) The Simpsons //Correct
-D) BoJack Horseman
+
+A) Family Guy    C)$$ The Simpsons
+B) South Park    D) BoJack Horseman	
+

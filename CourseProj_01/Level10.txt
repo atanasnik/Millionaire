@@ -1,72 +1,61 @@
 Difficulty: 10
 
-//History (10101-10102);
+History questions start with "101",
+Geography questions start with "102",
+Science questions start with "103",
+Literature questions start with "104",
+Fun facts questions start with "105".
 
-10101. Which was the last country to surrender in WW2?
-A) Germany
-B) Italy
-C) Japan //Correct
-D) Bulgaria
+10101 Which was the last country to surrender in WW2?
 
-10102. Which of the statements is false?
-A) The Bloody Mary was Queen Elisabeth's sister
-B) Tsar Ivan The Terrible killed his son
-C) Execution by guillotine was still legal by the time the EU was founded.
-D) China didn't have a name for their currency until the end of WW2. //Correct
+A) Germany    C)$$ Japan  
+B) Italy      D) Bulgaria	
 
-//Geography (10201-10202);
+// TODO: check the question below
 
-10201. Which country's official name is "Republic of China"?
-A) China
-B) Thailand
-C) Taiwan //Correct
-D) Singapore
+10102 Which of the statements is false?
 
-10202. Which is the biggest city among the following?
-A) Chicago
-B) Mexico City //Correct
-C) Moscow
-D) Paris
+A) The Bloody Mary was Queen Elisabeth's sister    C) Execution by guillotine was still legal by the time the EU was founded.  
+B) Tsar Ivan The Terrible killed his son           D)$$ China didn't have a name for their currency until the end of WW2.	
 
-//Science (10301-10302);
+10201 Which country's official name is "Republic of China"?
 
-10301. The most poisonous animal in the world is a species of which creature?
-A) Snake
-B) Scorpion
-C) Frog //Correct
-D) Spider
+A) China       C)$$ Taiwan  
+B) Thailand    D) Singapore	
 
-10302. How long can camels survive without water?
-A) Up to 12 hours
-B) Up to 6 days
-C) Up to 15 days //Correct
-D) Up to one month
+10202 Which is the biggest city among the following?
 
-//Literature (10401-10402);
+A) Chicago          C) Moscow  
+B)$$ Mexico City      D) Paris	
 
-10401. How many "... years a slave" is the name of Solomon Northup's famous
+10301 The most poisonous animal in the world is a species of which creature?
+
+A) Snake       C)$$ Frog  
+B) Scorpion    D) Spider	
+
+10302 How long can camels survive without water?
+
+A) Up to 12 hours    C)$$ Up to 15 days  
+B) Up to 6 days      D) Up to one month	
+
+10401 How many "... years a slave" is the name of Solomon Northup's famous
 memoir?
-A) Ten
-B) Twelve //Correct
-C) Fourteen
-D) Sixteen
 
-10402. Which Bulgarian writer translates "Hamlet" to Bulgarian?
-A) Valeri Petrov //Correct
-B) Ivan Vazov
-C) Petko Slaveykov
-D) Atanas Dalchev
+A) Ten       C) Fourteen  
+B)$$ Twelve    D) Sixteen	
 
-//Fun facts (10501-10502);
+10402 Which Bulgarian writer translates "Hamlet" to Bulgarian?
 
-10501. What is the definition of the word "defenestration"?
-A) Act of self defense
-B) Solving a differential equation
-C) Throwing a person out of a window //Correct
-D) Getting fired illegally
+A)$$ Valeri Petrov      C) Petko Slaveykov  
+B) Ivan Vazov         D) Atanas Dalchev	
 
-10502. Which language is not Germanic?
-A) German
-B) Afrikaans
-C) English
-D) French //Correct
+10501 What is the definition of the word "defenestration"?
+
+A) Act of self defense                C)$$ Throwing a person out of a window  
+B) Solving a differential equation    D) Getting fired illegally	
+
+10502 Which language is not Germanic?
+
+A) German       C) English  
+B) Afrikaans    D)$$ French	
+

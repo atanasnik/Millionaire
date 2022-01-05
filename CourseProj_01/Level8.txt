@@ -1,71 +1,58 @@
-//Level: 8
+Difficulty: 8
 
-//History (8101-8102);
+History questions start with "81",
+Geography questions start with "82",
+Science questions start with "83",
+Literature questions start with "84",
+Fun facts questions start with "85".
 
-8101. Which state was not in the USSR?
-A) Kazakhstan
-B) Belarus
-C) Armenia
-D) Slovakia //Correct
+8101 Which state was not in the USSR?
 
-8102. Which was not a Bulgarian ruler's name?
-A) Georgi
-B) Yosif //Correct
-C) Ivaylo
-D) Teodor
+A) Kazakhstan    C) Armenia  
+B) Belarus       D)$$ Slovakia	
 
-//Geography (81201-8202);
+8102 Which was not a Bulgarian ruler's name?
 
-8201. Which is the capital of Liechtenstein?
-A) Vaduz  //Correct
-B) Graz
-C) Dresden
-D) Fürstenwalde
+A) Georgi    C) Ivaylo  
+B)$$ Pavel     D) Teodor	
 
-8202. Which country is not Arabic?
-A) Tunisia
-B) Egypt
-C) Iran //Correct
-D) Jordan
+8201 Which is the capital of Liechtenstein?
 
-//Science (8301-8302);
+A)$$ Vaduz      C) Dresden
+B) Graz       D) Fürstenwalde
 
-8301. What is The Golden Ratio approximately equal to?
-A) 3.14
-B) 2.72
-C) 1.62 //Correct
-D) 6.28
+8202 Which country is not Arabic?
 
-8302. What is the unit of electrical resistance?
-A) Ampere
-B) Ohm //Correct
-C) Farad
-D) Joule
+A) Tunisia    C)$$ Iran  
+B) Egypt      D) Jordan	
 
-//Literature (8401-8402);
+8301 Ethanol is the most common form of which substance?
 
-8401. Which famous Greek poet is said to have been blind?
-A) Homer //Correct
-B) Aristotle
-C) Euripides
-D) Sophocles
+A) Oil        C) Gas  
+B) Plastic    D)$$ Alcohol	
 
-8402. Which Bulgarian author is not associated to the realism genre?
-A) Elin Pelin
-B) Hristo Smirnenski //Correct
-C) Aleko Konstantinov
-D) Nikola Vapcarov
+8302 What is the unit of electrical resistance?
 
-//Fun facts (8501-8502);
+A) Ampere    C) Farad  
+B)$$ Ohm       D) Joule	
 
-8501. The 'Biathlon' combines cross-country skiing and which other sport?
-A) Rifle shooting //Correct
-B) Ice Skating
-C) Archery
-D) Canoeing
+8401 Which famous Greek poet is said to have been blind?
 
-8502. Which of these would you not find in an automatic car?
-A) Clutch pedal //Correct
-B) Handbrake
-C) Rev counter
-D) Dip switch
+A)$$ Homer        C) Euripides  
+B) Aristotle    D) Sophocles	
+
+8402 Which Bulgarian author is not associated to the realism genre?
+
+A) Elin Pelin             C) Aleko Konstantinov  
+B)$$ Hristo Smirnenski    D) Nikola Vapcarov	  
+
+8501 The 'Biathlon' combines cross-country skiing and which other sport?
+
+A)$$ Rifle shooting      C) Archery  
+B) Ice Skating       D) Canoeing	
+
+8502 Which of these would you not find in an automatic car?
+
+A)## Clutch pedal    C) Rev counter  
+B) Handbrake       D) Dip switch	
+

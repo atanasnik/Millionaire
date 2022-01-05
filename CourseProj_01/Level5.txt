@@ -1,73 +1,59 @@
-//Difficulty: 5
+Difficulty: 5
 
-//History (5101-5102);
+History questions start with "51",
+Geography questions start with "52",
+Science questions start with "53",
+Literature questions start with "54",
+Fun facts questions start with "55".
 
-5101. Where was the First Bulgarian Constitution (1879) created?
-A) Sofia
-B) Turnovo //Correct
-C) Plovdiv
-D) Pliska
+5101 Where was the First Bulgarian Constitution (1879) created?
 
-5102. When did Bulgaria declare independence?
-A) 06.09.1885
-B) 06.09.1908
-C) 22.09.1908 //Correct
-D) 22.09.1885
+A) Sofia        C) Plovdiv  
+B)$$ Turnovo      D) Pliska	
 
-//Geography (5201-5202);
+5102 When did Bulgaria declare independence?
 
-5201. Which country is not a monarchy?
-A) Britain
-B) Spain
-C) France //Correct
-D) The Netherlands
+A) 06.09.1885    C)$$ 22.09.1908  
+B) 06.09.1908    D) 22.09.1885	
 
-5202. Which of the following countries has a different official language
+5201 Which country is not a monarchy?
+
+A) Britain   C)$$ France  
+B) Spain     D) The Netherlands	
+
+5202 Which of the following countries has a different official language
 from Spanish?
-A) Venezuela
-B) Columbia
-C) Brazil //Correct
-D) Chile
 
-//Science (5301-5302);
+A) Venezuela    B) Columbia  
+C)$$ Brazil       D) Chile	
 
-5301. What is the popular name for Sirius, the brightest star in the night sky?
-A) The Great Bear
-B) The Dog Star //Correct
-C) Pluto
-D) The Plough
+5301 What is the popular name for Sirius, the brightest star in the night sky?
 
-5302. Which is the largest planet in the Solar system?
-A) Saturn
-B) Neptune
-C) Uranus
-D) Jupiter //Correct
+A) The Great Bear    C) Pluto  
+B)$$ The Dog Star      D) The Plough	
 
-//Literature (5401-5402);
+5302 Which is the largest planet in the Solar system?
 
-5401. In what sort of books does Stephen King specialize?
-A) Travel guides
-B) Romantic Fiction
-C) Horror stories //Correct
-D) Children's books
+A) Saturn     C) Uranus  
+B) Neptune    D)$$ Jupiter	
 
-5402. Who is the author of the original stories about Sherlock Holmes?
-A) Arthur Conan Doyle //Correct
-B) Edgar Allan Poe
-C) Agatha Christie
-D) Ernest Hemingway
+5401 In what sort of books does Stephen King specialize?
 
-//Fun facts (5501-5502);
+A) Travel guides       C)$$ Horror stories  
+B) Romantic Fiction    D) Children's books	
 
-5501. Who won the Best Actor Oscar 1992 for his role in 'Scent of a Woman'?
-A) Al Pacino //Correct
-B) Jeremy Irons
-C) Michael Douglas
-D) Gene Hackman
+5402 Who is the author of the original stories about Sherlock Holmes?
 
-5502. Which of the following drinks has been blessed by a Pope, as the
+A)$$ Arthur Conan Doyle      C) Agatha Christie  
+B) Edgar Allan Poe         D) Ernest Hemingway	
+
+5501 Who won the Best Actor Oscar 1992 for his role in 'Scent of a Woman'?
+
+A)$$ Al Pacino       C) Michael Douglas  
+B) Jeremy Irons    D) Gene Hackman	
+
+5502 Which of the following drinks has been blessed by a Pope, as the
 story suggests?
-A) Whiskey
-B) Coffee //Correct
-C) Vodka
-D) Gin
+
+A) Whiskey     C) Vodka  
+B)$$ Coffee      D) Gin	

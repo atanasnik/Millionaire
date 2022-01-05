@@ -1,71 +1,58 @@
-//Difficulty: 3
+Difficulty: 3
 
-//History (3101-3102);
+History questions start with "31",
+Geography questions start with "32",
+Science questions start with "33",
+Literature questions start with "34",
+Fun facts questions start with "35".
 
-3101. Who was the father of khan Asparukh?
-A) Khan Malamir
-B) Khan Omurtag
-C) Khan Kotrag
-D) Khan Kubrat // Correct
+3101 Who was the father of khan Asparukh?
 
-3102. Where was Jesus born?
-A) Nazareth
-B) Bethlehem //Correct
-C) Jerusalem
-D) Alexandria
+A) Khan Malamir    C) Khan Kotrag  
+B) Khan Omurtag    D)$$ Khan Kubrat	
 
-//Geography (3201-3202);
+3102 Where was Jesus born?
 
-3201. Which is the capital of Poland?
-A) Katowice
-B) Krakow
-C) Warsaw //Correct
-D) Lodz
+A) Nazareth       C) Jerusalem  
+B)$$ Bethlehem      D) Alexandria	
 
-3202. Which of the listed countries does not exist anymore?
-A) Montenegro
-B) Czechoslovakia //Correct
-C) Mozambique
-D) Bhutan
+3201 Which is the capital of Poland?
 
-//Science (3301-3302);
+A) Katowice    C)$$ Warsaw  
+B) Krakow      D) Lodz	
 
-3301. Which science is concerned with all living things?
-A) Chemistry
-B) Physics
-C) Biology //Correct
-D) Astronomy
+3202 Which of the listed countries does not exist anymore?
 
-3302. What is the hardest substance known to man?
-A) Amber
-B) Limestone
-C) Lead
-D) Diamond //Correct
+A) Montenegro          C) Mozambique  
+B)$$ Czechoslovakia      D) Bhutan	
 
-//Literature (3401-3402);
+3301 Which science is concerned with all living things?
 
-3401. Which character is linked with forty thieves?
-A) Ali Baba //Correct
-B) Aladdin
-C) Rin Van Winkle
-D) Sinbad
+A) Chemistry    C)$$ Biology  
+B) Physics      D) Astronomy	
 
-3402. Who wrote the Don Quixote book?
-A) Dante Alighieri
-B) Miguel de Cervantes //Correct
-C) William Shakespeare
-D) Giovanni Boccaccio
+3302 What is the hardest substance known to man?
 
-//Fun facts (3501-3502);
+A) Amber        C) Lead  
+B) Limestone    D)$$ Diamond	
 
-3501. Who are the months July and August named after?
-A) Greek philosophers
-B) American presidents
-C) Roman emperors //Correct
-D) Egyptian gods
+3401 Which character is linked with forty thieves?
 
-3502. What part of his body did Vincent Van Gogh partly cut off?
-A) Nose
-B) Right hand
-C) Left thumb
-D) Left ear //Correct
+A)$$ Ali Baba      C) Rin Van Winkle  
+B) Aladdin       D) Sinbad	
+
+3402 Who wrote the Don Quixote book?
+
+A) Dante Alighieri          C) William Shakespeare  
+B)$$ Miguel de Cervantes      D) Giovanni Boccaccio	
+
+3501 Who are the months July and August named after?
+
+A) Greek philosophers     C)$$ Roman emperors  
+B) American presidents    D) Egyptian gods	
+
+3502 What part of his body did Vincent Van Gogh partly cut off?
+
+A) Nose          C) Left thumb  
+B) Right hand      D)$$ Left ear	
+

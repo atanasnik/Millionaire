@@ -1,72 +1,59 @@
-//Level: 9
+Level: 9
 
-//History (9101-9102);
+History questions start with "91",
+Geography questions start with "92",
+Science questions start with "93",
+Literature questions start with "94",
+Fun facts questions start with "95".
 
-9101. Who was not a Bulgarian tsar?
-A) Simeon II
-B) Peter IV
-C) Boris III
-D) Samuel II //Correct
+9101 Who was not a Bulgarian tsar?
 
-9102. When did the prophet Muhammad move form Mecca to Medina?
-A) 466
-B) 744
-C) 588
-D) 622 //Correct
+A) Simeon II    C) Boris III  
+B) Peter IV     D)$$ Samuel II	
 
-//Geography (9201-9202);
+9102 When did the prophet Muhammad move form Mecca to Medina?
 
-9201. What is Hungary's official currency?
-A) Euro
-B) Hryvnia
-C) Ruble
-D) Forint //Correct
+A) 466    C) 588  
+B) 744    D)$$ 622	
 
-9202. Which is the capital of Mongolia?
-A) Islamabad
-B) Ulaanbaatar //Correct
-C) Bishkek
-D) Khartoum
+9201 What is Hungary's official currency?
 
-//Science (9301-9302);
+A) Euro       C) Ruble  
+B) Hryvnia    D)$$ Forint	
 
-9301. Ethanol is the most common form of which substance?
-A) Oil
-B) Plastic
-C) Gas
-D) Alcohol //Correct
+9202 Which is the capital of Mongolia?
 
-9302. What is the value of the Roman Numeral 'L'?
-A) Ten
-B) Five hundred
-C) Five
-D) Fifty //Correct
+A) Islamabad        D) Khartoum  
+B)$$ Ulaanbaatar      C) Bishkek	
 
-//Literature (9401-9402);
+9301 What is The Golden Ratio approximately equal to?
 
-9401. Who is the author of "1984"?
-A) Ernest Hemingway
-B) George Orwell //Correct
-C) J. D. Salinger
-D) Pearl S. Buck
+A) 3.14    C)$$ 1.62  
+B) 2.72    D) 6.28	
 
-9402. Which book is the character Huckleberry Finn featured on?
-A) The Great Gatsby
-B) Moby-Dick
-C) The Last of the Mohicans
-D) The Adventures of Tom Sawyer //Correct
+9302  What is the value of the Roman Numeral 'L'?
 
-//Fun facts (9501-9502);
+A) Ten             C) Five  
+B) Five hundred    D)$$ Fifty	
+
+9401 Who is the author of "1984"?
+
+A) Ernest Hemingway    C) J. D. Salinger  
+B)$$ George Orwell       D) Pearl S. Buck	
+
+9402 Which book is the character Huckleberry Finn featured on?
+
+A) The Great Gatsby    C) The Last of the Mohicans  
+B) Moby-Dick           D)$$ The Adventures of Tom Sawyer	
 
 9501. Who is the patron saint of travelers?
-A) St. George
-B) St. John
-C) St. Peter
-D_ St. Christopher //Correct
 
-9502. Complete this phrase from 'Mission Impossible', 'This tape will
+A) St. George    C) St. Peter  
+B) St. John      D)$$ St. Christopher	
+
+9502 Complete this phrase from 'Mission Impossible', 'This tape will
 self destruct in ...?
-A) Five seconds //Correct
-B) Ten seconds
-C) Thirty seconds
-D) Sixty seconds
+
+A)$$ Five seconds    C) Thirty seconds  
+B) Ten seconds     D) Sixty seconds	
+

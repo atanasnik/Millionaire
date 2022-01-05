@@ -1,72 +1,60 @@
-//Difficulty: 7
+Difficulty: 7
 
-//History (7101-7102);
+History questions start with "71",
+Geography questions start with "72",
+Science questions start with "73",
+Literature questions start with "74",
+Fun facts questions start with "75".
 
-7101. When did Bulgaria join NATO?
-A) 1989
-B) 2004 //Correct
-C) 2007
-D) 2012
+7101 When did Bulgaria join NATO?
 
-7102. Who was tsar Simeon's brother?
-A) Ivan Vladislav
-B) Vladimir Rasate //Correct
-C) Gavrail Radomir
-D) George Terter
+A) 1989    C) 2007  
+B)$$ 2004    D) 2012	
 
-//Geography (7201-7202);
+7102 Who was tsar Simeon's brother?
 
-7201. Which of the following states is not a member of the European Union?
-A) Austria
-B) Norway //Correct
-C) Cyprus
-D) Croatia
+A) Ivan Vladislav       C) Gavrail Radomir  
+B)$$ Vladimir Rasate      D) George Terter	
 
-7202. What can Australia boast to have the biggest of in the world?
-A) Restaurant
-B) Desert
-C) Coral Reef //Correct
-D) Lake
+7201 Which of the following states is not a member of the European Union?
 
-//Science (7301-7302);
+A) Austria    C) Cyprus  
+B)$$ Norway     D) Croatia	
 
-7301. What are the products of hydrochloric acid and sodium hydroxide
+7202 What can Australia boast to have the biggest of in the world?
+
+A) Restaurant    C)$$ Coral Reef  
+B) Desert        D) Lake	
+
+7301 What are the products of hydrochloric acid and sodium hydroxide
 (HCL and NaOH)?
-A) Hypochlorous acid and sodium
-B) Sodium oxide and chlorine
-C) Sodium carbonate and Chlorine dioxide
-D) Water and salt //Correct
 
-7302. What kind of star is the Sun?
-A) Blue giant
-B) Yellow dwarf //Correct
-C) White giant
-D) Red dwarf
+A) Hypochlorous acid and sodium    C) Sodium carbonate and Chlorine dioxide  
+B) Sodium oxide and chlorine       D)$$ Water and salt	
 
-//Literature (7401-7402);
+7302 What kind of star is the Sun?
 
-7401. Which of the following isn't considered Fantasy?
-A) The Lord of the Rings
-B) Game Of Thrones
-C) Dune //Correct
-D) Harry Potter
+A) Blue giant        C) White giant
+B)$$ Yellow dwarf      D) Red dwarf
 
-7402. Where is the fictional character Willy Wonka featured?
-A) Matilda
-B) Danny, the Champion of the World
-C) Charlie and the Chocolate Factory //Correct
-D) The Witches
+7401 Which of the following isn't considered Fantasy?
 
-//Fun facts (7501-7502);
+A) The Lord of the Rings    C)$$ Dune  
+B) Game Of Thrones          D) Harry Potter	
 
-7501. Which country does not own a nuclear weapon?
-A) Pakistan
-B) North Korea
-C) Portugal //Correct
-D) Russia
+7402 Where is the fictional character Willy Wonka featured?
 
-7502. Which type of nut can give you radiation poisoning?
-A) Almond
-B) Walnut
-C) Brazil nut //Correct
-D) Chestnut
+A) Matilda                             C)$$ Charlie and the Chocolate Factory  
+B) Danny, the Champion of the World    D) The Witches	
+
+7501 Which country does not own a nuclear weapon?
+
+A) Pakistan       C)$$ Portugal  
+B) North Korea    D) Russia	
+
+7502 Which type of nut can give you radiation poisoning?
+
+A) Almond    C)$$ Brazil nut  
+B) Walnut    D) Chestnut	
+
+

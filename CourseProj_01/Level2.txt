@@ -1,72 +1,59 @@
-//Difficulty: 2
+Difficulty: 2
 
-//History (2101-2102);
+History questions start with "21",
+Geography questions start with "22",
+Science questions start with "23",
+Literature questions start with "24",
+Fun facts questions start with "25".
 
-2101. What is the Head of the Catholic church called?
-A) Patriarch
-B) Pastor
-C) Priest
-D) Pope //Correct
+2101 What is the Head of the Catholic church called?
 
-2102. What is the ruler of the Ottoman Empire called?
-A) King
-B) Emperor
-C) Sultan //Correct
-D) Pharaoh
+A) Patriarch    C) Priest  
+B) Pastor       D)$$ Pope	
 
-//Geography (2201-2202);
+2102 What is the ruler of the Ottoman Empire called?
 
-2201. Which is the world's smallest country?
-A) Nepal
-B) San Marino
-C) Malta
-D) The Vatican //Correct
+A) King       C)$$ Sultan  
+B) Emperor    D) Pharaoh	
 
-2202. Which is the highest mountain peak in Bulgaria?
-A) Vihren
-B) Moussala //Correct
-C) Botev
-D) Cherni vruh
+2201 Which is the world's smallest country?
 
-//Science (2301-2302);
+A) Nepal         C) Malta  
+B) San Marino    D)$$ The Vatican	
 
-2301. Who discovered Radium?
-A) Nicola Tesla
-B) Marie Curie //Correct
-C) Albert Einstein
-D) Benjamin Franklin
+2202 Which is the highest mountain peak in Bulgaria?
 
-2302. Which of these muscles is the largest?
-A) Tongue
-B) Heart
-C) Buttocks //Correct
-D) Biceps
+A) Vihren        C) Botev  
+B)$$ Moussala      D) Cherni vruh	
 
-//Literature (2401-2402);
+2301 Who discovered Radium?
 
-2401. Who wrote the Harry Potter books?
-A) Paulo Coelho
-B) J.K. Rowling //Correct
-C) Agatha Christie
-D) Ray Bradbury
+A) Nicola Tesla    C) Albert Einstein  
+B)$$ Marie Curie     D) Benjamin Franklin	
 
-2402. How is the Holy Book of Muslims called?
-A) The Torah
-B) The Holy Bible
-C) The Noble Quran //Correct
-D) The Vedas
+2302 Which of these muscles is the largest?
 
-//Fun facts (2501-2502);
+A) Tongue   C)$$ Buttocks  
+B) Heart    D) Biceps	
 
-2501. What color is normally associated with ecological groups?
-A) Black
-B) Blue
-C) Red
-D) Green //Correct
+2401 Who wrote the Harry Potter books?
 
-2502. 'SOS' stands for 'Save Our ...' what?
+A) Paulo Coelho    C) Agatha Christie  
+B)$$ J.K. Rowling    D) Ray Bradbury	
 
-A) Sandwiches
-B) Sanity
-C) Stamps
-D) Souls //Correct
+2402 How is the Holy Book of Muslims called?
+
+A) The Torah         C)$$ The Noble Quran  
+B) The Holy Bible    D) The Vedas	
+
+2501 What color is normally associated with ecological groups?
+
+A) Black   C) Red  
+B) Blue    D)$$ Green	
+
+2502 'SOS' stands for 'Save Our ...' what?
+
+A) Sandwiches    C) Stamps  
+B) Sanity        D) Souls	
+
+

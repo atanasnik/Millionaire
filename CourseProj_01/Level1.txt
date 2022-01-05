@@ -1,6 +1,10 @@
-//Difficulty: 1
+Difficulty: 1
 
-//History(1101-1102);
+History questions start with "11",
+Geography questions start with "12",
+Science questions start with "13",
+Literature questions start with "14",
+Fun facts questions start with "15".
 
 1101 When was the First Bulgarian Empire created?
 
@@ -13,8 +17,6 @@ the Scandinavian peninsula?
 A)$$ Vikings    C) Nomads   
 B) Barbarians D) Vandals	
 
-//Geography(1201-1202);
-
 1201 Which is the capital of Bulgaria?
 
 A) Plovdiv  C)$$ Sofia  
@@ -24,8 +26,6 @@ B) Varna    D) Burgas
 
 A) China    C) USA  
 B) Canada   D)$$ Russia	
-
-//Science(1301-1302);
 
 1301 What collective name is given to the structure of bones in the body?
 
@@ -37,8 +37,6 @@ B)$$ Skeleton          D) Lungs
 A)$$ Isaac Newton     C) Leonardo Da Vinci  
 B) Thomas Edison    D) Galileo Galilei	
 
-//Literature(1401-1402);
-
 1401 Who wrote "Pod igoto"?
 
 A) Yordan Yovkov   C)$$ Ivan Vazov  
@@ -48,8 +46,6 @@ B) Hristo Botev    D) Atanas Dalchev
 
 A) To Kill A Mockingbird    C)$$ The Holy Bible  
 B) Catcher In The Rye       D) Hamlet	
-
-//Fun facts (1501-1502);
 
 1501 What do we call a year with 366 days?
 
