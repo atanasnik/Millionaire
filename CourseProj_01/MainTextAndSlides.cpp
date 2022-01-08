@@ -1,7 +1,7 @@
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 
-char chooseAns;
+
 
 void centerText1(string textLine)
 {
@@ -33,9 +33,12 @@ void primaryText()
 		string option = {};
 		switch (i)
 		{
-		case 0: option = "Press \"N\" to start a new game."; break;	// These will be the lines of text in our first slide.
-		case 1: option = "Press \"C\" to create a new question."; break;
-		case 2: option = "Press \"E\" to edit an existing question."; break;
+		case 0: option = "Press \"N\" to start a new game."; 
+			break;	// These will be the lines of text in our first slide.
+		case 1: option = "Press \"C\" to create a new question."; 
+			break;
+		case 2: option = "Press \"E\" to edit an existing question."; 
+			break;
 		case 3: option = "Press \"X\" to exit game.";
 		}
 		centerText1(option);
@@ -73,19 +76,50 @@ void categories()
 		category = {};
 		switch (i)
 		{
-		case 0: category = "Choose a category: "; break; // These will be the lines of text in our category menu.
-		case 1: category = "1. History";
-			cout << endl; break;
-		case 2: category = "2. Geography"; break;
-		case 3: category = "3. Science"; break;
-		case 4: category = "4. Literature"; break;
-		case 5: category = "5. Fun facts"; break;
+		case 0: 
+		{
+			category = "Choose a category: ";
+		}
+			break;                            // These will be the lines of text in our category menu.
+		case 1: 
+		{
+			category = "1. History";
+			cout << endl;
+		}
+			break;
+		case 2: 
+		{
+			category = "2. Geography";
+		}
+			break;
+		case 3: 
+		{
+			category = "3. Science";
+		}
+			break;
+		case 4: 
+		{
+			category = 
+			"4. Literature";
+		}
+			break;
+		case 5: 
+		{
+			category = "5. Fun facts";
+		}
+			break;
 		case 6:
+		{
 			cout << endl;
-			category = "6. Random"; break;
+			category = "6. Random";
+		}
+			break;
 		case 7:
+		{
 			cout << endl;
-			category = "Pick a number: "; break;
+			category = "Pick a number: ";
+		}
+			break;
 		}
 		switch (i)
 		{
@@ -106,9 +140,48 @@ void categoriesMenu()
 	space2();
 }
 
+void optionSelect(void)
+{
+	char optionPick;
+	cin >> optionPick;
+
+	if (optionPick == 'N' || optionPick == 'n')
+	{
+		FirstStage();	// TODO: still have some modifications to do on arrays on FirstStage and etc.
+	}
+
+	//TODO: add the other cases for "c", "e" and "x"
+}
+void wrongInputCategoryScreen(void)
+{
+	system("CLS");
+	space1();
+	border();
+	space2();
+	centerText1("You didn't pick a category!");
+	cout << endl;
+	centerText1("Press any key to return to the main menu...");
+	space2();
+	border();
+	space1();
+}
+void backToMainMenu(void)
+{
+	char press;
+	while (true)
+	{
+		if (_kbhit())        // the _kbhit() function from the conio.h library checks if a key is being pressed
+		{
+			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
+			system("CLS");	
+			primaryScreen();			// next screen, in this case, the Main menu.
+			optionSelect();
+		}
+	}
+}
 //Specific to the first question:
 
-void awardScreen1()
+void awardScreen1() //TODO: Separate award screens for the different levels.
 {
 	system("CLS");
 	space1();
@@ -121,6 +194,7 @@ void awardScreen1()
 	space2();
 	border();
 	space1();
+	//nextQuesionScreen();
 }
 void defeatScreen1_1()
 {
@@ -139,14 +213,140 @@ void defeatScreen1_2()
 	cout << endl;
 	border();
 	space1();
+	backToMainMenu();
 }
-void Question(int start) // TODO: perhaps divide to smaller functions later
+void Question1(int start) 
 {
 	ifstream file;
-
 	file.open("Level1.txt");
+	playQuestion(file, start);
+	
+}
 
 
+void Question2(int start)
+{
+	ifstream file;
+	file.open("Level2.txt");
+	playQuestion(file, start);
+	
+}
+void FirstStage()
+{
+	categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
+	int categoryPick;
+	cin >> categoryPick; 
+	switch (categoryPick)
+	{
+		case 1:
+		{
+			srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
+
+			int historyArr1[100] = { 1101, 1102 }; // TODO: needs fixing later, so we can add more elements
+			int randIndex = rand() % 2;
+			// The array stores our questions' serial numbers, so we pick a random question to present
+
+			int start = historyArr1[randIndex];
+			Question1(start);
+
+			nextQuesionScreen();
+			vector<int> historyArr2 = { 2101, 2102 };
+			start = historyArr2[randIndex];
+			Question2(start);
+		}
+			break;
+		case 2: //same applies for the cases below:
+		{
+			srand(time(NULL));
+
+			int mixArr1[100] = { 1201, 1202 };
+			int randIndex = rand() % 2;
+
+
+			int start = mixArr1[randIndex];
+			Question1(start);
+
+			nextQuesionScreen();
+			vector<int> geographyArr2 = { 2201, 2202 };
+			start = geographyArr2[randIndex];
+			Question2(start);
+		}
+			break;
+		case 3:
+		{
+			srand(time(NULL));
+
+			int mixArr1[100] = { 1301, 1302 };
+			int randIndex = rand() % 2;
+
+
+			int start = mixArr1[randIndex];
+			Question1(start);
+		}
+			break;
+		case 4:
+		{
+			srand(time(NULL));
+
+			int mixArr1[100] = { 1401, 1402 };
+			int randIndex = rand() % 2;
+
+
+			int start = mixArr1[randIndex];
+			Question1(start);
+		}
+			break;
+		case 5:
+		{
+			srand(time(NULL));
+
+			int mixArr1[100] = { 1501, 1502 };
+			int randIndex = rand() % 2;
+
+
+			int start = mixArr1[randIndex];
+			Question1(start);
+		}
+			break;
+		case 6:
+		{
+			srand(time(NULL));
+
+			int mixArr1[100] = { 1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502 };
+			int randIndex = rand() % 10;
+
+
+			int start = mixArr1[randIndex];
+
+			Question1(start);
+		}
+			break;
+		default: 
+		{
+			wrongInputCategoryScreen();
+			backToMainMenu();
+		}
+	}
+}
+
+
+void nextQuesionScreen(void)
+{
+	char press;
+	while (true)
+	{
+		if (_kbhit())
+		{
+			press = _getch();
+			//system("CLS");
+			break;
+		}
+	}
+}
+
+void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller functions later
+{
+	
 	system("CLS");
 	space2();
 	border();
@@ -208,7 +408,8 @@ void Question(int start) // TODO: perhaps divide to smaller functions later
 	space2();
 	border();
 	space2();
-	cin >> chooseAns; 
+	char chooseAns;
+	cin >> chooseAns;
 	if (chooseAns == ansLetter[0] || chooseAns == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
 		awardScreen1();
@@ -218,87 +419,5 @@ void Question(int start) // TODO: perhaps divide to smaller functions later
 		defeatScreen1_1();
 		centerText1(ansLetter);
 		defeatScreen1_2();
-	}
-}
-void FirstStage()
-{
-	categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
-	int categoryPick;
-	cin >> categoryPick; 
-	switch (categoryPick)
-	{
-	case 1:
-	{
-		srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
-
-		int mixArr1[100] = { 1101, 1102 }; // TODO: needs fixing later, so we can add more elements
-		int randIndex = rand() % 2;
-		// The array stores our questions' serial numbers, so we pick a random question to present
-
-		int start = mixArr1[randIndex];
-		Question(start);
-
-	}
-	break;
-	case 2: //same applies for the cases below:
-	{
-		srand(time(NULL));
-
-		int mixArr1[100] = { 1201, 1202 };
-		int randIndex = rand() % 2;
-
-
-		int start = mixArr1[randIndex];
-		Question(start);
-	}
-	break;
-	case 3:
-	{
-		srand(time(NULL));
-
-		int mixArr1[100] = { 1301, 1302 };
-		int randIndex = rand() % 2;
-
-
-		int start = mixArr1[randIndex];
-		Question(start);
-	}
-	break;
-	case 4:
-	{
-		srand(time(NULL));
-
-		int mixArr1[100] = { 1401, 1402 };
-		int randIndex = rand() % 2;
-
-
-		int start = mixArr1[randIndex];
-		Question(start);
-	}
-	break;
-	case 5:
-	{
-		srand(time(NULL));
-
-		int mixArr1[100] = { 1501, 1502 };
-		int randIndex = rand() % 2;
-
-
-		int start = mixArr1[randIndex];
-		Question(start);
-	}
-	break;
-	case 6:
-	{
-		srand(time(NULL));
-
-		int mixArr1[100] = { 1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502 };
-		int randIndex = rand() % 10;
-
-
-		int start = mixArr1[randIndex];
-
-		Question(start);
-	}
 	}
 }

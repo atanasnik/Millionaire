@@ -12,11 +12,19 @@ void primaryScreen(void);		// have in our slides and the wrapped functions that 
 void categories(void);
 void categoriesMenu(void);
 
-void Question(int start);
+void Question1(int start);
 void FirstStage(void);
 
 void awardScreen1(void);
 void defeatScreen1_1(void);
 void defeatScreen1_2(void);
+
+
+void optionSelect(void);
+void wrongInputCategoryScreen(void);
+void backToMainMenu(void);
+void nextQuesionScreen(void);
+
+void playQuestion(ifstream& file, int start);
 
 #endif

@@ -8,7 +8,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-
+#include <conio.h>
+#include <vector>
 
 using namespace std;
 
