@@ -24,12 +24,18 @@
     <ClCompile Include="MainTextAndSlides.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OutputQuestions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainLayout.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="MainTextAndSlides.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputQuestions.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

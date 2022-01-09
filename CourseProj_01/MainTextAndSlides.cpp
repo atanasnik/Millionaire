@@ -1,6 +1,6 @@
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
-
+#include "OutputQuestions.h"
 
 
 void centerText1(string textLine)
@@ -22,6 +22,7 @@ void centerText3(string textLine, double line)
 	++rowSpace;															// the same point.
 	cout << setw(halfWidth - rowSpace) << textLine << endl;
 }
+
 
 // Specific to the first slide:
 
@@ -181,20 +182,84 @@ void backToMainMenu(void)
 }
 //Specific to the first question:
 
-void awardScreen1() //TODO: Separate award screens for the different levels.
+void awardScreen() //TODO: Separate award screens for the different levels.
 {
+	static unsigned int functionCall = 0;
+	++functionCall;
+	int reward = 0;
+	switch (functionCall)
+	{
+		case 1: 
+		{
+			reward = 1000;
+		}
+			break;
+		case 2: 
+		{
+			reward = 2500;
+		}
+			break;
+		case 3: 
+		{
+			reward = 5000;
+		}
+			break;
+		case 4:
+		{
+			reward = 10000;
+		}
+			break;
+		case 5: 
+		{
+			reward = 25000;
+		}
+			break;
+		case 6: 
+		{
+			reward = 50000;
+		}
+			break;
+		case 7: 
+		{
+			reward = 100000;
+		}
+			break;
+		case 8: 
+		{
+			reward = 250000;
+		}
+			break;
+		case 9: 
+		{
+			reward = 500000;
+		}
+			break;
+		case 10: 
+		{
+			reward = 1000000;
+		}
+			break;
+		/*default: 
+		{
+			reward = 0;
+		}*/
+	}
+	string rewardText;
+	rewardText += to_string(reward);
+	rewardText += '$';
+	string won = "You've won ";
 	system("CLS");
 	space1();
 	border();
 	space2();
 	centerText1("Congratulations!");
-	centerText1("You've won $1000!");
+	centerText1("You've won ");
+	centerText2(rewardText, won.length()/2);
 	cout << endl;
 	centerText1("Press any key to proceed...");
 	space2();
 	border();
 	space1();
-	//nextQuesionScreen();
 }
 void defeatScreen1_1()
 {
@@ -215,25 +280,23 @@ void defeatScreen1_2()
 	space1();
 	backToMainMenu();
 }
-void Question1(int start) 
-{
-	ifstream file;
-	file.open("Level1.txt");
-	playQuestion(file, start);
-	
-}
 
-
-void Question2(int start)
-{
-	ifstream file;
-	file.open("Level2.txt");
-	playQuestion(file, start);
-	
-}
 void FirstStage()
 {
-	categoriesMenu(); // TODO: Let the user pick a number and secure the wrong input cases.
+	vector<int> allQuestions =
+	{
+	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
+	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
+	3101, 3102, 3201, 3202, 3301, 3302, 3401, 3402, 3501, 3502,
+	4101, 4102, 4201, 4202, 4301, 4302, 4401, 4402, 4501, 4502,
+	5101, 5102, 5201, 5202, 5301, 5302, 5401, 5402, 5501, 5502,
+	6101, 6102, 6201, 6202, 6301, 6302, 6401, 6402, 6501, 6502,
+	7101, 7102, 7201, 7202, 7301, 7302, 7401, 7402, 7501, 7502,
+	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
+	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
+	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
+	};
+	categoriesMenu();
 	int categoryPick;
 	cin >> categoryPick; 
 	switch (categoryPick)
@@ -241,18 +304,29 @@ void FirstStage()
 		case 1:
 		{
 			srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
-
-			int historyArr1[100] = { 1101, 1102 }; // TODO: needs fixing later, so we can add more elements
+						
+			int start = 0;
 			int randIndex = rand() % 2;
-			// The array stores our questions' serial numbers, so we pick a random question to present
 
-			int start = historyArr1[randIndex];
-			Question1(start);
+			history1(allQuestions, start, randIndex);			
 
-			nextQuesionScreen();
-			vector<int> historyArr2 = { 2101, 2102 };
-			start = historyArr2[randIndex];
-			Question2(start);
+			history2(allQuestions, start, randIndex);
+
+			history3(allQuestions, start, randIndex);
+
+			history4(allQuestions, start, randIndex);
+
+			history5(allQuestions, start, randIndex);
+
+			history6(allQuestions, start, randIndex);
+
+			history7(allQuestions, start, randIndex);
+
+			history8(allQuestions, start, randIndex);
+
+			history9(allQuestions, start, randIndex);
+
+			history10(allQuestions, start, randIndex);
 		}
 			break;
 		case 2: //same applies for the cases below:
@@ -412,7 +486,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 	cin >> chooseAns;
 	if (chooseAns == ansLetter[0] || chooseAns == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
-		awardScreen1();
+		awardScreen();
 	}
 	else if (chooseAns != ansLetter[0] && chooseAns != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
