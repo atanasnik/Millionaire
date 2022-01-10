@@ -1,7 +1,7 @@
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
-
+#include "Lifelines.h"
 
 void centerText1(string textLine)
 {
@@ -409,6 +409,7 @@ void FirstStage()
 void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller functions later
 {
 	static unsigned int awardTimes = 0;
+	static unsigned int useFifty_Fifty = 0;
 	system("CLS");
 	space2();
 	border();
@@ -464,7 +465,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 				}
 				++countLen;
 			}
-			ansLetter += row.substr(ans - 2, ans + countLen); // TODO: sometimes prints the whole answer
+			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
 		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
@@ -477,7 +478,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 	}
 	cout << endl;
 	cout << " " << "Current lifelines: " << endl;
-	cout << " " << "50/50 (Press X)" << endl;
+	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : cout << endl;
 	cout << " " << "Phone a friend (Press Y)" << endl;
 	cout << " " << "Ask the audience (Press Z)" << endl;
 	space2();
@@ -490,24 +491,69 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 		++awardTimes;
 		awardScreen();
 	}
-	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x')
+	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0)
 	{
 		switch (awardTimes)
 		{
-		case 0:
-		{
-			Ques1LifelineFifty_Fifty(start);
-		}
+			case 0:
+			{
+				Ques1LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 1:
+			{
+				Ques2LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 2:
+			{
+				Ques3LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 3: 
+			{
+				Ques4LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 4:
+			{
+				Ques5LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
 			break;
-		case 1:
-		{
-			Ques2LifelineFifty_Fifty(start);
-		}
+			case 5:
+			{
+				Ques6LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 6:
+			{
+				Ques7LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 7:
+			{
+				Ques8LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
+				break;
+			case 8:
+			{
+				Ques9LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
 			break;
-		case 2:
-		{
-			Ques3LifelineFifty_Fifty(start);
-		}
+				case 9:
+			{
+				Ques10LifelineFifty_Fifty(start);
+				++useFifty_Fifty;
+			}
 		}
 	}
 	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' ||

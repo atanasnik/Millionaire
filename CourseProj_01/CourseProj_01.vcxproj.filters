@@ -27,6 +27,9 @@
     <ClCompile Include="OutputQuestions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lifelines.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainLayout.h">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="OutputQuestions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lifelines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

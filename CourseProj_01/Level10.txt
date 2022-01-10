@@ -13,10 +13,10 @@ B) Italy      D) Bulgaria
 
 // TODO: check the question below
 
-10102 Which of the statements is false?
+10102 Which of these people was born the same year as Queen Elizabeth II?
 
-A) The Bloody Mary was Queen Elisabeth's sister    C) Execution by guillotine was still legal by the time the EU was founded.  
-B) Tsar Ivan The Terrible killed his son           D)$$ China didn't have a name for their currency until the end of WW2.	
+A) Audrey Hepburn    C) Clint Eastwood  
+B) Kirk Douglas      D)$$ Marilyn Monroe	
 
 10201 Which country's official name is "Republic of China"?
 

@@ -16,9 +16,7 @@ void Question9(int start);
 void Question10(int start);
 
 
-void Ques1LifelineFifty_Fifty(int start);
-void Ques2LifelineFifty_Fifty(int start);
-void Ques3LifelineFifty_Fifty(int start);
+
 
 void history1(vector<int>& allQues, int start, int randIndex);
 void history2(vector<int>& allQues, int start, int randIndex);
