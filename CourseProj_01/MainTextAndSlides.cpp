@@ -280,6 +280,18 @@ void defeatScreen1_2()
 	space1();
 	backToMainMenu();
 }
+void nextQuesionScreen(void)
+{
+	char press;
+	while (true)
+	{
+		if (_kbhit())
+		{
+			press = _getch();
+			break;
+		}
+	}
+}
 
 void FirstStage()
 {
@@ -309,23 +321,14 @@ void FirstStage()
 			int randIndex = rand() % 2;
 
 			history1(allQuestions, start, randIndex);			
-
 			history2(allQuestions, start, randIndex);
-
 			history3(allQuestions, start, randIndex);
-
 			history4(allQuestions, start, randIndex);
-
 			history5(allQuestions, start, randIndex);
-
 			history6(allQuestions, start, randIndex);
-
 			history7(allQuestions, start, randIndex);
-
 			history8(allQuestions, start, randIndex);
-
 			history9(allQuestions, start, randIndex);
-
 			history10(allQuestions, start, randIndex);
 		}
 			break;
@@ -403,24 +406,9 @@ void FirstStage()
 	}
 }
 
-
-void nextQuesionScreen(void)
-{
-	char press;
-	while (true)
-	{
-		if (_kbhit())
-		{
-			press = _getch();
-			//system("CLS");
-			break;
-		}
-	}
-}
-
 void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller functions later
 {
-	
+	static unsigned int awardTimes = 0;
 	system("CLS");
 	space2();
 	border();
@@ -440,6 +428,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 
 	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
 	string ansLetter;
+	int countLen = 0;
 
 	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
 	{
@@ -467,28 +456,66 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); // The correct answer gets stored in another string
-			ansLetter += row.substr(ans - 2, ans); // TODO: sometimes prints the whole answer
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen); // TODO: sometimes prints the whole answer
 		}
 
 		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
 
 	}
-
-	file.close();
-	for (int i = 0; i < 5; ++i) // temporary!!!!!!
+	
+	if (file.is_open())
 	{
-		cout << endl;
+		file.close();
 	}
+	cout << endl;
+	cout << " " << "Current lifelines: " << endl;
+	cout << " " << "50/50 (Press X)" << endl;
+	cout << " " << "Phone a friend (Press Y)" << endl;
+	cout << " " << "Ask the audience (Press Z)" << endl;
 	space2();
 	border();
 	space2();
-	char chooseAns;
+	string chooseAns;
 	cin >> chooseAns;
-	if (chooseAns == ansLetter[0] || chooseAns == char(ansLetter[0]) + 32) // If the user picks the right answer
+	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
+		++awardTimes;
 		awardScreen();
 	}
-	else if (chooseAns != ansLetter[0] && chooseAns != char(ansLetter[0]) + 32) // If the user picks the wrong answer
+	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x')
+	{
+		switch (awardTimes)
+		{
+		case 0:
+		{
+			Ques1LifelineFifty_Fifty(start);
+		}
+			break;
+		case 1:
+		{
+			Ques2LifelineFifty_Fifty(start);
+		}
+			break;
+		case 2:
+		{
+			Ques3LifelineFifty_Fifty(start);
+		}
+		}
+	}
+	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' ||
+		chooseAns[0] == 'Z' || chooseAns[0] == 'z')
+	{
+		//TODO: LIFELINES
+	}
+	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
 		defeatScreen1_1();
 		centerText1(ansLetter);
