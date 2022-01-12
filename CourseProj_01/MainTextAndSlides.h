@@ -6,6 +6,7 @@
 void centerText1(string textLine);
 void centerText2(string textLine, double halfFirstLine);
 void centerText3(string textLine, double line);
+void centerText1NoEndline(string textLine);
 
 void primaryText(void);			// In this header file we declare the functions that create the default text we
 void primaryScreen(void);		// have in our slides and the wrapped functions that print the slides.
@@ -27,7 +28,7 @@ void backToMainMenu(void);
 void nextQuesionScreen(void);
 
 void playQuestion(ifstream& file, int start);
-
+void playQuestionNoLifelines(ifstream& file, int start);
 
 
 #endif

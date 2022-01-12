@@ -19,7 +19,7 @@ B)$$ Pavel     D) Teodor
 8201 Which is the capital of Liechtenstein?
 
 A)$$ Vaduz      C) Dresden
-B) Graz       D) Fürstenwalde
+B) Graz       D) Furstenwalde	
 
 8202 Which country is not Arabic?
 
@@ -44,15 +44,15 @@ B) Aristotle    D) Sophocles
 8402 Which Bulgarian author is not associated to the realism genre?
 
 A) Elin Pelin             C) Aleko Konstantinov  
-B)$$ Hristo Smirnenski    D) Nikola Vapcarov	  
+B)$$ Hristo Smirnenski      D) Nikola Vapcarov	  
 
 8501 The 'Biathlon' combines cross-country skiing and which other sport?
 
-A)$$ Rifle shooting      C) Archery  
+A)$$ Rifle shooting    C) Archery  
 B) Ice Skating       D) Canoeing	
 
 8502 Which of these would you not find in an automatic car?
 
-A)## Clutch pedal    C) Rev counter  
+A)$$ Clutch pedal    C) Rev counter  
 B) Handbrake       D) Dip switch	
 

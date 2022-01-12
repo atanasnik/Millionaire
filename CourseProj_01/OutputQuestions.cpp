@@ -13,6 +13,26 @@ void Question1(int start)
 		file.close();
 	}
 }
+void Question1NoLifelines(int start)
+{
+	ifstream file;
+	file.open("Level1.txt");
+	playQuestionNoLifelines(file, start);
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void Question2NoLifelines(int start)
+{
+	ifstream file;
+	file.open("Level2.txt");
+	playQuestionNoLifelines(file, start);
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
 void Question2(int start)
 {
 	ifstream file;
@@ -114,12 +134,16 @@ void history1(vector<int>& allQues, int start, int randIndex)
 
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 11)
 		{
 			history1.push_back(allQues[i]);
 		}
 	}
-	randIndex = rand() % 2; // The array stores our questions' serial numbers, so we pick a random question to present
+	randIndex = rand() % history1.size(); // The array stores our questions' serial numbers, so we pick a random question to present
 	start = history1[randIndex];
 	Question1(start);
 }
@@ -129,11 +153,16 @@ void history2(vector<int>& allQues, int start, int randIndex)
 	vector<int> history2;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 21)
 		{
 			history2.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history2.size();
 	start = history2[randIndex];
 	Question2(start);
 }
@@ -143,11 +172,16 @@ void history3(vector<int>& allQues, int start, int randIndex)
 	vector<int> history3;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 31)
 		{
 			history3.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history3.size();
 	start = history3[randIndex];
 	Question3(start);
 }
@@ -157,11 +191,16 @@ void history4(vector<int>& allQues, int start, int randIndex)
 	vector<int> history4;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 41)
 		{
 			history4.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history4.size();
 	start = history4[randIndex];
 	Question4(start);
 }
@@ -171,11 +210,16 @@ void history5(vector<int>& allQues, int start, int randIndex)
 	vector<int> history5;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 51)
 		{
 			history5.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history5.size();
 	start = history5[randIndex];
 	Question5(start);
 }
@@ -185,11 +229,16 @@ void history6(vector<int>& allQues, int start, int randIndex)
 	vector<int> history6;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 61)
 		{
 			history6.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history6.size();
 	start = history6[randIndex];
 	Question6(start);
 }
@@ -199,11 +248,16 @@ void history7(vector<int>& allQues, int start, int randIndex)
 	vector<int> history7;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 71)
 		{
 			history7.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history7.size();
 	start = history7[randIndex];
 	Question7(start);
 }
@@ -213,11 +267,16 @@ void history8(vector<int>& allQues, int start, int randIndex)
 	vector<int> history8;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 81)
 		{
 			history8.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history8.size();
 	start = history8[randIndex];
 	Question8(start);
 }
@@ -227,11 +286,16 @@ void history9(vector<int>& allQues, int start, int randIndex)
 	vector<int> history9;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 91)
 		{
 			history9.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history9.size();
 	start = history9[randIndex];
 	Question9(start);
 }
@@ -241,11 +305,974 @@ void history10(vector<int>& allQues, int start, int randIndex)
 	vector<int> history10;
 	for (int i = 0; i < allQues.size(); ++i)
 	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
 		if (allQues[i] / 100 == 101)
 		{
 			history10.push_back(allQues[i]);
 		}
 	}
+	randIndex = rand() % history10.size();
 	start = history10[randIndex];
+	Question10(start);
+}
+
+void geography1(vector<int>& allQues, int start, int randIndex)
+{
+	vector<int> geography1;
+
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 12)
+		{
+			geography1.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography1.size();
+	randIndex = rand() % 2;
+	start = geography1[randIndex];
+	Question1(start);
+}
+void geography2(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography2;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 22)
+		{
+			geography2.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography2.size();
+	start = geography2[randIndex];
+	Question2(start);
+}
+void geography3(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography3;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 32)
+		{
+			geography3.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography3.size();
+	start = geography3[randIndex];
+	Question3(start);
+}
+void geography4(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography4;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 42)
+		{
+			geography4.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography4.size();
+	start = geography4[randIndex];
+	Question4(start);
+}
+void geography5(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography5;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 52)
+		{
+			geography5.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography5.size();
+	start = geography5[randIndex];
+	Question5(start);
+}
+void geography6(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography6;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 62)
+		{
+			geography6.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography6.size();
+	start = geography6[randIndex];
+	Question6(start);
+}
+void geography7(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography7;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 72)
+		{
+			geography7.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography7.size();
+	start = geography7[randIndex];
+	Question7(start);
+}
+void geography8(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography8;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 82)
+		{
+			geography8.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography8.size();
+	start = geography8[randIndex];
+	Question8(start);
+}
+void geography9(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography9;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 92)
+		{
+			geography9.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography9.size();
+	start = geography9[randIndex];
+	Question9(start);
+}
+void geography10(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> geography10;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 102)
+		{
+			geography10.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % geography10.size();
+	start = geography10[randIndex];
+	Question10(start);
+}
+
+void science1(vector<int>& allQues, int start, int randIndex)
+{
+	vector<int> science1;
+
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 13)
+		{
+			science1.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science1.size();
+	randIndex = rand() % 2;
+	start = science1[randIndex];
+	Question1(start);
+}
+void science2(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science2;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 23)
+		{
+			science2.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science2.size();
+	start = science2[randIndex];
+	Question2(start);
+}
+void science3(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science3;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 33)
+		{
+			science3.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science3.size();
+	start = science3[randIndex];
+	Question3(start);
+}
+void science4(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science4;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 43)
+		{
+			science4.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science4.size();
+	start = science4[randIndex];
+	Question4(start);
+}
+void science5(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science5;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 53)
+		{
+			science5.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science5.size();
+	start = science5[randIndex];
+	Question5(start);
+}
+void science6(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science6;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 63)
+		{
+			science6.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science6.size();
+	start = science6[randIndex];
+	Question6(start);
+}
+void science7(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science7;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 73)
+		{
+			science7.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science7.size();
+	start = science7[randIndex];
+	Question7(start);
+}
+void science8(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science8;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 83)
+		{
+			science8.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science8.size();
+	start = science8[randIndex];
+	Question8(start);
+}
+void science9(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science9;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 93)
+		{
+			science9.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science9.size();
+	start = science9[randIndex];
+	Question9(start);
+}
+void science10(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> science10;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 103)
+		{
+			science10.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % science10.size();
+	start = science10[randIndex];
+	Question10(start);
+}
+
+void literature1(vector<int>& allQues, int start, int randIndex)
+{
+	vector<int> literature1;
+
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 14)
+		{
+			literature1.push_back(allQues[i]);
+		}
+	}
+
+	randIndex = rand() % literature1.size();
+	start = literature1[randIndex];
+	Question1(start);
+}
+void literature2(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature2;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 24)
+		{
+			literature2.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature2.size();
+	start = literature2[randIndex];
+	Question2(start);
+}
+void literature3(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature3;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 34)
+		{
+			literature3.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature3.size();
+	start = literature3[randIndex];
+	Question3(start);
+}
+void literature4(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature4;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 44)
+		{
+			literature4.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature4.size();
+	start = literature4[randIndex];
+	Question4(start);
+}
+void literature5(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature5;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 54)
+		{
+			literature5.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature5.size();
+	start = literature5[randIndex];
+	Question5(start);
+}
+void literature6(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature6;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 64)
+		{
+			literature6.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature6.size();
+	start = literature6[randIndex];
+	Question6(start);
+}
+void literature7(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature7;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 74)
+		{
+			literature7.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature7.size();
+	start = literature7[randIndex];
+	Question7(start);
+}
+void literature8(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature8;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 84)
+		{
+			literature8.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature8.size();
+	start = literature8[randIndex];
+	Question8(start);
+}
+void literature9(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature9;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 94)
+		{
+			literature9.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature9.size();
+	start = literature9[randIndex];
+	Question9(start);
+}
+void literature10(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> literature10;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 104)
+		{
+			literature10.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % literature10.size();
+	start = literature10[randIndex];
+	Question10(start);
+}
+
+void funFacts1(vector<int>& allQues, int start, int randIndex)
+{
+	vector<int> fun1;
+
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 15)
+		{
+			fun1.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun1.size();
+	start = fun1[randIndex];
+	Question1(start);
+}
+void funFacts2(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun2;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 25)
+		{
+			fun2.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun2.size();
+	start = fun2[randIndex];
+	Question2(start);
+}
+void funFacts3(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun3;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 35)
+		{
+			fun3.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun3.size();
+	start = fun3[randIndex];
+	Question3(start);
+}
+void funFacts4(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun4;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 45)
+		{
+			fun4.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun4.size();
+	start = fun4[randIndex];
+	Question4(start);
+}
+void funFacts5(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun5;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 55)
+		{
+			fun5.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun5.size();
+	start = fun5[randIndex];
+	Question5(start);
+}
+void funFacts6(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun6;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 65)
+		{
+			fun6.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun6.size();
+	start = fun6[randIndex];
+	Question6(start);
+}
+void funFacts7(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun7;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 75)
+		{
+			fun7.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun7.size();
+	start = fun7[randIndex];
+	Question7(start);
+}
+void funFacts8(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun8;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 85)
+		{
+			fun8.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun8.size();
+	start = fun8[randIndex];
+	Question8(start);
+}
+void funFacts9(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun9;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 95)
+		{
+			fun9.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun9.size();
+	start = fun9[randIndex];
+	Question9(start);
+}
+void funFacts10(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> fun10;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 100 == 105)
+		{
+			fun10.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % fun10.size();
+	start = fun10[randIndex];
+	Question10(start);
+}
+
+void topicMix1(vector<int>& allQues, int start, int randIndex)
+{
+	vector<int> mix1;
+
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 1)
+		{
+			mix1.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix1.size();
+	start = mix1[randIndex];
+	Question1(start);
+}
+void topicMix2(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix2;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 2)
+		{
+			mix2.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix2.size();
+	start = mix2[randIndex];
+	Question2(start);
+}
+void topicMix3(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix3;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 3)
+		{
+			mix3.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix3.size();
+	start = mix3[randIndex];
+	Question3(start);
+}
+void topicMix4(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix4;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 4)
+		{
+			mix4.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix4.size();
+	start = mix4[randIndex];
+	Question4(start);
+}
+void topicMix5(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix5;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 5)
+		{
+			mix5.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix5.size();
+	start = mix5[randIndex];
+	Question5(start);
+}
+void topicMix6(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix6;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 6)
+		{
+			mix6.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix6.size();
+	start = mix6[randIndex];
+	Question6(start);
+}
+void topicMix7(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix7;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 7)
+		{
+			mix7.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix7.size();
+	start = mix7[randIndex];
+	Question7(start);
+}
+void topicMix8(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix8;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 8)
+		{
+			mix8.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix8.size();
+	start = mix8[randIndex];
+	Question8(start);
+}
+void topicMix9(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix9;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 9)
+		{
+			mix9.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix9.size();
+	start = mix9[randIndex];
+	Question9(start);
+}
+void topicMix10(vector<int>& allQues, int start, int randIndex)
+{
+	nextQuesionScreen();
+	vector<int> mix10;
+	for (int i = 0; i < allQues.size(); ++i)
+	{
+		if (allQues[i] == 0)
+		{
+			cout << "An error occured.";
+		}
+		if (allQues[i] / 1000 == 10)
+		{
+			mix10.push_back(allQues[i]);
+		}
+	}
+	randIndex = rand() % mix10.size();
+	start = mix10[randIndex];
 	Question10(start);
 }

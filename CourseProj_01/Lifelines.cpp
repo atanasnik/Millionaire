@@ -3,33 +3,37 @@
 #include "OutputQuestions.h"
 #include "Lifelines.h"
 
-string tellAnswersEasy(char ansLetter)
+char tellAnswersEasy(char ansLetter)
 {
-	string result;
+	string answers;
 	switch (ansLetter)	// Here we extract the wrong answers from the question
 	{
 	case 'A': 
 	{
-		result += {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D'};
+		answers += {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D'};
 	}
 		break;
 	case 'B':
 	{
-		result += {'A', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'D'};
+		answers += {'A', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'D'};
 	}
 		break;
 	case 'C':
 	{
-		result += {'A', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'D'};
+		answers += {'A', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'D'};
 	}
 		break;
 	case 'D': 
 	{
-		result += {'A', 'B', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D'};
+		answers += {'A', 'B', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D'};
 	}
 		break;
 	}
-	return result;
+	srand(time(NULL));
+	char suggestion;
+	int randomize = rand() % 2;
+	suggestion = answers[randomize];
+	return suggestion;
 }
 void Ques1LifelinePhone_A_Friend(int start)
 {
@@ -91,20 +95,18 @@ void Ques1LifelinePhone_A_Friend(int start)
 			}
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
-			string suggestionPick = tellAnswersEasy(ansLetter[0]);
 
 		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
 
 	}
+	char suggestionPick = tellAnswersEasy(ansLetter[0]);
 
-	if (file.is_open())
-	{
-		file.close();
-	}
 	space2();
 	cout << endl;
-	centerText1("Are you sure you want to use the \"Phone a friend\" lifeline ? ");
-	centerText1("Press Y for yes and N for no: ");
+	string ask = "Are you sure you want to use the \"Phone a friend\" lifeline ?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
 	space2();
 	border();
 	space2();
@@ -112,10 +114,130 @@ void Ques1LifelinePhone_A_Friend(int start)
 	cin >> confirm;
 	if (confirm[0] == 'y' || confirm[0] == 'Y')
 	{
-	///////////////////////////////TODO
+		Question1NoLifelines(start);
+		centerText1NoEndline("Hi, I think the answer is ");
+		cout << suggestionPick << ')';
+		space2();
+		border();
+		space2();
+		typeAnsNoLifeline(ansLetter);
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		Question1(start);
 	}
 }
+void typeAnsNoLifeline(string ansLetter)
+{
+	string chooseAns;
+	cin >> chooseAns;
+	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
+	{
+		awardScreen();
+	}
+	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
+	{
+		defeatScreen1_1();
+		centerText1(ansLetter);
+		defeatScreen1_2();
+	}
+}
+void Ques2LifelinePhone_A_Friend(int start)
+{
+	ifstream file;
+	file.open("Level2.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
 
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row; // We are going to read the file through this string
+
+	string num; // This string will store the serial number of the question
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+
+	cout << " " << row << endl; // Prints the line where the serial number was
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+
+	}
+	char suggestionPick = tellAnswersEasy(ansLetter[0]);
+
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Phone a friend\" lifeline ?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		Question2NoLifelines(start);
+		centerText1NoEndline("Hi, I think the answer is ");
+		cout << suggestionPick << ')';
+		space2();
+		border();
+		space2();
+		typeAnsNoLifeline(ansLetter);
+		if (file.is_open())
+		{
+			file.close();
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		Question2(start);
+	}
+}
 void Ques1LifelineFifty_Fifty(int start)
 {
 	ifstream file;

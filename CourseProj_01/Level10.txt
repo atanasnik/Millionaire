@@ -11,8 +11,6 @@ Fun facts questions start with "105".
 A) Germany    C)$$ Japan  
 B) Italy      D) Bulgaria	
 
-// TODO: check the question below
-
 10102 Which of these people was born the same year as Queen Elizabeth II?
 
 A) Audrey Hepburn    C) Clint Eastwood  

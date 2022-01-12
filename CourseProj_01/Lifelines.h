@@ -4,8 +4,10 @@
 
 #ifndef LIFELINES_H
 #define LIFELINES_H
-string tellAnswersEasy(char ansLetter);
+char tellAnswersEasy(char ansLetter);
+void typeAnsNoLifeline(string ansLetter);
 void Ques1LifelinePhone_A_Friend(int start);
+void Ques2LifelinePhone_A_Friend(int start);
 void Ques1LifelineFifty_Fifty(int start);
 void Ques2LifelineFifty_Fifty(int start);
 void Ques3LifelineFifty_Fifty(int start);

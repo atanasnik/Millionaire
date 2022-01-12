@@ -8,7 +8,14 @@ void centerText1(string textLine)
 	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
 	double wordSpacing = textLine.length() / 2;
 	cout << setw(halfWidth + wordSpacing) << textLine << endl;	// We use the <iomanip> function setw, which provides the space
-}																// we need to center the text lines.
+}	
+																	// we need to center the text lines.
+void centerText1NoEndline(string textLine)
+{
+	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
+	double wordSpacing = textLine.length() / 2;
+	cout << setw(halfWidth + wordSpacing) << textLine;	// We use the <iomanip> function setw, which provides the space
+}
 void centerText2(string textLine, double halfFirstLine)
 {
 	int halfWidth = 90 / 2;
@@ -318,7 +325,7 @@ void FirstStage()
 			srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
 						
 			int start = 0;
-			int randIndex = rand() % 2;
+			int randIndex = 0;
 
 			history1(allQuestions, start, randIndex);			
 			history2(allQuestions, start, randIndex);
@@ -336,66 +343,95 @@ void FirstStage()
 		{
 			srand(time(NULL));
 
-			int mixArr1[100] = { 1201, 1202 };
-			int randIndex = rand() % 2;
+			int start = 0;
+			int randIndex = 0;
 
-
-			int start = mixArr1[randIndex];
-			Question1(start);
-
-			nextQuesionScreen();
-			vector<int> geographyArr2 = { 2201, 2202 };
-			start = geographyArr2[randIndex];
-			Question2(start);
+			geography1(allQuestions, start, randIndex);
+			geography2(allQuestions, start, randIndex);
+			geography3(allQuestions, start, randIndex);
+			geography4(allQuestions, start, randIndex);
+			geography5(allQuestions, start, randIndex);
+			geography6(allQuestions, start, randIndex);
+			geography7(allQuestions, start, randIndex);
+			geography8(allQuestions, start, randIndex);
+			geography9(allQuestions, start, randIndex);
+			geography10(allQuestions, start, randIndex);
 		}
 			break;
 		case 3:
 		{
 			srand(time(NULL));
 
-			int mixArr1[100] = { 1301, 1302 };
-			int randIndex = rand() % 2;
+			int start = 0;
+			int randIndex = 0;
 
-
-			int start = mixArr1[randIndex];
-			Question1(start);
+			science1(allQuestions, start, randIndex);
+			science2(allQuestions, start, randIndex);
+			science3(allQuestions, start, randIndex);
+			science4(allQuestions, start, randIndex);
+			science5(allQuestions, start, randIndex);
+			science6(allQuestions, start, randIndex);
+			science7(allQuestions, start, randIndex);
+			science8(allQuestions, start, randIndex);
+			science9(allQuestions, start, randIndex);
+			science10(allQuestions, start, randIndex);
 		}
 			break;
 		case 4:
 		{
 			srand(time(NULL));
 
-			int mixArr1[100] = { 1401, 1402 };
-			int randIndex = rand() % 2;
+			int start = 0;
+			int randIndex = 0;
 
-
-			int start = mixArr1[randIndex];
-			Question1(start);
+			literature1(allQuestions, start, randIndex);
+			literature2(allQuestions, start, randIndex);
+			literature3(allQuestions, start, randIndex);
+			literature4(allQuestions, start, randIndex);
+			literature5(allQuestions, start, randIndex);
+			literature6(allQuestions, start, randIndex);
+			literature7(allQuestions, start, randIndex);
+			literature8(allQuestions, start, randIndex);
+			literature9(allQuestions, start, randIndex);
+			literature10(allQuestions, start, randIndex);
 		}
 			break;
 		case 5:
 		{
 			srand(time(NULL));
 
-			int mixArr1[100] = { 1501, 1502 };
-			int randIndex = rand() % 2;
+			int start = 0;
+			int randIndex = 0;
 
-
-			int start = mixArr1[randIndex];
-			Question1(start);
+			funFacts1(allQuestions, start, randIndex);
+			funFacts2(allQuestions, start, randIndex);
+			funFacts3(allQuestions, start, randIndex);
+			funFacts4(allQuestions, start, randIndex);
+			funFacts5(allQuestions, start, randIndex);
+			funFacts6(allQuestions, start, randIndex);
+			funFacts7(allQuestions, start, randIndex);
+			funFacts8(allQuestions, start, randIndex);
+			funFacts9(allQuestions, start, randIndex);
+			funFacts10(allQuestions, start, randIndex);
 		}
 			break;
 		case 6:
 		{
 			srand(time(NULL));
 
-			int mixArr1[100] = { 1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502 };
-			int randIndex = rand() % 10;
+			int start = 0;
+			int randIndex = 0;
 
-
-			int start = mixArr1[randIndex];
-
-			Question1(start);
+			topicMix1(allQuestions, start, randIndex);
+			topicMix2(allQuestions, start, randIndex);
+			topicMix3(allQuestions, start, randIndex);
+			topicMix4(allQuestions, start, randIndex);
+			topicMix5(allQuestions, start, randIndex);
+			topicMix6(allQuestions, start, randIndex);
+			topicMix7(allQuestions, start, randIndex);
+			topicMix8(allQuestions, start, randIndex);
+			topicMix9(allQuestions, start, randIndex);
+			topicMix10(allQuestions, start, randIndex);
 		}
 			break;
 		default: 
@@ -478,7 +514,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 	}
 	cout << endl;
 	cout << " " << "Current lifelines: " << endl;
-	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : cout << endl;
+	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : (cout << endl);
 	cout << " " << "Phone a friend (Press Y)" << endl;
 	cout << " " << "Ask the audience (Press Z)" << endl;
 	space2();
@@ -556,15 +592,101 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 			}
 		}
 	}
-	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' ||
-		chooseAns[0] == 'Z' || chooseAns[0] == 'z')
+	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y')
+	{
+		switch (awardTimes)
+		{
+		case 0: 
+		{
+			Ques1LifelinePhone_A_Friend(start);
+		}
+		break;
+		case 1:
+		{
+			Ques2LifelinePhone_A_Friend(start);
+		}
+		}
+	}
+	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z')
 	{
 		//TODO: LIFELINES
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
+		awardTimes = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
 		defeatScreen1_2();
 	}
+}
+
+void playQuestionNoLifelines(ifstream& file, int start)
+{
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row; // We are going to read the file through this string
+
+	string num; // This string will store the serial number of the question
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string ansLetter;
+	int countLen = 0;
+
+	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+
+	cout << " " << row << endl; // Prints the line where the serial number was
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+
+	}
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	
 }
