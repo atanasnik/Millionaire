@@ -8,18 +8,20 @@ int main()
 	unsigned static int awardFunctionCall = 0;
 	primaryScreen();
 	changeConsoleDimensions();
+	/*vector<int> allQuestions =
+	{
+	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
+	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
+	3101, 3102, 3201, 3202, 3301, 3302, 3401, 3402, 3501, 3502,
+	4101, 4102, 4201, 4202, 4301, 4302, 4401, 4402, 4501, 4502,
+	5101, 5102, 5201, 5202, 5301, 5302, 5401, 5402, 5501, 5502,
+	6101, 6102, 6201, 6202, 6301, 6302, 6401, 6402, 6501, 6502,
+	7101, 7102, 7201, 7202, 7301, 7302, 7401, 7402, 7501, 7502,
+	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
+	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
+	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
+	};*/
 
-	//char optionPick;
-	//cin >> optionPick; // TODO: Secure the cases where the input is wrong.
-
-	//if (optionPick == 'N' || optionPick == 'n')
-	//{
- //       FirstStage();	// TODO: still have some modifications to do on arrays on FirstStage and etc.
-	//}						
-	//if (optionPick == 'X' || optionPick == 'x')
-	//{
-	//	return 0;
-	//}
 	optionSelect(awardFunctionCall);
 
 

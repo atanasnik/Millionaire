@@ -53,3 +53,13 @@ void space2()		// Manages the spacing above the upper border and bellow the lowe
 		cout << endl;
 	}
 }
+void indentLeft(string text)
+{
+	int spacing = 5;
+	while (spacing > 0)
+	{
+		cout << " ";
+		--spacing;
+	}
+	cout << text;
+}

@@ -22,5 +22,6 @@ void space2(void);
 void firstBorder(void);
 void border(void);
 void changeConsoleDimensions(void);
+void indentLeft(string text);
 
 #endif

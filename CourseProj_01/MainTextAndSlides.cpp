@@ -2,6 +2,7 @@
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
 #include "Lifelines.h"
+#include "InputQuestions.h"
 
 void centerText1(string textLine)
 {
@@ -9,7 +10,7 @@ void centerText1(string textLine)
 	double wordSpacing = textLine.length() / 2;
 	cout << setw(halfWidth + wordSpacing) << textLine << endl;	// We use the <iomanip> function setw, which provides the space
 }	
-																	// we need to center the text lines.
+																	// We need to center the text lines.
 void centerText1NoEndline(string textLine)
 {
 	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
@@ -147,20 +148,44 @@ void categoriesMenu()
 	border();
 	space2();
 }
-
 void optionSelect(static unsigned int& awardFunctionCall)
 {
+	vector<int> allQuestions =
+	{
+	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
+	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
+	3101, 3102, 3201, 3202, 3301, 3302, 3401, 3402, 3501, 3502,
+	4101, 4102, 4201, 4202, 4301, 4302, 4401, 4402, 4501, 4502,
+	5101, 5102, 5201, 5202, 5301, 5302, 5401, 5402, 5501, 5502,
+	6101, 6102, 6201, 6202, 6301, 6302, 6401, 6402, 6501, 6502,
+	7101, 7102, 7201, 7202, 7301, 7302, 7401, 7402, 7501, 7502,
+	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
+	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
+	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
+	};
+
 	char optionPick;
 	cin >> optionPick;
 
-	if (optionPick == 'N' || optionPick == 'n')
+	switch (optionPick)
 	{
-		FirstStage(awardFunctionCall);	// TODO: still have some modifications to do on arrays on FirstStage and etc.
+		case 'N': case 'n':
+		{
+			FirstStage(awardFunctionCall, allQuestions);
+		}
+			break;
+		case 'C': case 'c':
+		{
+			inputQuesScreen(allQuestions);
+		}
 	}
+	/*if (optionPick == 'N' || optionPick == 'n')
+	{
+	}*/
 
 	//TODO: add the other cases for "c", "e" and "x"
 }
-void wrongInputCategoryScreen(static unsigned int& awardFunctionCall)
+void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	system("CLS");
 	space1();
@@ -172,10 +197,10 @@ void wrongInputCategoryScreen(static unsigned int& awardFunctionCall)
 	space2();
 	border();
 	space1();
-	backToMainMenu(awardFunctionCall);
+	backToMainMenu(awardFunctionCall, allQuestions);
 }
 
-void backToMainMenu(static unsigned int& awardFunctionCall)
+void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	char press;
 	while (true)
@@ -191,7 +216,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall)
 }
 //Specific to the first question:
 
-void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award screens for the different levels.
+void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	++awardFunctionCall;
 	int reward = 0;
@@ -266,7 +291,7 @@ void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award 
 	space1();
 	if (awardFunctionCall == 10)
 	{
-		WinnerScreen(awardFunctionCall);
+		WinnerScreen(awardFunctionCall, allQuestions);
 	}
 }
 void defeatScreen1_1()
@@ -279,14 +304,14 @@ void defeatScreen1_1()
 	cout << endl;
 	centerText1("The right answer was ");
 }
-void defeatScreen1_2(static unsigned int& awardFunctionCall)
+void defeatScreen1_2(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	cout << endl;
 	centerText1("Press any key to go back to the main menu...");
 	cout << endl;
 	border();
 	space1();
-	backToMainMenu(awardFunctionCall);
+	backToMainMenu(awardFunctionCall, allQuestions);
 }
 void nextQuesionScreen(void)
 {
@@ -300,7 +325,7 @@ void nextQuesionScreen(void)
 		}
 	}
 }
-void WinnerScreen(static unsigned int& awardFunctionCall)
+void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 		nextQuesionScreen();
 		system("CLS");
@@ -313,11 +338,11 @@ void WinnerScreen(static unsigned int& awardFunctionCall)
 		cout << endl;
 		border();
 		space1();
-		backToMainMenu(awardFunctionCall);
+		backToMainMenu(awardFunctionCall, allQuestions);
 }
-void FirstStage(static unsigned int& awardFunctionCall)
+void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	vector<int> allQuestions =
+	/*vector<int> allQuestions =
 	{
 	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
 	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
@@ -329,7 +354,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
 	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
 	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
-	};
+	};*/
 	categoriesMenu();
 	char categoryPick;
 	cin >> categoryPick; 
@@ -342,16 +367,16 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			history1(allQuestions, start, randIndex, awardFunctionCall);
-			history2(allQuestions, start, randIndex, awardFunctionCall);
-			history3(allQuestions, start, randIndex, awardFunctionCall);
-			history4(allQuestions, start, randIndex, awardFunctionCall);
-			history5(allQuestions, start, randIndex, awardFunctionCall);
-			history6(allQuestions, start, randIndex, awardFunctionCall);
-			history7(allQuestions, start, randIndex, awardFunctionCall);
-			history8(allQuestions, start, randIndex, awardFunctionCall);
-			history9(allQuestions, start, randIndex, awardFunctionCall);
-			history10(allQuestions, start, randIndex, awardFunctionCall);
+			history1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			history10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		case '2': //same applies for the cases below:
@@ -361,16 +386,16 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			geography1(allQuestions, start, randIndex, awardFunctionCall);
-			geography2(allQuestions, start, randIndex, awardFunctionCall);
-			geography3(allQuestions, start, randIndex, awardFunctionCall);
-			geography4(allQuestions, start, randIndex, awardFunctionCall);
-			geography5(allQuestions, start, randIndex, awardFunctionCall);
-			geography6(allQuestions, start, randIndex, awardFunctionCall);
-			geography7(allQuestions, start, randIndex, awardFunctionCall);
-			geography8(allQuestions, start, randIndex, awardFunctionCall);
-			geography9(allQuestions, start, randIndex, awardFunctionCall);
-			geography10(allQuestions, start, randIndex, awardFunctionCall);
+			geography1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			geography10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		case '3':
@@ -380,16 +405,16 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			science1(allQuestions, start, randIndex, awardFunctionCall);
-			science2(allQuestions, start, randIndex, awardFunctionCall);
-			science3(allQuestions, start, randIndex, awardFunctionCall);
-			science4(allQuestions, start, randIndex, awardFunctionCall);
-			science5(allQuestions, start, randIndex, awardFunctionCall);
-			science6(allQuestions, start, randIndex, awardFunctionCall);
-			science7(allQuestions, start, randIndex, awardFunctionCall);
-			science8(allQuestions, start, randIndex, awardFunctionCall);
-			science9(allQuestions, start, randIndex, awardFunctionCall);
-			science10(allQuestions, start, randIndex, awardFunctionCall);
+			science1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			science10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		case '4':
@@ -399,16 +424,16 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			literature1(allQuestions, start, randIndex, awardFunctionCall);
-			literature2(allQuestions, start, randIndex, awardFunctionCall);
-			literature3(allQuestions, start, randIndex, awardFunctionCall);
-			literature4(allQuestions, start, randIndex, awardFunctionCall);
-			literature5(allQuestions, start, randIndex, awardFunctionCall);
-			literature6(allQuestions, start, randIndex, awardFunctionCall);
-			literature7(allQuestions, start, randIndex, awardFunctionCall);
-			literature8(allQuestions, start, randIndex, awardFunctionCall);
-			literature9(allQuestions, start, randIndex, awardFunctionCall);
-			literature10(allQuestions, start, randIndex, awardFunctionCall);
+			literature1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			literature10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		case '5':
@@ -418,16 +443,16 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			funFacts1(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts2(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts3(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts4(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts5(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts6(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts7(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts8(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts9(allQuestions, start, randIndex, awardFunctionCall);
-			funFacts10(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			funFacts10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		case '6':
@@ -437,26 +462,27 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			int start = 0;
 			int randIndex = 0;
 
-			topicMix1(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix2(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix3(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix4(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix5(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix6(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix7(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix8(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix9(allQuestions, start, randIndex, awardFunctionCall);
-			topicMix10(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix4(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix5(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix6(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix7(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix8(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix9(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
+			topicMix10(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 		}
 			break;
 		default: 
 		{
-			wrongInputCategoryScreen(awardFunctionCall);
+			wrongInputCategoryScreen(awardFunctionCall, allQuestions);
 		}
 	}
 }
 
-void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall) // TODO: perhaps divide to smaller functions later
+void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+// TODO: perhaps divide to smaller functions later
 {
 	static unsigned int awardTimes = 0;
 	static unsigned int useFifty_Fifty = 0;
@@ -542,7 +568,7 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
 		++awardTimes;
-		awardScreen(awardFunctionCall);
+		awardScreen(awardFunctionCall, allQuestions);
 	}
 	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0)
 	{
@@ -550,61 +576,61 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		{
 			case 0:
 			{
-				Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 1:
 			{
-				Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 2:
 			{
-				Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 3: 
 			{
-				Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 4:
 			{
-				Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 			break;
 			case 5:
 			{
-				Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 6:
 			{
-				Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 7:
 			{
-				Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 				break;
 			case 8:
 			{
-				Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 			break;
 				case 9:
 			{
-				Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+				Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 				++useFifty_Fifty;
 			}
 		}
@@ -615,61 +641,61 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		{
 			case 0: 
 			{
-				Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 1:
 			{
-				Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 2:
 			{
-				Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 3:
 			{
-				Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 4:
 			{
-				Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 5:
 			{
-				Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 6:
 			{
-				Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 7:
 			{
-				Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 8:
 			{
-				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 				break;
 			case 9:
 			{
-				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 				++useCall_A_Friend;
 			}
 		}
@@ -680,61 +706,61 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		{
 			case 0:
 			{
-				Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 1:
 			{
-				Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 2:
 			{
-				Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 3:
 			{
-				Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 4:
 			{
-				Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 5:
 			{
-				Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 6:
 			{
-				Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 7:
 			{
-				Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 8:
 			{
-				Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 				break;
 			case 9:
 			{
-				Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 				++useAsk_The_Audience;
 			}
 
@@ -746,6 +772,6 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		awardTimes = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
-		defeatScreen1_2(awardFunctionCall);
+		defeatScreen1_2(awardFunctionCall, allQuestions);
 	}
 }

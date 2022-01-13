@@ -2,6 +2,7 @@
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
 #include "Lifelines.h"
+
 char audienceAnswersEasy(char ansLetter)
 {
 	string answers;
@@ -168,7 +169,7 @@ void percentages(char suggestion)
 	{
 		remainder1[i] = remainder1[i - 1] + 1;
 	}
-	randomize = rand() % remainder1.size() - 3;
+	randomize = rand() % (remainder1.size() - 3); //TODO: check if there are mistakes
 	secondBiggest = remainder1[randomize];
 
 	int remainingProc2 = remainingProc - secondBiggest;
@@ -178,7 +179,7 @@ void percentages(char suggestion)
 	{
 		remainder2[i] = remainder2[i - 1] + 1;
 	}
-	randomize = rand() % remainder2.size() - 3;
+	randomize = rand() % (remainder2.size() - 3); //TODO: check if there are mistakes
 	thirdBiggest = remainder2[randomize];
 
 	fourthBiggest = remainingProc2 - thirdBiggest;
@@ -406,7 +407,7 @@ void percentages(char suggestion)
 	break;
 	}
 }
-void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -569,7 +570,7 @@ void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -577,21 +578,21 @@ void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 	ifstream file;
 	file.open("Level1.txt");
-	playQuestion(file, start, awardFunctionCall);
+	playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-	Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -754,7 +755,7 @@ void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -762,21 +763,21 @@ void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level2.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -939,7 +940,7 @@ void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -947,21 +948,21 @@ void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level3.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -1124,7 +1125,7 @@ void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -1132,21 +1133,21 @@ void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level4.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -1309,7 +1310,7 @@ void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -1317,21 +1318,21 @@ void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level5.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -1494,7 +1495,7 @@ void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -1502,21 +1503,21 @@ void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level6.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -1679,7 +1680,7 @@ void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -1687,21 +1688,21 @@ void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level7.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -1864,7 +1865,7 @@ void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -1872,21 +1873,21 @@ void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level8.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -2049,7 +2050,7 @@ void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -2057,21 +2058,21 @@ void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level9.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 
 	ifstream file;
@@ -2234,7 +2235,7 @@ void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, 
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -2242,18 +2243,18 @@ void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, 
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level10.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+		Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
 
@@ -2389,7 +2390,7 @@ char tellAnswersHard(char ansLetter)
 	suggestion = answers[randomize];
 	return suggestion;
 }
-void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level1.txt");
@@ -2550,7 +2551,7 @@ void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -2558,21 +2559,21 @@ void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level1.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level2.txt");
@@ -2733,7 +2734,7 @@ void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) 
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -2741,21 +2742,21 @@ void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level2.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level3.txt");
@@ -2916,7 +2917,7 @@ void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -2924,21 +2925,21 @@ void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level3.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level4.txt");
@@ -3099,7 +3100,7 @@ void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -3107,21 +3108,21 @@ void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level4.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level5.txt");
@@ -3282,7 +3283,7 @@ void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -3290,21 +3291,21 @@ void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level5.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level6.txt");
@@ -3465,7 +3466,7 @@ void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -3473,21 +3474,21 @@ void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level6.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level7.txt");
@@ -3648,7 +3649,7 @@ void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -3656,21 +3657,21 @@ void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level7.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level8.txt");
@@ -3831,7 +3832,7 @@ void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -3839,21 +3840,21 @@ void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level8.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level9.txt");
@@ -4014,7 +4015,7 @@ void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -4022,21 +4023,21 @@ void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level9.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level10.txt");
@@ -4197,7 +4198,7 @@ void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, st
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
@@ -4205,22 +4206,22 @@ void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, st
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level10.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques10LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+		Ques10LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
 
-void Ques1LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques1LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level1.txt");
@@ -4446,7 +4447,7 @@ void Ques1LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -4454,21 +4455,21 @@ void Ques1LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level1.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques2LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques2LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	{
 		ifstream file;
@@ -4695,7 +4696,7 @@ void Ques2LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 			{
 				++awardTimes;
-				awardScreen(awardFunctionCall);
+				awardScreen(awardFunctionCall, allQuestions);
 			}
 			else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 			{
@@ -4703,22 +4704,22 @@ void Ques2LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 				awardFunctionCall = 0;
 				defeatScreen1_1();
 				centerText1(ansLetter);
-				defeatScreen1_2(awardFunctionCall);
+				defeatScreen1_2(awardFunctionCall, allQuestions);
 			}
 		}
 		else if (confirm[0] == 'n' || confirm[0] == 'N')
 		{
 			ifstream file;
 			file.open("Level2.txt");
-			playQuestion(file, start, awardFunctionCall);
+			playQuestion(file, start, awardFunctionCall, allQuestions);
 		}
 		else
 		{
-			Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+			Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 		}
 	}
 }
-void Ques3LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques3LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	{
 		ifstream file;
@@ -4945,7 +4946,7 @@ void Ques3LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 			{
 				++awardTimes;
-				awardScreen(awardFunctionCall);
+				awardScreen(awardFunctionCall, allQuestions);
 			}
 			else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 			{
@@ -4953,22 +4954,22 @@ void Ques3LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 				awardFunctionCall = 0;
 				defeatScreen1_1();
 				centerText1(ansLetter);
-				defeatScreen1_2(awardFunctionCall);
+				defeatScreen1_2(awardFunctionCall, allQuestions);
 			}
 		}
 		else if (confirm[0] == 'n' || confirm[0] == 'N')
 		{
 			ifstream file;
 			file.open("Level3.txt");
-			playQuestion(file, start, awardFunctionCall);
+			playQuestion(file, start, awardFunctionCall, allQuestions);
 		}
 		else
 		{
-			Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+			Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 		}
 	}
 }
-void Ques4LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques4LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level4.txt");
@@ -5199,7 +5200,7 @@ void Ques4LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -5207,21 +5208,21 @@ void Ques4LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level4.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques5LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques5LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level5.txt");
@@ -5452,7 +5453,7 @@ void Ques5LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -5460,21 +5461,21 @@ void Ques5LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level5.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques6LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques6LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level6.txt");
@@ -5700,7 +5701,7 @@ void Ques6LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -5708,21 +5709,21 @@ void Ques6LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level6.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques7LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques7LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level7.txt");
@@ -5953,7 +5954,7 @@ void Ques7LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -5961,21 +5962,21 @@ void Ques7LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level7.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques8LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques8LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level8.txt");
@@ -6201,7 +6202,7 @@ void Ques8LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -6209,21 +6210,21 @@ void Ques8LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level8.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques9LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques9LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level9.txt");
@@ -6449,7 +6450,7 @@ void Ques9LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 		{
@@ -6457,21 +6458,21 @@ void Ques9LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level9.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }
-void Ques10LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+void Ques10LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
 	ifstream file;
 	file.open("Level10.txt");
@@ -6693,7 +6694,7 @@ void Ques10LifelineFifty_Fifty(int start, static unsigned int& awardTimes, stati
 		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 		{
 			++awardTimes;
-			awardScreen(awardFunctionCall);
+			awardScreen(awardFunctionCall, allQuestions);
 		}
 		
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) 
@@ -6702,17 +6703,17 @@ void Ques10LifelineFifty_Fifty(int start, static unsigned int& awardTimes, stati
 			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
-			defeatScreen1_2(awardFunctionCall);
+			defeatScreen1_2(awardFunctionCall, allQuestions);
 		}
 	}
 	else if (confirm[0] == 'n' || confirm[0] == 'N')
 	{
 		ifstream file;
 		file.open("Level10.txt");
-		playQuestion(file, start, awardFunctionCall);
+		playQuestion(file, start, awardFunctionCall, allQuestions);
 	}
 	else
 	{
-		Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
+		Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
 	}
 }

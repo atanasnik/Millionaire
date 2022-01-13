@@ -2,7 +2,6 @@
 #ifndef MAINTEXTANDSLIDES_H
 #define MAINTEXTANDSLIDES_H
 
-
 void centerText1(string textLine);
 void centerText2(string textLine, double halfFirstLine);
 void centerText3(string textLine, double line);
@@ -16,20 +15,20 @@ void categories(void);
 void categoriesMenu(void);
 
 
-void FirstStage(static unsigned int& awardFunctionCall);
+void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
-void WinnerScreen(static unsigned int& awardFunctionCall);
-void awardScreen(static unsigned int& awardFunctionCall);
+void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 void defeatScreen1_1(void);
-void defeatScreen1_2(static unsigned int& awardFunctionCall);
+void defeatScreen1_2(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
 
 void optionSelect(static unsigned int& awardFunctionCall);
-void wrongInputCategoryScreen(static unsigned int& awardFunctionCall);
-void backToMainMenu(static unsigned int& awardFunctionCall);
+void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 void nextQuesionScreen(void);
 
-void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall);
+void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
 
 #endif
