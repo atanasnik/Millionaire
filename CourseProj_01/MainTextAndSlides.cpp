@@ -148,14 +148,14 @@ void categoriesMenu()
 	space2();
 }
 
-void optionSelect(void)
+void optionSelect(static unsigned int& awardFunctionCall)
 {
 	char optionPick;
 	cin >> optionPick;
 
 	if (optionPick == 'N' || optionPick == 'n')
 	{
-		FirstStage();	// TODO: still have some modifications to do on arrays on FirstStage and etc.
+		FirstStage(awardFunctionCall);	// TODO: still have some modifications to do on arrays on FirstStage and etc.
 	}
 
 	//TODO: add the other cases for "c", "e" and "x"
@@ -173,7 +173,7 @@ void wrongInputCategoryScreen(void)
 	border();
 	space1();
 }
-void backToMainMenu(void)
+void backToMainMenu(static unsigned int& awardFunctionCall)
 {
 	char press;
 	while (true)
@@ -183,18 +183,18 @@ void backToMainMenu(void)
 			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
 			system("CLS");	
 			primaryScreen();			// next screen, in this case, the Main menu.
-			optionSelect();
+			optionSelect(awardFunctionCall);
 		}
 	}
 }
 //Specific to the first question:
 
-void awardScreen() //TODO: Separate award screens for the different levels.
+void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award screens for the different levels.
 {
-	static unsigned int functionCall = 0;
-	++functionCall;
+	awardFunctionCall;
+	++awardFunctionCall;
 	int reward = 0;
-	switch (functionCall)
+	switch (awardFunctionCall)
 	{
 		case 1: 
 		{
@@ -278,14 +278,14 @@ void defeatScreen1_1()
 	cout << endl;
 	centerText1("The right answer was ");
 }
-void defeatScreen1_2()
+void defeatScreen1_2(static unsigned int& awardFunctionCall)
 {
 	cout << endl;
 	centerText1("Press any key to go back to the main menu...");
 	cout << endl;
 	border();
 	space1();
-	backToMainMenu();
+	backToMainMenu(awardFunctionCall);
 }
 void nextQuesionScreen(void)
 {
@@ -300,7 +300,7 @@ void nextQuesionScreen(void)
 	}
 }
 
-void FirstStage()
+void FirstStage(static unsigned int& awardFunctionCall)
 {
 	vector<int> allQuestions =
 	{
@@ -327,16 +327,16 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			history1(allQuestions, start, randIndex);			
-			history2(allQuestions, start, randIndex);
-			history3(allQuestions, start, randIndex);
-			history4(allQuestions, start, randIndex);
-			history5(allQuestions, start, randIndex);
-			history6(allQuestions, start, randIndex);
-			history7(allQuestions, start, randIndex);
-			history8(allQuestions, start, randIndex);
-			history9(allQuestions, start, randIndex);
-			history10(allQuestions, start, randIndex);
+			history1(allQuestions, start, randIndex, awardFunctionCall);
+			history2(allQuestions, start, randIndex, awardFunctionCall);
+			history3(allQuestions, start, randIndex, awardFunctionCall);
+			history4(allQuestions, start, randIndex, awardFunctionCall);
+			history5(allQuestions, start, randIndex, awardFunctionCall);
+			history6(allQuestions, start, randIndex, awardFunctionCall);
+			history7(allQuestions, start, randIndex, awardFunctionCall);
+			history8(allQuestions, start, randIndex, awardFunctionCall);
+			history9(allQuestions, start, randIndex, awardFunctionCall);
+			history10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		case 2: //same applies for the cases below:
@@ -346,16 +346,16 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			geography1(allQuestions, start, randIndex);
-			geography2(allQuestions, start, randIndex);
-			geography3(allQuestions, start, randIndex);
-			geography4(allQuestions, start, randIndex);
-			geography5(allQuestions, start, randIndex);
-			geography6(allQuestions, start, randIndex);
-			geography7(allQuestions, start, randIndex);
-			geography8(allQuestions, start, randIndex);
-			geography9(allQuestions, start, randIndex);
-			geography10(allQuestions, start, randIndex);
+			geography1(allQuestions, start, randIndex, awardFunctionCall);
+			geography2(allQuestions, start, randIndex, awardFunctionCall);
+			geography3(allQuestions, start, randIndex, awardFunctionCall);
+			geography4(allQuestions, start, randIndex, awardFunctionCall);
+			geography5(allQuestions, start, randIndex, awardFunctionCall);
+			geography6(allQuestions, start, randIndex, awardFunctionCall);
+			geography7(allQuestions, start, randIndex, awardFunctionCall);
+			geography8(allQuestions, start, randIndex, awardFunctionCall);
+			geography9(allQuestions, start, randIndex, awardFunctionCall);
+			geography10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		case 3:
@@ -365,16 +365,16 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			science1(allQuestions, start, randIndex);
-			science2(allQuestions, start, randIndex);
-			science3(allQuestions, start, randIndex);
-			science4(allQuestions, start, randIndex);
-			science5(allQuestions, start, randIndex);
-			science6(allQuestions, start, randIndex);
-			science7(allQuestions, start, randIndex);
-			science8(allQuestions, start, randIndex);
-			science9(allQuestions, start, randIndex);
-			science10(allQuestions, start, randIndex);
+			science1(allQuestions, start, randIndex, awardFunctionCall);
+			science2(allQuestions, start, randIndex, awardFunctionCall);
+			science3(allQuestions, start, randIndex, awardFunctionCall);
+			science4(allQuestions, start, randIndex, awardFunctionCall);
+			science5(allQuestions, start, randIndex, awardFunctionCall);
+			science6(allQuestions, start, randIndex, awardFunctionCall);
+			science7(allQuestions, start, randIndex, awardFunctionCall);
+			science8(allQuestions, start, randIndex, awardFunctionCall);
+			science9(allQuestions, start, randIndex, awardFunctionCall);
+			science10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		case 4:
@@ -384,16 +384,16 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			literature1(allQuestions, start, randIndex);
-			literature2(allQuestions, start, randIndex);
-			literature3(allQuestions, start, randIndex);
-			literature4(allQuestions, start, randIndex);
-			literature5(allQuestions, start, randIndex);
-			literature6(allQuestions, start, randIndex);
-			literature7(allQuestions, start, randIndex);
-			literature8(allQuestions, start, randIndex);
-			literature9(allQuestions, start, randIndex);
-			literature10(allQuestions, start, randIndex);
+			literature1(allQuestions, start, randIndex, awardFunctionCall);
+			literature2(allQuestions, start, randIndex, awardFunctionCall);
+			literature3(allQuestions, start, randIndex, awardFunctionCall);
+			literature4(allQuestions, start, randIndex, awardFunctionCall);
+			literature5(allQuestions, start, randIndex, awardFunctionCall);
+			literature6(allQuestions, start, randIndex, awardFunctionCall);
+			literature7(allQuestions, start, randIndex, awardFunctionCall);
+			literature8(allQuestions, start, randIndex, awardFunctionCall);
+			literature9(allQuestions, start, randIndex, awardFunctionCall);
+			literature10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		case 5:
@@ -403,16 +403,16 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			funFacts1(allQuestions, start, randIndex);
-			funFacts2(allQuestions, start, randIndex);
-			funFacts3(allQuestions, start, randIndex);
-			funFacts4(allQuestions, start, randIndex);
-			funFacts5(allQuestions, start, randIndex);
-			funFacts6(allQuestions, start, randIndex);
-			funFacts7(allQuestions, start, randIndex);
-			funFacts8(allQuestions, start, randIndex);
-			funFacts9(allQuestions, start, randIndex);
-			funFacts10(allQuestions, start, randIndex);
+			funFacts1(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts2(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts3(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts4(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts5(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts6(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts7(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts8(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts9(allQuestions, start, randIndex, awardFunctionCall);
+			funFacts10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		case 6:
@@ -422,30 +422,32 @@ void FirstStage()
 			int start = 0;
 			int randIndex = 0;
 
-			topicMix1(allQuestions, start, randIndex);
-			topicMix2(allQuestions, start, randIndex);
-			topicMix3(allQuestions, start, randIndex);
-			topicMix4(allQuestions, start, randIndex);
-			topicMix5(allQuestions, start, randIndex);
-			topicMix6(allQuestions, start, randIndex);
-			topicMix7(allQuestions, start, randIndex);
-			topicMix8(allQuestions, start, randIndex);
-			topicMix9(allQuestions, start, randIndex);
-			topicMix10(allQuestions, start, randIndex);
+			topicMix1(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix2(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix3(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix4(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix5(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix6(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix7(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix8(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix9(allQuestions, start, randIndex, awardFunctionCall);
+			topicMix10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
 		default: 
 		{
 			wrongInputCategoryScreen();
-			backToMainMenu();
+			backToMainMenu(awardFunctionCall);
 		}
 	}
 }
 
-void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller functions later
+void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall) // TODO: perhaps divide to smaller functions later
 {
 	static unsigned int awardTimes = 0;
 	static unsigned int useFifty_Fifty = 0;
+	static unsigned int useCall_A_Friend = 0;
+	static unsigned int useAsk_The_Audience = 0;
 	system("CLS");
 	space2();
 	border();
@@ -515,7 +517,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 	cout << endl;
 	cout << " " << "Current lifelines: " << endl;
 	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : (cout << endl);
-	cout << " " << "Phone a friend (Press Y)" << endl;
+	(useCall_A_Friend == 0) ? (cout << " " << "Phone a friend (Press Y)" << endl) : (cout << endl);
 	cout << " " << "Ask the audience (Press Z)" << endl;
 	space2();
 	border();
@@ -525,7 +527,7 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
 		++awardTimes;
-		awardScreen();
+		awardScreen(awardFunctionCall);
 	}
 	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0)
 	{
@@ -533,160 +535,141 @@ void playQuestion(ifstream& file, int start) // TODO: perhaps divide to smaller 
 		{
 			case 0:
 			{
-				Ques1LifelineFifty_Fifty(start);
+				Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 1:
 			{
-				Ques2LifelineFifty_Fifty(start);
+				Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 2:
 			{
-				Ques3LifelineFifty_Fifty(start);
+				Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 3: 
 			{
-				Ques4LifelineFifty_Fifty(start);
+				Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 4:
 			{
-				Ques5LifelineFifty_Fifty(start);
+				Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 			break;
 			case 5:
 			{
-				Ques6LifelineFifty_Fifty(start);
+				Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 6:
 			{
-				Ques7LifelineFifty_Fifty(start);
+				Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 7:
 			{
-				Ques8LifelineFifty_Fifty(start);
+				Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 				break;
 			case 8:
 			{
-				Ques9LifelineFifty_Fifty(start);
+				Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 			break;
 				case 9:
 			{
-				Ques10LifelineFifty_Fifty(start);
+				Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall);
 				++useFifty_Fifty;
 			}
 		}
 	}
-	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y')
+	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' && useCall_A_Friend == 0)
 	{
 		switch (awardTimes)
 		{
-		case 0: 
-		{
-			Ques1LifelinePhone_A_Friend(start);
-		}
-		break;
-		case 1:
-		{
-			Ques2LifelinePhone_A_Friend(start);
-		}
+			case 0: 
+			{
+				Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 1:
+			{
+				Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 2:
+			{
+				Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 3:
+			{
+				Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 4:
+			{
+				Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 5:
+			{
+				Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 6:
+			{
+				Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 7:
+			{
+				Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 8:
+			{
+				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
+				break;
+			case 9:
+			{
+				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall);
+				++useCall_A_Friend;
+			}
 		}
 	}
-	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z')
+	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z' && useAsk_The_Audience == 0)
 	{
+	space2();
 		//TODO: LIFELINES
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
+		awardFunctionCall = 0;
 		awardTimes = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
-		defeatScreen1_2();
+		defeatScreen1_2(awardFunctionCall);
 	}
-}
-
-void playQuestionNoLifelines(ifstream& file, int start)
-{
-	system("CLS");
-	space2();
-	border();
-	space2();
-
-
-	if (!file.is_open())
-	{
-		cout << "A mistake occured." << endl;
-	}
-
-	string row; // We are going to read the file through this string
-
-	string num; // This string will store the serial number of the question
-	num += to_string(start);
-	num += ' ';
-
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
-	string ansLetter;
-	int countLen = 0;
-
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
-	{
-		size_t location = row.find(num);
-		if (location != string::npos)
-		{
-			break;
-		}
-	}
-
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
-
-	cout << " " << row << endl; // Prints the line where the serial number was
-
-	while (getline(file, row))
-	{
-		for (int i = 0; row[i] != '\0'; ++i)
-		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
-			{
-				file.close();
-			}
-		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
-		if (ans != string::npos)
-		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
-			for (int i = ans; row[i + 1] != '\0'; ++i)
-			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
-				{
-					break;
-				}
-				++countLen;
-			}
-			ansLetter += row.substr(ans - 2, ans + countLen);
-		}
-
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
-
-	}
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-	
 }

@@ -15,20 +15,19 @@ void categories(void);
 void categoriesMenu(void);
 
 
-void FirstStage(void);
+void FirstStage(static unsigned int& awardFunctionCall);
 
-void awardScreen(void);
+void awardScreen(static unsigned int& awardFunctionCall);
 void defeatScreen1_1(void);
-void defeatScreen1_2(void);
+void defeatScreen1_2(static unsigned int& awardFunctionCall);
 
 
-void optionSelect(void);
+void optionSelect(static unsigned int& awardFunctionCall);
 void wrongInputCategoryScreen(void);
-void backToMainMenu(void);
+void backToMainMenu(static unsigned int& awardFunctionCall);
 void nextQuesionScreen(void);
 
-void playQuestion(ifstream& file, int start);
-void playQuestionNoLifelines(ifstream& file, int start);
+void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall);
 
 
 #endif

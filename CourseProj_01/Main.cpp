@@ -5,6 +5,7 @@
 
 int main()
 {
+	unsigned static int awardFunctionCall = 0;
 	primaryScreen();
 	changeConsoleDimensions();
 
@@ -19,7 +20,7 @@ int main()
 	//{
 	//	return 0;
 	//}
-	optionSelect();
+	optionSelect(awardFunctionCall);
 
 
 	return 0;

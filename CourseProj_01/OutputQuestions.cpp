@@ -3,121 +3,101 @@
 #include "OutputQuestions.h"
 
 // The "Question1-10 functions are responcible for opening each level's question
-void Question1(int start) 
+void Question1(int start, static unsigned int& awardFunctionCall) 
 {
 	ifstream file;
 	file.open("Level1.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question1NoLifelines(int start)
-{
-	ifstream file;
-	file.open("Level1.txt");
-	playQuestionNoLifelines(file, start);
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void Question2NoLifelines(int start)
+void Question2(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level2.txt");
-	playQuestionNoLifelines(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question2(int start)
-{
-	ifstream file;
-	file.open("Level2.txt");
-	playQuestion(file, start);
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void Question3(int start)
+void Question3(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level3.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question4(int start)
+void Question4(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level4.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question5(int start)
+void Question5(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level5.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question6(int start)
+void Question6(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level6.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question7(int start)
+void Question7(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level7.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question8(int start)
+void Question8(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level8.txt");
-	playQuestion(file, start);
+	playQuestion(file,start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question9(int start)
+void Question9(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level9.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
 	}
 }
-void Question10(int start)
+void Question10(int start, static unsigned int& awardFunctionCall)
 {
 	ifstream file;
 	file.open("Level10.txt");
-	playQuestion(file, start);
+	playQuestion(file, start, awardFunctionCall);
 	if (file.is_open())
 	{
 		file.close();
@@ -126,9 +106,9 @@ void Question10(int start)
 
 
 // The <category>1-10 functions pick a serial number from the array which stores all numbers and then
-// a random serial number is picked from each subarray of the "allQuestions" array and the question is 
-// being presented
-void history1(vector<int>& allQues, int start, int randIndex)
+// a random serial number is picked from each subarray of the "allQuestions" array, which is stored in
+// MainTextAndSLides, and the question is being presented
+void history1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> history1;
 
@@ -145,9 +125,9 @@ void history1(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history1.size(); // The array stores our questions' serial numbers, so we pick a random question to present
 	start = history1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void history2(vector<int>& allQues, int start, int randIndex)
+void history2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history2;
@@ -164,9 +144,9 @@ void history2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history2.size();
 	start = history2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void history3(vector<int>& allQues, int start, int randIndex)
+void history3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history3;
@@ -183,9 +163,9 @@ void history3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history3.size();
 	start = history3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void history4(vector<int>& allQues, int start, int randIndex)
+void history4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history4;
@@ -202,9 +182,9 @@ void history4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history4.size();
 	start = history4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void history5(vector<int>& allQues, int start, int randIndex)
+void history5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history5;
@@ -221,9 +201,9 @@ void history5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history5.size();
 	start = history5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void history6(vector<int>& allQues, int start, int randIndex)
+void history6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history6;
@@ -240,9 +220,9 @@ void history6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history6.size();
 	start = history6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void history7(vector<int>& allQues, int start, int randIndex)
+void history7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history7;
@@ -259,9 +239,9 @@ void history7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history7.size();
 	start = history7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void history8(vector<int>& allQues, int start, int randIndex)
+void history8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history8;
@@ -278,9 +258,9 @@ void history8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history8.size();
 	start = history8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void history9(vector<int>& allQues, int start, int randIndex)
+void history9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history9;
@@ -297,9 +277,9 @@ void history9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history9.size();
 	start = history9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void history10(vector<int>& allQues, int start, int randIndex)
+void history10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> history10;
@@ -316,10 +296,10 @@ void history10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % history10.size();
 	start = history10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
 
-void geography1(vector<int>& allQues, int start, int randIndex)
+void geography1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> geography1;
 
@@ -337,9 +317,9 @@ void geography1(vector<int>& allQues, int start, int randIndex)
 	randIndex = rand() % geography1.size();
 	randIndex = rand() % 2;
 	start = geography1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void geography2(vector<int>& allQues, int start, int randIndex)
+void geography2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography2;
@@ -356,9 +336,9 @@ void geography2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography2.size();
 	start = geography2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void geography3(vector<int>& allQues, int start, int randIndex)
+void geography3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography3;
@@ -375,9 +355,9 @@ void geography3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography3.size();
 	start = geography3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void geography4(vector<int>& allQues, int start, int randIndex)
+void geography4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography4;
@@ -394,9 +374,9 @@ void geography4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography4.size();
 	start = geography4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void geography5(vector<int>& allQues, int start, int randIndex)
+void geography5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography5;
@@ -413,9 +393,9 @@ void geography5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography5.size();
 	start = geography5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void geography6(vector<int>& allQues, int start, int randIndex)
+void geography6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography6;
@@ -432,9 +412,9 @@ void geography6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography6.size();
 	start = geography6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void geography7(vector<int>& allQues, int start, int randIndex)
+void geography7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography7;
@@ -451,9 +431,9 @@ void geography7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography7.size();
 	start = geography7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void geography8(vector<int>& allQues, int start, int randIndex)
+void geography8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography8;
@@ -470,9 +450,9 @@ void geography8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography8.size();
 	start = geography8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void geography9(vector<int>& allQues, int start, int randIndex)
+void geography9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography9;
@@ -489,9 +469,9 @@ void geography9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography9.size();
 	start = geography9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void geography10(vector<int>& allQues, int start, int randIndex)
+void geography10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> geography10;
@@ -508,10 +488,10 @@ void geography10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % geography10.size();
 	start = geography10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
 
-void science1(vector<int>& allQues, int start, int randIndex)
+void science1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> science1;
 
@@ -529,9 +509,9 @@ void science1(vector<int>& allQues, int start, int randIndex)
 	randIndex = rand() % science1.size();
 	randIndex = rand() % 2;
 	start = science1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void science2(vector<int>& allQues, int start, int randIndex)
+void science2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science2;
@@ -548,9 +528,9 @@ void science2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science2.size();
 	start = science2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void science3(vector<int>& allQues, int start, int randIndex)
+void science3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science3;
@@ -567,9 +547,9 @@ void science3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science3.size();
 	start = science3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void science4(vector<int>& allQues, int start, int randIndex)
+void science4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science4;
@@ -586,9 +566,9 @@ void science4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science4.size();
 	start = science4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void science5(vector<int>& allQues, int start, int randIndex)
+void science5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science5;
@@ -605,9 +585,9 @@ void science5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science5.size();
 	start = science5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void science6(vector<int>& allQues, int start, int randIndex)
+void science6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science6;
@@ -624,9 +604,9 @@ void science6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science6.size();
 	start = science6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void science7(vector<int>& allQues, int start, int randIndex)
+void science7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science7;
@@ -643,9 +623,9 @@ void science7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science7.size();
 	start = science7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void science8(vector<int>& allQues, int start, int randIndex)
+void science8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science8;
@@ -662,9 +642,9 @@ void science8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science8.size();
 	start = science8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void science9(vector<int>& allQues, int start, int randIndex)
+void science9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science9;
@@ -681,9 +661,9 @@ void science9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science9.size();
 	start = science9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void science10(vector<int>& allQues, int start, int randIndex)
+void science10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> science10;
@@ -700,10 +680,10 @@ void science10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % science10.size();
 	start = science10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
 
-void literature1(vector<int>& allQues, int start, int randIndex)
+void literature1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> literature1;
 
@@ -721,9 +701,9 @@ void literature1(vector<int>& allQues, int start, int randIndex)
 
 	randIndex = rand() % literature1.size();
 	start = literature1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void literature2(vector<int>& allQues, int start, int randIndex)
+void literature2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature2;
@@ -740,9 +720,9 @@ void literature2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature2.size();
 	start = literature2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void literature3(vector<int>& allQues, int start, int randIndex)
+void literature3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature3;
@@ -759,9 +739,9 @@ void literature3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature3.size();
 	start = literature3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void literature4(vector<int>& allQues, int start, int randIndex)
+void literature4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature4;
@@ -778,9 +758,9 @@ void literature4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature4.size();
 	start = literature4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void literature5(vector<int>& allQues, int start, int randIndex)
+void literature5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature5;
@@ -797,9 +777,9 @@ void literature5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature5.size();
 	start = literature5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void literature6(vector<int>& allQues, int start, int randIndex)
+void literature6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature6;
@@ -816,9 +796,9 @@ void literature6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature6.size();
 	start = literature6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void literature7(vector<int>& allQues, int start, int randIndex)
+void literature7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature7;
@@ -835,9 +815,9 @@ void literature7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature7.size();
 	start = literature7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void literature8(vector<int>& allQues, int start, int randIndex)
+void literature8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature8;
@@ -854,9 +834,9 @@ void literature8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature8.size();
 	start = literature8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void literature9(vector<int>& allQues, int start, int randIndex)
+void literature9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature9;
@@ -873,9 +853,9 @@ void literature9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature9.size();
 	start = literature9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void literature10(vector<int>& allQues, int start, int randIndex)
+void literature10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> literature10;
@@ -892,10 +872,10 @@ void literature10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % literature10.size();
 	start = literature10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
 
-void funFacts1(vector<int>& allQues, int start, int randIndex)
+void funFacts1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> fun1;
 
@@ -912,9 +892,9 @@ void funFacts1(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun1.size();
 	start = fun1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void funFacts2(vector<int>& allQues, int start, int randIndex)
+void funFacts2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun2;
@@ -931,9 +911,9 @@ void funFacts2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun2.size();
 	start = fun2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void funFacts3(vector<int>& allQues, int start, int randIndex)
+void funFacts3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun3;
@@ -950,9 +930,9 @@ void funFacts3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun3.size();
 	start = fun3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void funFacts4(vector<int>& allQues, int start, int randIndex)
+void funFacts4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun4;
@@ -969,9 +949,9 @@ void funFacts4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun4.size();
 	start = fun4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void funFacts5(vector<int>& allQues, int start, int randIndex)
+void funFacts5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun5;
@@ -988,9 +968,9 @@ void funFacts5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun5.size();
 	start = fun5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void funFacts6(vector<int>& allQues, int start, int randIndex)
+void funFacts6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun6;
@@ -1007,9 +987,9 @@ void funFacts6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun6.size();
 	start = fun6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void funFacts7(vector<int>& allQues, int start, int randIndex)
+void funFacts7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun7;
@@ -1026,9 +1006,9 @@ void funFacts7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun7.size();
 	start = fun7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void funFacts8(vector<int>& allQues, int start, int randIndex)
+void funFacts8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun8;
@@ -1045,9 +1025,9 @@ void funFacts8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun8.size();
 	start = fun8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void funFacts9(vector<int>& allQues, int start, int randIndex)
+void funFacts9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun9;
@@ -1064,9 +1044,9 @@ void funFacts9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun9.size();
 	start = fun9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void funFacts10(vector<int>& allQues, int start, int randIndex)
+void funFacts10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> fun10;
@@ -1083,10 +1063,10 @@ void funFacts10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % fun10.size();
 	start = fun10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
 
-void topicMix1(vector<int>& allQues, int start, int randIndex)
+void topicMix1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	vector<int> mix1;
 
@@ -1103,9 +1083,9 @@ void topicMix1(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix1.size();
 	start = mix1[randIndex];
-	Question1(start);
+	Question1(start, awardFunctionCall);
 }
-void topicMix2(vector<int>& allQues, int start, int randIndex)
+void topicMix2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix2;
@@ -1122,9 +1102,9 @@ void topicMix2(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix2.size();
 	start = mix2[randIndex];
-	Question2(start);
+	Question2(start, awardFunctionCall);
 }
-void topicMix3(vector<int>& allQues, int start, int randIndex)
+void topicMix3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix3;
@@ -1141,9 +1121,9 @@ void topicMix3(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix3.size();
 	start = mix3[randIndex];
-	Question3(start);
+	Question3(start, awardFunctionCall);
 }
-void topicMix4(vector<int>& allQues, int start, int randIndex)
+void topicMix4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix4;
@@ -1160,9 +1140,9 @@ void topicMix4(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix4.size();
 	start = mix4[randIndex];
-	Question4(start);
+	Question4(start, awardFunctionCall);
 }
-void topicMix5(vector<int>& allQues, int start, int randIndex)
+void topicMix5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix5;
@@ -1179,9 +1159,9 @@ void topicMix5(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix5.size();
 	start = mix5[randIndex];
-	Question5(start);
+	Question5(start, awardFunctionCall);
 }
-void topicMix6(vector<int>& allQues, int start, int randIndex)
+void topicMix6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix6;
@@ -1198,9 +1178,9 @@ void topicMix6(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix6.size();
 	start = mix6[randIndex];
-	Question6(start);
+	Question6(start, awardFunctionCall);
 }
-void topicMix7(vector<int>& allQues, int start, int randIndex)
+void topicMix7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix7;
@@ -1217,9 +1197,9 @@ void topicMix7(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix7.size();
 	start = mix7[randIndex];
-	Question7(start);
+	Question7(start, awardFunctionCall);
 }
-void topicMix8(vector<int>& allQues, int start, int randIndex)
+void topicMix8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix8;
@@ -1236,9 +1216,9 @@ void topicMix8(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix8.size();
 	start = mix8[randIndex];
-	Question8(start);
+	Question8(start, awardFunctionCall);
 }
-void topicMix9(vector<int>& allQues, int start, int randIndex)
+void topicMix9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix9;
@@ -1255,9 +1235,9 @@ void topicMix9(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix9.size();
 	start = mix9[randIndex];
-	Question9(start);
+	Question9(start, awardFunctionCall);
 }
-void topicMix10(vector<int>& allQues, int start, int randIndex)
+void topicMix10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall)
 {
 	nextQuesionScreen();
 	vector<int> mix10;
@@ -1274,5 +1254,5 @@ void topicMix10(vector<int>& allQues, int start, int randIndex)
 	}
 	randIndex = rand() % mix10.size();
 	start = mix10[randIndex];
-	Question10(start);
+	Question10(start, awardFunctionCall);
 }
