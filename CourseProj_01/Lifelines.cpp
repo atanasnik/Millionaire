@@ -2,13 +2,13 @@
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
 #include "Lifelines.h"
-int audienceAnswersEasy(char ansLetter)
+char audienceAnswersEasy(char ansLetter)
 {
 	string answers;
 	switch (ansLetter)	// Here we extract the wrong answers from the question
 	{
 		// In these cases we will take the four events of different correct answers.
-		// The "audience" we ask through lifeline has 30% chance of being wrong, so
+		// The "audience" we ask through lifeline has a 30% chance of being wrong, so
 		// for the different cases we fill the array with right and wrong answers, where
 		// out of 10 elements, 7 are correct, the other 3 are wrong, 3x1 are the same 
 		// (here that means that the three are different from one another).
@@ -40,11 +40,113 @@ int audienceAnswersEasy(char ansLetter)
 	suggestion = answers[randomize];
 	return suggestion;
 }
-void percentagesEasy(char suggestion)
+char audienceAnswersNormal(char ansLetter)
+{
+	string answers;
+	switch (ansLetter)
+	{
+		// In these cases we will take the four events of different correct answers.
+		// The "audience" we ask through lifeline has a 60% chance of being wrong, so
+		// for the different cases we fill the array with right and wrong answers, where
+		// out of 10 elements, 4 are correct, the other 6 are wrong, 3x2 are the same.
+		// Then we pick a random element, so that's how we achieve 40% success rate.
+	case 'A':
+	{
+		answers += {'A', 'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'};
+	}
+	break;
+	case 'B':
+	{
+		answers += {'A', 'A', 'B', 'B', 'B', 'B', 'C', 'C', 'D', 'D'};
+	}
+	break;
+	case 'C':
+	{
+		answers += {'A', 'A', 'B', 'B', 'C', 'C', 'C', 'C', 'D', 'D'};
+	}
+	break;
+	case 'D':
+	{
+		answers += {'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'D', 'D'};
+	}
+	break;
+	}
+	srand(time(NULL));
+	char suggestion;
+	int randomize = rand() % answers.size();
+	suggestion = answers[randomize];
+	return suggestion;
+}
+char audienceAnswersHard(char ansLetter)
+{
+	string answers;
+	switch (ansLetter)
+	{
+		// In these cases we will take the four events of different correct answers.
+		// The "audience" we ask through lifeline has an 80% chance of being wrong, so
+		// for the different cases we fill the array with right and wrong answers, where
+		// out of 30 elements, 6 are correct, the other 24 are wrong, 3x8 are the same.
+		// Then we pick a random element, so that's how we achieve 20% success rate.
+		case 'A':
+		{
+			answers +=
+			{
+				'A', 'A', 'A', 'A', 'A', 'A',
+					'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+					'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C',
+					'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'
+			};
+		}
+		break;
+		case 'B':
+		{
+			answers +=
+			{
+				'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A',
+					'B', 'B', 'B', 'B', 'B', 'B',
+					'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C',
+					'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'
+			};
+		}
+		break;
+		case 'C':
+		{
+			answers +=
+			{
+				'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A',
+					'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+					'C', 'C', 'C', 'C', 'C', 'C',
+					'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D'
+			};
+		}
+		break;
+		case 'D':
+		{
+			answers +=
+			{
+				'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A',
+					'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B',
+					'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C',
+					'D', 'D', 'D', 'D', 'D', 'D'
+			};
+		}
+		break;
+		}
+	srand(time(NULL));
+	char suggestion;
+	int randomize = rand() % answers.size();
+	suggestion = answers[randomize];
+	return suggestion;
+}
+void percentages(char suggestion)
 {
 	char wrong1;
 	char wrong2;
 	char wrong3;
+	// Here we create an array that stores the possible percetages of the suggested answer.
+	// We take a random number (say 57) which will represent our suggested answer's percetages, then
+	// From the remaining number (100 - 57 = 43) we extract the other three answers that were not 
+	// suggested via randomizing.
 	vector<int> percent = 
 	{	50,
 		51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
@@ -56,7 +158,6 @@ void percentagesEasy(char suggestion)
 	int correctSuggest = 0;
 	int randomize = rand() % percent.size();
 	correctSuggest = percent[randomize];
-
 	int secondBiggest = 0;
 	int thirdBiggest = 0;
 	int fourthBiggest = 0;
@@ -82,6 +183,7 @@ void percentagesEasy(char suggestion)
 
 	fourthBiggest = remainingProc2 - thirdBiggest;
 
+	// Here we define which are the exact wrong answers:
 	string wrongs;
 	switch (suggestion)
 	{
@@ -182,23 +284,127 @@ void percentagesEasy(char suggestion)
 	}
 	}
 
-	string text;
+	// Here, in order to represent the audience's votes, we randomize the order of the answers we will print
+	string percText;
+
+	vector<int> finalPercs = { secondBiggest, thirdBiggest, fourthBiggest };
+	randomize = rand() % finalPercs.size();
+	int odd1 = finalPercs[randomize];
+	if (odd1 == secondBiggest)
+	{
+		finalPercs.erase(remove(finalPercs.begin(), finalPercs.end(), secondBiggest), finalPercs.end());
+	}
+	else if (odd1 == thirdBiggest)
+	{
+		finalPercs.erase(remove(finalPercs.begin(), finalPercs.end(), thirdBiggest), finalPercs.end());
+	}
+	else
+	{
+		finalPercs.erase(remove(finalPercs.begin(), finalPercs.end(), fourthBiggest), finalPercs.end());
+	}
+	randomize = rand() % finalPercs.size();
+	int odd2 = finalPercs[randomize];
+	int odd3 = remainingProc - odd1 - odd2;
+
+	// Then we finally print the randomized answers and the percentages.
 	centerText1("The audience has voted: ");
-	/*centerText1NoEndline(text = ((suggestion == 'A') ?
-								suggestion : (wrong1 == 'A') ?
-								wrong1 : (wrong2 == 'A') ?
-								wrong2 : (wrong3 == 'A') ?
-								wrong3 : '0'));
-	centerText1NoEndline("): ");
-	centerText1NoEndline(text = ((suggestion == 'A')? correctSuggest : ;
+	cout << endl;
+	switch (suggestion)
+	{
+	case 'A': 
+	{
+		percText = suggestion;
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << correctSuggest << "%" << endl;
 
-	centerText1(text = (suggestion == 'B') ? suggestion : (wrong1 == 'B') ? wrong1 : (wrong2 == 'B') ? wrong2 : (wrong3 == 'B') ? wrong3 : '0');
-	centerText1(text = (suggestion == 'C') ? suggestion : (wrong1 == 'C') ? wrong1 : (wrong2 == 'C') ? wrong2 : (wrong3 == 'C') ? wrong3 : '0');
-	centerText1(text = (suggestion == 'D') ? suggestion : (wrong1 == 'D') ? wrong1 : (wrong2 == 'D') ? wrong2 : (wrong3 == 'D') ? wrong3 : '0');*/
+		percText = 'B';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd1 << "%" << endl;
+
+		percText = 'C';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd2 << "%" << endl;
+
+		percText = 'D';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd3 << "%" << endl;
+	}
+	break;
+	case 'B':
+	{
+		percText = 'A';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd1 << "%" << endl;
+
+		percText = suggestion;
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << correctSuggest << "%" << endl;
+
+		percText = 'C';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd2 << "%" << endl;
+
+		percText = 'D';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd3 << "%" << endl;
 	
+	}
+	break; 
+	case 'C':
+	{
+		percText = 'A';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd1 << "%" << endl;
 
+		percText = 'B';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd2 << "%" << endl;
 
+		percText = suggestion;
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << correctSuggest << "%" << endl;
 
+		percText = 'D';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd3 << "%" << endl;
+	}
+	break;
+	case 'D':
+	{
+		percText = 'A';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd1 << "%" << endl;
+
+		percText = 'B';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd2 << "%" << endl;
+
+		percText = 'C';
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << odd3 << "%" << endl;
+
+		percText = suggestion;
+		percText += "): ";
+		centerText1NoEndline(percText);
+		cout << correctSuggest << "%" << endl;
+	}
+	break;
+	}
 }
 void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
 {
@@ -265,7 +471,8 @@ void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 		cout << " " << row << endl;
 
 	}
-	char suggestionPick = tellAnswersEasy(ansLetter[0]);
+	char suggestion = audienceAnswersEasy(ansLetter[0]);
+	
 	if (file.is_open())
 	{
 		file.close();
@@ -274,6 +481,1780 @@ void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, s
 	cout << endl;
 	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
 	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level1.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+	ifstream file;
+	file.open("Level1.txt");
+	playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+	Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level2.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersEasy(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level2.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level2.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level3.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersEasy(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level3.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level3.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level4.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersNormal(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level4.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level4.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level5.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersNormal(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level5.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level5.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level6.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersNormal(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level6.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level6.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level7.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersHard(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level7.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level7.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level8.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersHard(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level8.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level8.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level9.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersHard(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level9.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level9.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
+}
+void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall)
+{
+
+	ifstream file;
+	file.open("Level10.txt");
+	system("CLS");
+	space2();
+	border();
+	space2();
+
+
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row;
+
+	string num;
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$";
+	string ansLetter;
+	int countLen = 0;
+	while (getline(file, row))
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length());
+
+	cout << " " << row << endl;
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct);
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length());
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl;
+
+	}
+	char suggestion = audienceAnswersHard(ansLetter[0]);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	space2();
+	cout << endl;
+	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
+	string instruct = "Press Y for yes and N for no: ";
+	centerText1(ask);
+	centerText1(instruct);
+	space2();
+	border();
+	space2();
+	string confirm;
+	cin >> confirm;
+	if (confirm[0] == 'y' || confirm[0] == 'Y')
+	{
+		fstream file;
+		file.open("Level10.txt");
+		system("CLS");
+		space2();
+		border();
+		space2();
+
+
+		if (!file.is_open())
+		{
+			cout << "A mistake occured." << endl;
+		}
+
+		string row;
+
+		string num;
+		num += to_string(start);
+		num += ' ';
+
+		string correct = "$$";
+		string ansLetter;
+		int countLen = 0;
+
+		while (getline(file, row))
+		{
+			size_t location = row.find(num);
+			if (location != string::npos)
+			{
+				break;
+			}
+		}
+
+		row.erase(0, num.length());
+
+		cout << " " << row << endl;
+
+		while (getline(file, row))
+		{
+			for (int i = 0; row[i] != '\0'; ++i)
+			{
+				if (row[i] == '\t')
+				{
+					file.close();
+				}
+			}
+			size_t ans = row.find(correct);
+			if (ans != string::npos)
+			{
+				row.erase(ans, correct.length());
+				for (int i = ans; row[i + 1] != '\0'; ++i)
+				{
+					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					{
+						break;
+					}
+					++countLen;
+				}
+				ansLetter += row.substr(ans - 2, ans + countLen);
+			}
+
+			cout << " " << row << endl;
+
+		}
+
+		if (file.is_open())
+		{
+			file.close();
+		}
+		cout << endl;
+		percentages(suggestion);
+
+		cout << endl;
+		border();
+		space2();
+		string chooseAns;
+		cin >> chooseAns;
+		if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
+		{
+			++awardTimes;
+			awardScreen(awardFunctionCall);
+		}
+		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
+		{
+			awardTimes = 0;
+			awardFunctionCall = 0;
+			defeatScreen1_1();
+			centerText1(ansLetter);
+			defeatScreen1_2(awardFunctionCall);
+		}
+	}
+	else if (confirm[0] == 'n' || confirm[0] == 'N')
+	{
+		ifstream file;
+		file.open("Level10.txt");
+		playQuestion(file, start, awardFunctionCall);
+	}
+	else
+	{
+		Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+	}
 }
 
 char tellAnswersEasy(char ansLetter)
@@ -282,7 +2263,7 @@ char tellAnswersEasy(char ansLetter)
 	switch (ansLetter)	// Here we extract the wrong answers from the question
 	{
 		// In these cases we will take the four events of different correct answers.
-		// The "Friend" we phone through the lifeline has 30% chance of being wrong, so
+		// The "Friend" we phone through the lifeline has a 30% chance of being wrong, so
 		// For the different cases we fill the array with right and wrong answers, where
 		// out of 10 elements, 7 are correct, the other 3 are wrong, 3x1 are the same 
 		// (here that means that the three are different from one another).
@@ -356,7 +2337,7 @@ char tellAnswersHard(char ansLetter)
 	{
 		// For the different cases we fill the array with right and wrong answers, where
 		// out of 30 elements, 6 are correct, the other 24 are wrong, 3x8 of them are the same. 
-		// Then we pick a random element, so that's how we achieve 40% success rate.
+		// Then we pick a random element, so that's how we achieve 20% success rate.
 	case 'A':
 	{
 		answers += 
@@ -574,6 +2555,7 @@ void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, sta
 		else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 		{
 			awardTimes = 0;
+			awardFunctionCall = 0;
 			defeatScreen1_1();
 			centerText1(ansLetter);
 			defeatScreen1_2(awardFunctionCall);

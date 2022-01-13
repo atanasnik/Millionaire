@@ -42,12 +42,10 @@ B) Dodo                 D) Woolly Mammoth
 A) Travel guide    C)$$ Dictionary  
 B) Psalm book      D) Autobiography	
 
-// TODO: check the question below
+6402 What does a ghostwriter do?
 
-6402 What is a ghostwriter?
-
-A)$$ Someone who writes texts credited to someone else      C) Someone who writes stories about ghosts  
-B) A writer's spirit                                      D) A ghost that writes	
+A)$$ Writes texts credited to someone else        C) Posseses a writer  
+B) Someone who writes stories about ghosts      D) It's a ghost that can write	
 
 6501 Which actor has been playing James Bond in the recent years?
 

@@ -8,6 +8,7 @@ void centerText2(string textLine, double halfFirstLine);
 void centerText3(string textLine, double line);
 void centerText1NoEndline(string textLine);
 
+
 void primaryText(void);			// In this header file we declare the functions that create the default text we
 void primaryScreen(void);		// have in our slides and the wrapped functions that print the slides.
 
@@ -17,13 +18,14 @@ void categoriesMenu(void);
 
 void FirstStage(static unsigned int& awardFunctionCall);
 
+void WinnerScreen(static unsigned int& awardFunctionCall);
 void awardScreen(static unsigned int& awardFunctionCall);
 void defeatScreen1_1(void);
 void defeatScreen1_2(static unsigned int& awardFunctionCall);
 
 
 void optionSelect(static unsigned int& awardFunctionCall);
-void wrongInputCategoryScreen(void);
+void wrongInputCategoryScreen(static unsigned int& awardFunctionCall);
 void backToMainMenu(static unsigned int& awardFunctionCall);
 void nextQuesionScreen(void);
 

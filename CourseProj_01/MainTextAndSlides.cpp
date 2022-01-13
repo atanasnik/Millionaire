@@ -160,7 +160,7 @@ void optionSelect(static unsigned int& awardFunctionCall)
 
 	//TODO: add the other cases for "c", "e" and "x"
 }
-void wrongInputCategoryScreen(void)
+void wrongInputCategoryScreen(static unsigned int& awardFunctionCall)
 {
 	system("CLS");
 	space1();
@@ -172,7 +172,9 @@ void wrongInputCategoryScreen(void)
 	space2();
 	border();
 	space1();
+	backToMainMenu(awardFunctionCall);
 }
+
 void backToMainMenu(static unsigned int& awardFunctionCall)
 {
 	char press;
@@ -191,7 +193,6 @@ void backToMainMenu(static unsigned int& awardFunctionCall)
 
 void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award screens for the different levels.
 {
-	awardFunctionCall;
 	++awardFunctionCall;
 	int reward = 0;
 	switch (awardFunctionCall)
@@ -246,10 +247,6 @@ void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award 
 			reward = 1000000;
 		}
 			break;
-		/*default: 
-		{
-			reward = 0;
-		}*/
 	}
 	string rewardText;
 	rewardText += to_string(reward);
@@ -267,6 +264,10 @@ void awardScreen(static unsigned int& awardFunctionCall) //TODO: Separate award 
 	space2();
 	border();
 	space1();
+	if (awardFunctionCall == 10)
+	{
+		WinnerScreen(awardFunctionCall);
+	}
 }
 void defeatScreen1_1()
 {
@@ -299,7 +300,21 @@ void nextQuesionScreen(void)
 		}
 	}
 }
-
+void WinnerScreen(static unsigned int& awardFunctionCall)
+{
+		nextQuesionScreen();
+		system("CLS");
+		space1();
+		border();
+		space2();
+		centerText1("Good job!");
+		centerText1("You won the game!");
+		centerText1("Press any key to go back to main menu...");
+		cout << endl;
+		border();
+		space1();
+		backToMainMenu(awardFunctionCall);
+}
 void FirstStage(static unsigned int& awardFunctionCall)
 {
 	vector<int> allQuestions =
@@ -316,11 +331,11 @@ void FirstStage(static unsigned int& awardFunctionCall)
 	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
 	};
 	categoriesMenu();
-	int categoryPick;
+	char categoryPick;
 	cin >> categoryPick; 
 	switch (categoryPick)
 	{
-		case 1:
+		case '1':
 		{
 			srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
 						
@@ -339,7 +354,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			history10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
-		case 2: //same applies for the cases below:
+		case '2': //same applies for the cases below:
 		{
 			srand(time(NULL));
 
@@ -358,7 +373,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			geography10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
-		case 3:
+		case '3':
 		{
 			srand(time(NULL));
 
@@ -377,7 +392,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			science10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
-		case 4:
+		case '4':
 		{
 			srand(time(NULL));
 
@@ -396,7 +411,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			literature10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
-		case 5:
+		case '5':
 		{
 			srand(time(NULL));
 
@@ -415,7 +430,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			funFacts10(allQuestions, start, randIndex, awardFunctionCall);
 		}
 			break;
-		case 6:
+		case '6':
 		{
 			srand(time(NULL));
 
@@ -436,8 +451,7 @@ void FirstStage(static unsigned int& awardFunctionCall)
 			break;
 		default: 
 		{
-			wrongInputCategoryScreen();
-			backToMainMenu(awardFunctionCall);
+			wrongInputCategoryScreen(awardFunctionCall);
 		}
 	}
 }
@@ -515,10 +529,11 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		file.close();
 	}
 	cout << endl;
-	cout << " " << "Current lifelines: " << endl;
+	(useFifty_Fifty == 0 || useCall_A_Friend == 0 || useAsk_The_Audience == 0) ?
+		(cout << " " << "Current lifelines: " << endl) : (cout << endl);
 	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : (cout << endl);
 	(useCall_A_Friend == 0) ? (cout << " " << "Phone a friend (Press Y)" << endl) : (cout << endl);
-	cout << " " << "Ask the audience (Press Z)" << endl;
+	(useAsk_The_Audience == 0) ? (cout << " " << "Ask the audience (Press Z)" << endl) : (cout << endl);
 	space2();
 	border();
 	space2();
@@ -661,8 +676,69 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 	}
 	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z' && useAsk_The_Audience == 0)
 	{
-	space2();
-		//TODO: LIFELINES
+		switch (awardTimes)
+		{
+			case 0:
+			{
+				Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 1:
+			{
+				Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 2:
+			{
+				Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 3:
+			{
+				Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 4:
+			{
+				Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 5:
+			{
+				Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 6:
+			{
+				Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 7:
+			{
+				Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 8:
+			{
+				Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+				break;
+			case 9:
+			{
+				Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall);
+				++useAsk_The_Audience;
+			}
+
+		}
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
