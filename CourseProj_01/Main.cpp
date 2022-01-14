@@ -8,9 +8,7 @@ int main()
 	unsigned static int awardFunctionCall = 0;
 	primaryScreen();
 	changeConsoleDimensions();
-	vector<int> allQuestions;
-
-	optionSelect(awardFunctionCall, allQuestions);
+	optionSelect(awardFunctionCall);
 
 
 	return 0;

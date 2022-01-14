@@ -3,6 +3,7 @@
 #include "OutputQuestions.h"
 #include "Lifelines.h"
 #include "InputQuestions.h"
+#include "EditMode.h"
 
 void centerText1(string textLine)
 {
@@ -20,7 +21,7 @@ void centerText1NoEndline(string textLine)
 void centerText2(string textLine, double halfFirstLine)
 {
 	int halfWidth = 90 / 2;
-	cout << setw(halfWidth + halfFirstLine/2) << textLine << endl;		// We use the different text alingment functions
+	cout << setw(halfWidth + halfFirstLine / 2) << textLine << endl;	// We use the different text alingment functions
 }																		// in the different situations.
 void centerText3(string textLine, double line)
 {
@@ -67,9 +68,8 @@ void primaryScreen()			// This function wraps up all the work we have done on th
 void categories()
 {
 	space2();
-	int num;
 	int rows = 8;
-	string category = "Choose a category: ";
+	string category = "Choose a category:";
 
 	double halfFirstLine;						// We are gonna use halfFirstLine and line to align the text.
 	halfFirstLine = category.length() / 2;
@@ -132,9 +132,11 @@ void categories()
 		}
 		switch (i)
 		{
-		case 0: case 7: centerText1(category); break;
-		case 1: centerText2(category, halfFirstLine); break;
-		default: centerText3(category, line); break;
+		case 0: case 7: centerText1(category); 
+			break;
+		case 1: centerText2(category, halfFirstLine); 
+			break;
+		default: centerText3(category, line);
 		}
 	}
 	cout << endl;
@@ -328,8 +330,10 @@ void findQuestions(static unsigned int& awardFunctionCall, vector<int>& allQuest
 }
 
 
-void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void optionSelect(static unsigned int& awardFunctionCall)
 {
+	vector<int> allQuestions;
+
 	SearchQuesLevel1(awardFunctionCall, allQuestions);
 	SearchQuesLevel2(awardFunctionCall, allQuestions);
 	SearchQuesLevel3(awardFunctionCall, allQuestions);
@@ -340,7 +344,7 @@ void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 	SearchQuesLevel8(awardFunctionCall, allQuestions);
 	SearchQuesLevel9(awardFunctionCall, allQuestions);
 	SearchQuesLevel10(awardFunctionCall, allQuestions);
-
+	int size = allQuestions.size();
 	char optionPick;
 	cin >> optionPick;
 
@@ -354,6 +358,10 @@ void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 		case 'C': case 'c':
 		{
 			inputQuesScreen(awardFunctionCall, allQuestions);
+		}
+		case 'E': case 'e':
+		{
+			editModeIntro(awardFunctionCall, allQuestions);
 		}
 	}
 	//TODO: add the other cases for  "e" and "x"
@@ -383,7 +391,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
 			system("CLS");	
 			primaryScreen();			// next screen, in this case, the Main menu.
-			optionSelect(awardFunctionCall, allQuestions);
+			optionSelect(awardFunctionCall);
 		}
 	}
 }

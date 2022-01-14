@@ -11,6 +11,8 @@
 #include <conio.h>
 #include <vector>
 
+#include <algorithm> // std::remove
+
 using namespace std;
 
 #ifndef MAINLAYOUT_H

@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EditMode.cpp" />
     <ClCompile Include="InputQuestions.cpp" />
     <ClCompile Include="Lifelines.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="OutputQuestions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EditMode.h" />
     <ClInclude Include="InputQuestions.h" />
     <ClInclude Include="Lifelines.h" />
     <ClInclude Include="MainLayout.h" />
