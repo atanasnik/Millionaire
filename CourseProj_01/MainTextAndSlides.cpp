@@ -148,9 +148,10 @@ void categoriesMenu()
 	border();
 	space2();
 }
-void optionSelect(static unsigned int& awardFunctionCall)
+
+void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	vector<int> allQuestions =
+	vector<int> preparedQuestions =
 	{
 	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
 	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
@@ -164,6 +165,31 @@ void optionSelect(static unsigned int& awardFunctionCall)
 	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
 	};
 
+	allQuestions.insert(allQuestions.end(), preparedQuestions.begin(), preparedQuestions.end());
+
+	ifstream file;
+	file.open("AddedQuestionsNumbers.txt"); // We open and check if there are new questions
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+	string row;
+	int tempNum = 0;
+	while (getline(file, row)) // here we use the std::string function stoi to convert strings to integers 
+	{
+		if (row[0] == '1' || row[0] == '2' || row[0] == '3' || row[0] == '4' || row[0] == '5' ||
+			row[0] == '6' || row[0] == '7' || row[0] == '8' || row[0] == '9')
+		{
+			tempNum = stoi(row, nullptr); // we use nullptr because we don't want to specify when to stop extracting the symbols
+			allQuestions.push_back(tempNum); // then, we add the new integer, which represents the new question, to the main vector
+		}
+	}
+	if (file.is_open())
+	{
+		file.close();
+	}
+
+
 	char optionPick;
 	cin >> optionPick;
 
@@ -176,7 +202,7 @@ void optionSelect(static unsigned int& awardFunctionCall)
 			break;
 		case 'C': case 'c':
 		{
-			inputQuesScreen(allQuestions);
+			inputQuesScreen(awardFunctionCall, allQuestions);
 		}
 	}
 	/*if (optionPick == 'N' || optionPick == 'n')
@@ -210,7 +236,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
 			system("CLS");	
 			primaryScreen();			// next screen, in this case, the Main menu.
-			optionSelect(awardFunctionCall);
+			optionSelect(awardFunctionCall, allQuestions);
 		}
 	}
 }
@@ -342,19 +368,8 @@ void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 }
 void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	/*vector<int> allQuestions =
-	{
-	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
-	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
-	3101, 3102, 3201, 3202, 3301, 3302, 3401, 3402, 3501, 3502,
-	4101, 4102, 4201, 4202, 4301, 4302, 4401, 4402, 4501, 4502,
-	5101, 5102, 5201, 5202, 5301, 5302, 5401, 5402, 5501, 5502,
-	6101, 6102, 6201, 6202, 6301, 6302, 6401, 6402, 6501, 6502,
-	7101, 7102, 7201, 7202, 7301, 7302, 7401, 7402, 7501, 7502,
-	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
-	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
-	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
-	};*/
+	
+
 	categoriesMenu();
 	char categoryPick;
 	cin >> categoryPick; 

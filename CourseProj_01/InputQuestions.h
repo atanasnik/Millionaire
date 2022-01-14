@@ -6,20 +6,25 @@
 #ifndef INPUTQUESTIONS_H
 #define INPUTQUESTIONS_H
 
-void backToInputQuesScreen(vector<int>& allQuestions);
-void backToInputAnsScreen(string& inpQuestion, vector<int>& allQuestions);
-void backToChooseCorrect(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
-void backToChooseLevel(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
-void backToChooseCategory(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
+int numLength(int num);
+void backToInputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void backToInputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions);
+void backToChooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void backToChooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void backToChooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
 
-void inputQuesScreen(vector<int>& allQuestions);
-void inputAnsScreen(string& inpQuestion, vector<int>& allQuestions);
+void inputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void inputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions);
 
-void formatAnswers(string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
-void formatQuestion(string& inpQuestion, vector<int>& allQuestions, int& makeID);
+void formatAnswers1(static unsigned int& awardFunctionCall, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void formatAnswers2(static unsigned int& awardFunctionCall, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void formatQuestion(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID);
 
-void chooseCorrect(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
-void chooseLevel(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
-void chooseCategory(string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
+void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
+void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
+void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
+void saveUniqueNum(static unsigned int& awardFunctionCall, int& makeID, vector<int>& allQuestions);
 
+void addedQuesMessageScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID);
 #endif
