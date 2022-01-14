@@ -397,7 +397,6 @@ void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion,
 	}
 	formatQuestion(awardFunctionCall,inpQuestion, allQuestions, makeID);
 	addToFile(awardFunctionCall,inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
-	saveUniqueNum(awardFunctionCall, makeID, allQuestions);
 	addedQuesMessageScreen(awardFunctionCall, inpQuestion, allQuestions, makeID);
 }
 void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
@@ -469,21 +468,6 @@ void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, stri
 	file << ansA;
 	file << "\n";
 	file << ansB;
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void saveUniqueNum(static unsigned int& awardFunctionCall, int& makeID, vector<int>& allQuestions)
-{
-	ofstream file;
-	file.open("AddedQuestionsNumbers.txt", ofstream::app);	// Here we save the number of the file in another 
-	if (!file.is_open())									// text file, then, when we return to the main menu, 
-	{												// the number will be extracted from the file and put into the game
-		centerText1("The number could not be saved");
-	}
-	file << "\n";
-	file << makeID;
 	if (file.is_open())
 	{
 		file.close();

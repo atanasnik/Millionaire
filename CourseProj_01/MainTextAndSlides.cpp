@@ -148,31 +148,168 @@ void categoriesMenu()
 	border();
 	space2();
 }
-
-void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void SearchQuesLevel1(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	vector<int> preparedQuestions =
-	{
-	1101, 1102, 1201, 1202, 1301, 1302, 1401, 1402, 1501, 1502,
-	2101, 2102, 2201, 2202, 2301, 2302, 2401, 2402, 2501, 2502,
-	3101, 3102, 3201, 3202, 3301, 3302, 3401, 3402, 3501, 3502,
-	4101, 4102, 4201, 4202, 4301, 4302, 4401, 4402, 4501, 4502,
-	5101, 5102, 5201, 5202, 5301, 5302, 5401, 5402, 5501, 5502,
-	6101, 6102, 6201, 6202, 6301, 6302, 6401, 6402, 6501, 6502,
-	7101, 7102, 7201, 7202, 7301, 7302, 7401, 7402, 7501, 7502,
-	8101, 8102, 8201, 8202, 8301, 8302, 8401, 8402, 8501, 8502,
-	9101, 9102, 9201, 9202, 9301, 9302, 9401, 9402, 9501, 9502,
-	10101, 10102, 10201, 10202, 10301, 10302, 10401, 10402, 10501, 10502
-	};
-
-	allQuestions.insert(allQuestions.end(), preparedQuestions.begin(), preparedQuestions.end());
-
 	ifstream file;
-	file.open("AddedQuestionsNumbers.txt"); // We open and check if there are new questions
+	file.open("Level1.txt");
 	if (!file.is_open())
 	{
 		centerText1("An error occured.");
 	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel2(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level2.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel3(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level3.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel4(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level4.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel5(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level5.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel6(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level6.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel7(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level7.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel8(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level8.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel9(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level9.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void SearchQuesLevel10(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	ifstream file;
+	file.open("Level10.txt");
+	if (!file.is_open())
+	{
+		centerText1("An error occured.");
+	}
+
+	findQuestions(awardFunctionCall, allQuestions, file);
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+}
+void findQuestions(static unsigned int& awardFunctionCall, vector<int>& allQuestions, ifstream& file)
+{
 	string row;
 	int tempNum = 0;
 	while (getline(file, row)) // here we use the std::string function stoi to convert strings to integers 
@@ -188,7 +325,21 @@ void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 	{
 		file.close();
 	}
+}
 
+
+void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	SearchQuesLevel1(awardFunctionCall, allQuestions);
+	SearchQuesLevel2(awardFunctionCall, allQuestions);
+	SearchQuesLevel3(awardFunctionCall, allQuestions);
+	SearchQuesLevel4(awardFunctionCall, allQuestions);
+	SearchQuesLevel5(awardFunctionCall, allQuestions);
+	SearchQuesLevel6(awardFunctionCall, allQuestions);
+	SearchQuesLevel7(awardFunctionCall, allQuestions);
+	SearchQuesLevel8(awardFunctionCall, allQuestions);
+	SearchQuesLevel9(awardFunctionCall, allQuestions);
+	SearchQuesLevel10(awardFunctionCall, allQuestions);
 
 	char optionPick;
 	cin >> optionPick;
@@ -205,11 +356,7 @@ void optionSelect(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 			inputQuesScreen(awardFunctionCall, allQuestions);
 		}
 	}
-	/*if (optionPick == 'N' || optionPick == 'n')
-	{
-	}*/
-
-	//TODO: add the other cases for "c", "e" and "x"
+	//TODO: add the other cases for  "e" and "x"
 }
 void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {

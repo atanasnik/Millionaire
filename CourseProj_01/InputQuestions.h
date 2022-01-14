@@ -24,7 +24,6 @@ void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, 
 void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions);
 void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
 void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID);
-void saveUniqueNum(static unsigned int& awardFunctionCall, int& makeID, vector<int>& allQuestions);
 
 void addedQuesMessageScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID);
 #endif

@@ -14,6 +14,17 @@ void primaryScreen(void);		// have in our slides and the wrapped functions that 
 void categories(void);
 void categoriesMenu(void);
 
+void findQuestions(static unsigned int& awardFunctionCall, vector<int>& allQuestions, ifstream& file);
+void SearchQuesLevel1(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel2(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel3(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel4(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel5(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel6(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel7(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel8(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel9(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel10(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
 void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
