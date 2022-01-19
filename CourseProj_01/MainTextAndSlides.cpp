@@ -143,7 +143,8 @@ void categories()
 }
 void categoriesMenu()
 {
-	system("CLS");
+	clear();
+	//system("CLS");
 	space2();
 	border();
 	categories();
@@ -675,19 +676,8 @@ void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 	}
 }
 
-void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
-// TODO: perhaps divide to smaller functions later
+void readQuestionAndAnswer(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
-	static unsigned int awardTimes = 0;
-	static unsigned int useFifty_Fifty = 0;
-	static unsigned int useCall_A_Friend = 0;
-	static unsigned int useAsk_The_Audience = 0;
-	system("CLS");
-	space2();
-	border();
-	space2();
-
-
 	if (!file.is_open())
 	{
 		cout << "A mistake occured." << endl;
@@ -743,12 +733,16 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
 
 	}
-	
+
 	if (file.is_open())
 	{
 		file.close();
 	}
 	cout << endl;
+	answerToQuestionStandart(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter);
+}
+void answerToQuestionStandart(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter)
+{
 	(useFifty_Fifty == 0 || useCall_A_Friend == 0 || useAsk_The_Audience == 0) ?
 		(cout << " " << "Current lifelines: " << endl) : (cout << endl);
 	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : (cout << endl);
@@ -766,206 +760,108 @@ void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionC
 	}
 	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0)
 	{
-		switch (awardTimes)
-		{
-			case 0:
-			{
-				Ques1LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 1:
-			{
-				Ques2LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 2:
-			{
-				Ques3LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 3: 
-			{
-				Ques4LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 4:
-			{
-				Ques5LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-			break;
-			case 5:
-			{
-				Ques6LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 6:
-			{
-				Ques7LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 7:
-			{
-				Ques8LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-				break;
-			case 8:
-			{
-				Ques9LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-			break;
-				case 9:
-			{
-				Ques10LifelineFifty_Fifty(start, awardTimes, awardFunctionCall, allQuestions);
-				++useFifty_Fifty;
-			}
-		}
+		LifelineFifty_Fifty(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		++useFifty_Fifty;
 	}
 	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' && useCall_A_Friend == 0)
 	{
-		switch (awardTimes)
-		{
-			case 0: 
-			{
-				Ques1LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 1:
-			{
-				Ques2LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 2:
-			{
-				Ques3LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 3:
-			{
-				Ques4LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 4:
-			{
-				Ques5LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 5:
-			{
-				Ques6LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 6:
-			{
-				Ques7LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 7:
-			{
-				Ques8LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 8:
-			{
-				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-				break;
-			case 9:
-			{
-				Ques9LifelinePhone_A_Friend(start, awardTimes, awardFunctionCall, allQuestions);
-				++useCall_A_Friend;
-			}
-		}
+		LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		++useCall_A_Friend;
+		
 	}
 	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z' && useAsk_The_Audience == 0)
 	{
-		switch (awardTimes)
-		{
-			case 0:
-			{
-				Ques1LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 1:
-			{
-				Ques2LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 2:
-			{
-				Ques3LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 3:
-			{
-				Ques4LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 4:
-			{
-				Ques5LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 5:
-			{
-				Ques6LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 6:
-			{
-				Ques7LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 7:
-			{
-				Ques8LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 8:
-			{
-				Ques9LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-				break;
-			case 9:
-			{
-				Ques10LifelineAsk_The_Audience(start, awardTimes, awardFunctionCall, allQuestions);
-				++useAsk_The_Audience;
-			}
-
-		}
+		LifelineAsk_The_Audience(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		++useAsk_The_Audience;
+		
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
 		awardFunctionCall = 0;
+		useCall_A_Friend = 0;
+		useAsk_The_Audience = 0;
+		useFifty_Fifty = 0;
 		awardTimes = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions);
 	}
+}
+void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	static unsigned int awardTimes = 0;
+	static unsigned int useFifty_Fifty = 0;
+	static unsigned int useCall_A_Friend = 0;
+	static unsigned int useAsk_The_Audience = 0;
+	system("CLS");
+	space2();
+	border();
+	space2();
+	
+	readQuestionAndAnswer(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+
+}
+void readQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+{
+	if (!file.is_open())
+	{
+		cout << "A mistake occured." << endl;
+	}
+
+	string row; // We are going to read the file through this string
+
+	string num; // This string will store the serial number of the question
+	num += to_string(start);
+	num += ' ';
+
+	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string ansLetter;
+	int countLen = 0;
+
+	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	{
+		size_t location = row.find(num);
+		if (location != string::npos)
+		{
+			break;
+		}
+	}
+
+	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+
+	cout << " " << row << endl; // Prints the line where the serial number was
+
+	while (getline(file, row))
+	{
+		for (int i = 0; row[i] != '\0'; ++i)
+		{
+			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			{
+				file.close();
+			}
+		}
+		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		if (ans != string::npos)
+		{
+			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			for (int i = ans; row[i + 1] != '\0'; ++i)
+			{
+				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				{
+					break;
+				}
+				++countLen;
+			}
+			ansLetter += row.substr(ans - 2, ans + countLen);
+		}
+
+		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+
+	}
+
+	if (file.is_open())
+	{
+		file.close();
+	}
+	cout << endl;
 }

@@ -41,6 +41,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 void nextQuesionScreen(void);
 
 void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-
-
+void readQuestionAndAnswer(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void readQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void answerToQuestionStandart(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter);
 #endif

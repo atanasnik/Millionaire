@@ -17,7 +17,7 @@ using namespace std;
 
 #ifndef MAINLAYOUT_H
 #define MAINLAYOUT_H
-
+void clear(void);
 void firstLine(void);		// Here we declare the functions we use to manage the layout of the slides, plus the
 void space1(void);			// function that adjusts the size of the console.
 void space2(void);

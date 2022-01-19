@@ -1,4 +1,12 @@
 #include "MainLayout.h"
+
+void clear()
+{
+	for (int i = 0; i < 500; ++i)
+	{
+		cout << endl;
+	}
+}
 void changeConsoleDimensions()
 {
 	HWND console = GetConsoleWindow(); // Here we use these functions from the <windows.h> library which let us adjust the console tab size.

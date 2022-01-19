@@ -9,40 +9,43 @@ char audienceAnswersEasy(char ansLetter);
 char audienceAnswersNormal(char ansLetter);
 char audienceAnswersHard(char ansLetter);
 void percentages(char suggestion);
-void Ques1LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques2LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques3LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques4LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques5LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques6LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques7LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques8LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques9LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques10LifelineAsk_The_Audience(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+
+void Ask_The_Audience_Confirm();
+void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestion);
+
+void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+
+
 
 char tellAnswersEasy(char ansLetter);
 char tellAnswersNormal(char ansLetter);
 char tellAnswersHard(char ansLetter);
-void Ques1LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 
-void Ques1LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques2LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques3LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques4LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques5LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques6LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques7LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques8LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques9LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Ques10LifelineFifty_Fifty(int start, static unsigned int& awardTimes, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void Phone_A_Friend_Confirm();
+void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestionPick);
+
+void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//
+//void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//
+//void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+//void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+
+void Fifty_Fifty_Confirm();
+void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter);
+void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
+
 
 #endif
