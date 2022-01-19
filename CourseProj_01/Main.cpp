@@ -9,6 +9,7 @@ int main()
 	primaryScreen();
 	//changeConsoleDimensions();
 	optionSelect(awardFunctionCall);
+	//checking if git command worked correctly
 
 
 	return 0;
