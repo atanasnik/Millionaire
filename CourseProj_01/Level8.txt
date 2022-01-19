@@ -46,13 +46,12 @@ B) Aristotle    D) Sophocles
 A) Elin Pelin             C) Aleko Konstantinov  
 B)$$ Hristo Smirnenski      D) Nikola Vapcarov	  
 
-8501 The 'Biathlon' combines cross-country skiing and which other sport?
-
-A)$$ Rifle shooting    C) Archery  
-B) Ice Skating       D) Canoeing	
-
 8502 Which of these would you not find in an automatic car?
 
 A)$$ Clutch pedal    C) Rev counter  
 B) Handbrake       D) Dip switch	
 
+8501 The 'Biathlon' combines cross-country skiing and which other sport?
+
+A)$$ Rifle shooting    C) Archery  
+B) Ice skating       D) Canoeing	

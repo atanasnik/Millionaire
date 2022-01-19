@@ -80,6 +80,7 @@ void editModeScreen(static unsigned int& awardFunctionCall, vector<int>& allQues
 	copyFile(inputID);
 	cout << endl;
 	border();
+	cout << endl;
 	centerText1("Rewrite the question and the answers as desired: ");
 	replaceQues(awardFunctionCall, allQuestions, inputID);
 
@@ -485,13 +486,6 @@ void replaceQues(static unsigned int& awardFunctionCall, vector<int>& allQuestio
 	string inpQuestion;
 	cin.ignore();
 	getline(cin, inpQuestion);
-	const int SIZE_QUES = 70;
-	if (inpQuestion.length() > SIZE_QUES)
-	{
-		centerText1("This question is too long. Please try typing in a shorter one.");
-		centerText1("Press any button for another try...");
-		//replaceQues(awardFunctionCall, allQuestions, inputID); //FAULTY
-	}
 	replaceAns(awardFunctionCall, allQuestions, inputID, inpQuestion);
 }
 void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& inpQuestion)
@@ -510,28 +504,25 @@ void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 	indentLeft("D): ");
 	getline(cin, ansD);
 
-	const int ANS_SIZE = 32;
-	if (ansA.length() <= ANS_SIZE ||
-		ansB.length() <= ANS_SIZE ||
-		ansC.length() <= ANS_SIZE ||
-		ansD.length() <= ANS_SIZE)
-	{
-		formatAnswers1(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
-		replaceCorrectAns(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion);
-	}
-	else
-	{
-		centerText1("Some of the answers might be too long. Please try typing in shorter ones.");
-		centerText1("Press any button for another try...");
-		//replaceAns(awardFunctionCall, allQuestions, inputID); //FAULTY
-	}
+	formatAnswers1(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
+	replaceCorrectAns(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion);
 }
 void replaceCorrectAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion)
 {
 	formatAnswers2(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
 	centerText1("New correct answer (A, B, C or D):");
 	string pick;
-	cin >> pick;
+	while (true)
+	{
+		cin >> pick;
+		if (pick[0] == 'A' || pick[0] == 'a' ||
+			pick[0] == 'B' || pick[0] == 'b' ||
+			pick[0] == 'C' || pick[0] == 'c' ||
+			pick[0] == 'D' || pick[0] == 'd')
+		{
+			break;
+		}
+	}
 	switch (pick[0])
 	{
 	case 'A': case 'a':
@@ -554,12 +545,6 @@ void replaceCorrectAns(static unsigned int& awardFunctionCall, vector<int>& allQ
 		ansD.insert(2, 2, '$');
 	}
 	break;
-	default:
-	{
-		centerText1("You've entered an invalid symbol.");
-		centerText1("Press any button for another try..."); //FAULTY
-		//backToChooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
-	}
 	}
 	addNumToQues(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion);
 }
@@ -585,8 +570,7 @@ void editSuccessfulMessage(static unsigned int& awardFunctionCall, vector<int>& 
 	border();
 	space2();
 	cout << endl;
-	indentLeft("Question #");
-	cout << inputID << " " << "has been changed successfully.";
+	centerText1("This question has been changed successfully!");
 	centerText1("Press any key to go back to main menu...");
 	space2();
 	border();

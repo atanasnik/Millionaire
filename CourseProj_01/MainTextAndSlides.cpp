@@ -345,10 +345,10 @@ void optionSelect(static unsigned int& awardFunctionCall)
 	SearchQuesLevel9(awardFunctionCall, allQuestions);
 	SearchQuesLevel10(awardFunctionCall, allQuestions);
 	int size = allQuestions.size();
-	char optionPick;
+	string optionPick;
 	cin >> optionPick;
 
-	switch (optionPick)
+	switch (optionPick[0])
 	{
 		case 'N': case 'n':
 		{
@@ -359,12 +359,36 @@ void optionSelect(static unsigned int& awardFunctionCall)
 		{
 			inputQuesScreen(awardFunctionCall, allQuestions);
 		}
+			break;
 		case 'E': case 'e':
 		{
 			editModeIntro(awardFunctionCall, allQuestions);
 		}
+			break;
+		case 'X': case 'x':
+		{
+			return;
+		}
+		break;
+		default: 
+		{
+			wrongInputMainMenu(awardFunctionCall, allQuestions);
+		}
 	}
-	//TODO: add the other cases for  "e" and "x"
+}
+void wrongInputMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+{
+	system("CLS");
+	space1();
+	border();
+	space2();
+	centerText1("You didn't pick an option!");
+	cout << endl;
+	centerText1("Press any key to try again...");
+	space2();
+	border();
+	space1();
+	backToMainMenu(awardFunctionCall, allQuestions);
 }
 void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
@@ -395,7 +419,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 		}
 	}
 }
-//Specific to the first question:
+
 
 void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {

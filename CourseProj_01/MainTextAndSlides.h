@@ -35,6 +35,7 @@ void defeatScreen1_2(static unsigned int& awardFunctionCall, vector<int>& allQue
 
 
 void optionSelect(static unsigned int& awardFunctionCall);
+void wrongInputMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
 void nextQuesionScreen(void);

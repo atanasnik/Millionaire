@@ -36,12 +36,6 @@ B) Scorpion    D) Spider
 A) Up to 12 hours    C)$$ Up to 15 days  
 B) Up to 6 days      D) Up to one month	
 
-10401 How many "... years a slave" is the name of Solomon Northup's famous
-memoir?
-
-A) Ten       C) Fourteen  
-B)$$ Twelve    D) Sixteen	
-
 10402 Which Bulgarian writer translates "Hamlet" to Bulgarian?
 
 A)$$ Valeri Petrov      C) Petko Slaveykov  
@@ -57,3 +51,8 @@ B) Solving a differential equation    D) Getting fired illegally
 A) German       C) English  
 B) Afrikaans    D)$$ French	
 	
+
+10401 How many "... years a slave" is the name of Solomon Northup's famous memoir?
+
+A) Ten       C) Fourteen  
+B)$$ Twelve    D) Sixteen	
