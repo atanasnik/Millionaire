@@ -19,7 +19,10 @@ The create mode lets the user create their own question, suggest four possible a
 If the user enters the edit mode, they can select an existing question and modify it as they prefer, they can also change the possible answers and select a new correct answer. 
 Then, the old version of the question is removed and the new one is added, instead.
 
-## Notes
+
+
+
+### Notes
 
 Currently, the game will work only on Windows OS.
 The questions are still just 100, the user is able to add as many as they wish.
