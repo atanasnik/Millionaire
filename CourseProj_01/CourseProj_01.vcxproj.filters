@@ -38,23 +38,23 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainLayout.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainTextAndSlides.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OutputQuestions.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Lifelines.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="InputQuestions.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EditMode.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainLayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputQuestions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTextAndSlides.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputQuestions.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
