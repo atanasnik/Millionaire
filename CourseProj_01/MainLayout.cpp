@@ -1,20 +1,5 @@
 #include "MainLayout.h"
 
-void clear()
-{
-	for (int i = 0; i < 500; ++i)
-	{
-		cout << endl;
-	}
-}
-void changeConsoleDimensions()
-{
-	HWND console = GetConsoleWindow(); // Here we use these functions from the <windows.h> library which let us adjust the console tab size.
-	RECT r;
-	GetWindowRect(console, &r); // These are the console tab's current dimensions.
-
-	MoveWindow(console, r.left, r.top, 690, 340, TRUE); // Now we set them to: 690 width, 340 height.
-}
 
 // The following functions are specific to the first slide, but we use some of them in the other slides, too.
 

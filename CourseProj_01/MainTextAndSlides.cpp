@@ -143,8 +143,7 @@ void categories()
 }
 void categoriesMenu()
 {
-	clear();
-	//system("CLS");
+	system("CLS");
 	space2();
 	border();
 	categories();
@@ -368,6 +367,7 @@ void optionSelect(static unsigned int& awardFunctionCall)
 			break;
 		case 'X': case 'x':
 		{
+			exit(0);
 			return;
 		}
 		break;
@@ -417,6 +417,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 			system("CLS");	
 			primaryScreen();			// next screen, in this case, the Main menu.
 			optionSelect(awardFunctionCall);
+			break;
 		}
 	}
 }
