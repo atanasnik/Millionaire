@@ -158,18 +158,18 @@ void percentages(char suggestion)
 	srand(time(NULL));
 	int correctSuggest = 0;
 	int randomize = rand() % percent.size();
-	correctSuggest = percent[randomize];
+	correctSuggest = percent[randomize];		// Here we choose the percentage of the suggested answer, also randomly
 	int secondBiggest = 0;
 	int thirdBiggest = 0;
 	int fourthBiggest = 0;
 	int remainingProc = 100 - correctSuggest;
-	vector<int> remainder1(50, 0);
+	vector<int> remainder1(50, 0);					// Then we randomly split the remaining percents into the other three options		
 	remainder1[0] = 1;
 	for (int i = 1; i < remainingProc; ++i)
 	{
 		remainder1[i] = remainder1[i - 1] + 1;
 	}
-	randomize = rand() % (remainder1.size() - 3); //TODO: check if there are mistakes
+	randomize = rand() % (remainder1.size() - 3);
 	secondBiggest = remainder1[randomize];
 
 	int remainingProc2 = remainingProc - secondBiggest;
@@ -179,7 +179,7 @@ void percentages(char suggestion)
 	{
 		remainder2[i] = remainder2[i - 1] + 1;
 	}
-	randomize = rand() % (remainder2.size() - 3); //TODO: check if there are mistakes
+	randomize = rand() % (remainder2.size() - 3); 
 	thirdBiggest = remainder2[randomize];
 
 	fourthBiggest = remainingProc2 - thirdBiggest;
@@ -410,6 +410,7 @@ void percentages(char suggestion)
 
 void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestion)
 {
+	// Lets the user pick an answer after they have used this lifeline
 	percentages(suggestion);
 
 	cout << endl;
@@ -436,6 +437,7 @@ void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, 
 }
 void Ask_The_Audience_Confirm()
 {
+	// Asks if the user really wants to use the lifeline (they can cancel their choice)
 	space2();
 	cout << endl;
 	string ask = "Are you sure you want to use the \"Ask the audience\" lifeline?";
@@ -449,22 +451,24 @@ void Ask_The_Audience_Confirm()
 
 void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
+	// This function reads the question from the file as we already know from void readQuestion
+	// The two functions below are similar, but for a different difficulty
 	if (!file.is_open())
 	{
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row; 
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$"; 
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))	
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -473,23 +477,23 @@ void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static u
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -501,7 +505,7 @@ void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static u
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl; 
 
 	}
 
@@ -520,17 +524,17 @@ void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row; 
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$"; 
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))	
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -539,23 +543,23 @@ void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -567,7 +571,7 @@ void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl; 
 
 	}
 
@@ -586,17 +590,17 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row;
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$";
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -605,23 +609,23 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -633,7 +637,7 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl; 
 
 	}
 
@@ -647,9 +651,9 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 }
 void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
-
+	// This function wraps up all the work on the lifeline and presents the lifeline to the user
 	ifstream file;
-	
+	// Opening a different file depending on the game progress
 	switch (awardTimes)
 		{
 		case 0:
@@ -702,7 +706,7 @@ void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall,
 			file.open("Level10.txt");
 		}
 	}
-	system("CLS");
+	clear();
 	space2();
 	border();
 	space2();
@@ -767,7 +771,7 @@ void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall,
 				file.open("Level10.txt");
 			}
 		}
-		system("CLS");
+		clear();
 		space2();
 		border();
 		space2();
@@ -1023,6 +1027,7 @@ char tellAnswersHard(char ansLetter)
 
 void Phone_A_Friend_Confirm()
 {
+	// Similarly to the one above, asks the user to confirm their choice
 	space2();
 	cout << endl;
 	string ask = "Are you sure you want to use the \"Phone a friend\" lifeline ?";
@@ -1035,6 +1040,7 @@ void Phone_A_Friend_Confirm()
 }
 void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestionPick)
 {
+	// Lets the user answer after they have picked this lifeline
 	cout << endl;
 	centerText1NoEndline("Hi, I think the answer is ");
 	cout << suggestionPick << ')';
@@ -1063,22 +1069,24 @@ void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, ve
 }
 void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
+	// Presents the question and lets the user answer while using the lifeline
+	// The other two functions below are for the other two levels of difficulty
 	if (!file.is_open())
 	{
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row; 
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$"; 
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -1087,23 +1095,23 @@ void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -1115,7 +1123,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl; 
 
 	}
 
@@ -1134,17 +1142,17 @@ void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, stat
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row;
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$"; 
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))	 
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -1153,23 +1161,23 @@ void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, stat
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -1181,7 +1189,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, stat
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl;
 
 	}
 
@@ -1200,17 +1208,17 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 		cout << "A mistake occured." << endl;
 	}
 
-	string row; // We are going to read the file through this string
+	string row;
 
-	string num; // This string will store the serial number of the question
+	string num; 
 	num += to_string(start);
 	num += ' ';
 
-	string correct = "$$"; // The $$ sign in our text files stays next to the letter of the right answer
+	string correct = "$$"; 
 	string ansLetter;
 	int countLen = 0;
 
-	while (getline(file, row))	// Here we use the find function from the string library to locate the serial number of the question
+	while (getline(file, row))
 	{
 		size_t location = row.find(num);
 		if (location != string::npos)
@@ -1219,23 +1227,23 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 		}
 	}
 
-	row.erase(0, num.length()); // Here we remove the serial number from the question in order to present it
+	row.erase(0, num.length()); 
 
-	cout << " " << row << endl; // Prints the line where the serial number was
+	cout << " " << row << endl; 
 
 	while (getline(file, row))
 	{
 		for (int i = 0; row[i] != '\0'; ++i)
 		{
-			if (row[i] == '\t')	// The tab (\t) is the symbol that separates the questions from one another
+			if (row[i] == '\t')	
 			{
 				file.close();
 			}
 		}
-		size_t ans = row.find(correct); // Finds the right answer by the $$ sign
+		size_t ans = row.find(correct); 
 		if (ans != string::npos)
 		{
-			row.erase(ans, correct.length()); // The correct answer gets stored in another string
+			row.erase(ans, correct.length()); 
 			for (int i = ans; row[i + 1] != '\0'; ++i)
 			{
 				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
@@ -1247,7 +1255,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 			ansLetter += row.substr(ans - 2, ans + countLen);
 		}
 
-		cout << " " << row << endl; // Prints the rest of the question (and the possible answers)
+		cout << " " << row << endl; 
 
 	}
 
@@ -1259,9 +1267,9 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 	char suggestionPick = tellAnswersHard(ansLetter[0]);
 	Phone_A_Friend_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestionPick);
 }
-
 void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
+	// This function wraps up the "Phone a friend" work and presents the lifeline
 	ifstream file;
 
 	switch (awardTimes)
@@ -1316,7 +1324,7 @@ void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, v
 		file.open("Level10.txt");
 	}
 	}
-	system("CLS");
+	clear();
 	space2();
 	border();
 	space2();
@@ -1382,7 +1390,7 @@ void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, v
 				file.open("Level10.txt");
 			}
 		}
-		system("CLS");
+		clear();
 		space2();
 		border();
 		space2();
@@ -1501,335 +1509,11 @@ void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, v
 		LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-//void Ques2LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level2.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level2.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level2.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques2LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques3LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level3.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level3.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level3.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques3LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//
-//void Ques4LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level4.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level4.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level4.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques4LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques5LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level5.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level5.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level5.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques5LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques6LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level6.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level6.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level6.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques6LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//
-//void Ques7LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level7.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level7.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level7.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques7LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques8LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level8.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level8.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level8.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques8LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques9LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level9.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level9.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level9.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques9LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
-//void Ques10LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
-//{
-//	ifstream file;
-//	file.open("Level10.txt");
-//	system("CLS");
-//	space2();
-//	border();
-//	space2();
-//
-//
-//	readQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	Phone_A_Friend_Confirm();
-//
-//	string confirm;
-//	cin >> confirm;
-//	if (confirm[0] == 'y' || confirm[0] == 'Y')
-//	{
-//		ifstream file;
-//		file.open("Level10.txt");
-//		system("CLS");
-//		space2();
-//		border();
-//		space2();
-//		readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//	else if (confirm[0] == 'n' || confirm[0] == 'N')
-//	{
-//		ifstream file;
-//		file.open("Level10.txt");
-//		playQuestion(file, start, awardFunctionCall, allQuestions);
-//	}
-//	else
-//	{
-//		Ques10LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-//	}
-//}
+
 
 void Fifty_Fifty_Confirm()
 {
+	// Once again, this is used to ask the user to confirm their choice
 	space2();
 	cout << endl;
 	centerText1("Are you sure you want to use 50/50?");
@@ -1840,6 +1524,7 @@ void Fifty_Fifty_Confirm()
 }
 void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter)
 {
+	// Lets the user answer while using this lifeline
 	space1();
 	space2();
 	border();
@@ -1865,10 +1550,11 @@ void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vecto
 }
 void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
+	// This is the "50/50" lifeline functionality, wrapped up
 	{
 		ifstream file;
 		
-		switch (awardTimes)
+		switch (awardTimes) // Depending on the progress, we open a different file, once again
 		{
 			case 0:
 			{
@@ -1921,7 +1607,7 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 			}
 		}
 		
-		system("CLS");
+		clear();
 		space2();
 		border();
 		space2();
@@ -2025,11 +1711,12 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 
 		Fifty_Fifty_Confirm();
 
+		// Here the answer option is executed in the very same function
 		string confirm;
 		cin >> confirm;
 		if (confirm[0] == 'Y' || confirm[0] == 'y')
 		{
-			system("CLS");
+			clear();
 
 			ifstream file;
 			
@@ -2086,7 +1773,7 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 				}
 			}
 			
-			system("CLS");
+			clear();
 			space2();
 			border();
 			space2();
@@ -2180,7 +1867,7 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 			}
 			Fifty_Fifty_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter);
 		}
-		else if (confirm[0] == 'n' || confirm[0] == 'N')
+		else if (confirm[0] == 'n' || confirm[0] == 'N') // If the user wants to go back, they are being shown the same question again
 		{
 		ifstream file;
 		switch (awardTimes)

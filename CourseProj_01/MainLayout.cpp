@@ -3,6 +3,15 @@
 
 // The following functions are specific to the first slide, but we use some of them in the other slides, too.
 
+void clear()
+{
+	const int LIMIT = 500;
+	for (int i = 0; i < LIMIT; ++i)
+	{
+		cout << endl;
+	}
+}
+
 void firstLine()	// Prints the first set of "="'s.
 {
 	int borderHalf = 29;
@@ -46,7 +55,7 @@ void space2()		// Manages the spacing above the upper border and bellow the lowe
 		cout << endl;
 	}
 }
-void indentLeft(string text)
+void indentLeft(string text) // Puts text 5 characters aside when printing
 {
 	int spacing = 5;
 	while (spacing > 0)
@@ -55,4 +64,31 @@ void indentLeft(string text)
 		--spacing;
 	}
 	cout << text;
+}
+
+void centerText1(string textLine)
+{
+	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
+	double wordSpacing = textLine.length() / 2;
+	cout << setw(halfWidth + wordSpacing) << textLine << endl;	// We use the <iomanip> function setw, which provides the space
+}
+// We need to center the text lines.
+void centerText1NoEndline(string textLine)
+{
+	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
+	double wordSpacing = textLine.length() / 2;
+	cout << setw(halfWidth + wordSpacing) << textLine;	// We use the <iomanip> function setw, which provides the space
+}
+void centerText2(string textLine, double halfFirstLine)
+{
+	int halfWidth = 90 / 2;
+	cout << setw(halfWidth + halfFirstLine / 2) << textLine << endl;	// We use the different text alingment functions
+}																		// in the different situations.
+void centerText3(string textLine, double line)
+{
+	int halfWidth = 90 / 2;
+	double rowSpace = line - textLine.length();							// This function copies the starting point of a 
+	rowSpace -= line / 2;												// line and makes all lines bellow it start from
+	++rowSpace;															// the same point.
+	cout << setw(halfWidth - rowSpace) << textLine << endl;
 }

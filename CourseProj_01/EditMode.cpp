@@ -7,9 +7,12 @@
 
 void editModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
+	// This slide includes a brief explaination about how serial numbers work
+	// and how to enter a valid serial number depending on what kind of question we are looking for
+	// Then, the user can type in the number they wish to check
 	string forHistoryText = "1 - For History";
 	double alignSetter = forHistoryText.length() - 1;
-	system("CLS");
+	clear();
 	cout << endl;
 	border();
 	cout << endl;
@@ -59,20 +62,22 @@ void editModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuest
 }
 void backToEditModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
+	// If the user has chosen an invalid number, they are given another chance to type in a valid one
 	char press;
 	while (true)
 	{
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			editModeIntro(awardFunctionCall, allQuestions);
 		}
 	}
 }
 void editModeScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
 {
-	system("CLS");
+	// Adds the necessary space after the presented question
+	clear();
 	cout << endl;
 	border();
 	cout << endl;
@@ -87,6 +92,7 @@ void editModeScreen(static unsigned int& awardFunctionCall, vector<int>& allQues
 }
 bool quesExists(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
 {
+	// Checks if there is a question with such number
 	int temp = stoi(inputID, nullptr);
 	for (int i = 0; i < allQuestions.size(); ++i)
 	{
@@ -99,6 +105,7 @@ bool quesExists(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 }
 void readQues(string& inputID)
 {
+	// Reads the question from the file
 	ifstream file;
 	switch (inputID[0])
 	{
@@ -239,12 +246,13 @@ void readQues(string& inputID)
 }
 void copyFile(string& inputID)
 {
+	// Makes a copy of the file which will exclude the old version of the question, and then the new one will be added
 	ifstream file;
 	switch (inputID[0])
 	{
 	case '1':
 	{
-		if (inputID[1] == '0' && inputID.length() == 5) // That covers case "10"
+		if (inputID[1] == '0' && inputID.length() == 5) 
 		{
 			file.open("Level10.txt");
 		}
@@ -364,7 +372,7 @@ void copyFile(string& inputID)
 	{
 	case '1':
 	{
-		if (inputID[1] == '0' && inputID.length() == 5) // That covers case "10"
+		if (inputID[1] == '0' && inputID.length() == 5) 
 		{
 			remove("Level10.txt");
 			if (rename("copy.txt", "Level10.txt"))
@@ -482,6 +490,7 @@ void copyFile(string& inputID)
 }
 void replaceQues(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
 {
+	// Lets the user rewrite the question
 	indentLeft("Question: ");
 	string inpQuestion;
 	cin.ignore();
@@ -490,6 +499,7 @@ void replaceQues(static unsigned int& awardFunctionCall, vector<int>& allQuestio
 }
 void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& inpQuestion)
 {
+	// Lets the user change the answers
 	string ansA, ansB, ansC, ansD;
 	cout << endl;
 	indentLeft("A): ");
@@ -509,6 +519,7 @@ void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 }
 void replaceCorrectAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion)
 {
+	// Lets the user change the correct answer
 	formatAnswers2(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
 	centerText1("New correct answer (A, B, C or D):");
 	string pick;
@@ -565,7 +576,7 @@ void addNumToQues(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 }
 void editSuccessfulMessage(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
 {
-	system("CLS");
+	clear();
 	space1();
 	border();
 	space2();

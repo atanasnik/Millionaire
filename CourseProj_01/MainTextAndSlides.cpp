@@ -5,32 +5,7 @@
 #include "InputQuestions.h"
 #include "EditMode.h"
 
-void centerText1(string textLine)
-{
-	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
-	double wordSpacing = textLine.length() / 2;
-	cout << setw(halfWidth + wordSpacing) << textLine << endl;	// We use the <iomanip> function setw, which provides the space
-}	
-																	// We need to center the text lines.
-void centerText1NoEndline(string textLine)
-{
-	int halfWidth = 90 / 2;		// This is precisely half of the width of the border of "="'s.
-	double wordSpacing = textLine.length() / 2;
-	cout << setw(halfWidth + wordSpacing) << textLine;	// We use the <iomanip> function setw, which provides the space
-}
-void centerText2(string textLine, double halfFirstLine)
-{
-	int halfWidth = 90 / 2;
-	cout << setw(halfWidth + halfFirstLine / 2) << textLine << endl;	// We use the different text alingment functions
-}																		// in the different situations.
-void centerText3(string textLine, double line)
-{
-	int halfWidth = 90 / 2;
-	double rowSpace = line - textLine.length();							// This function copies the starting point of a 
-	rowSpace -= line / 2;												// line and makes all lines bellow it start from
-	++rowSpace;															// the same point.
-	cout << setw(halfWidth - rowSpace) << textLine << endl;
-}
+
 
 
 // Specific to the first slide:
@@ -49,7 +24,7 @@ void primaryText()
 			break;
 		case 2: option = "Press \"E\" to edit an existing question."; 
 			break;
-		case 3: option = "Press \"X\" to exit game.";
+		case 3: option = "Press \"Q\" to quit the game.";
 		}
 		centerText1(option);
 	}
@@ -143,16 +118,17 @@ void categories()
 }
 void categoriesMenu()
 {
-	system("CLS");
+	clear();
 	space2();
 	border();
 	categories();
 	border();
 	space2();
 }
+
 void SearchQuesLevel1(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	ifstream file;
+	ifstream file;					// Looks for questions in the mentioned text file
 	file.open("Level1.txt");
 	if (!file.is_open())
 	{
@@ -352,34 +328,33 @@ void optionSelect(static unsigned int& awardFunctionCall)
 	{
 		case 'N': case 'n':
 		{
-			FirstStage(awardFunctionCall, allQuestions);
+			FirstStage(awardFunctionCall, allQuestions); // Leads to the game mode
 		}
 			break;
 		case 'C': case 'c':
 		{
-			inputQuesScreen(awardFunctionCall, allQuestions);
+			inputQuesScreen(awardFunctionCall, allQuestions); // Leads to the create mode
 		}
 			break;
 		case 'E': case 'e':
 		{
-			editModeIntro(awardFunctionCall, allQuestions);
+			editModeIntro(awardFunctionCall, allQuestions);		// Leads to the edit mode
 		}
 			break;
-		case 'X': case 'x':
+		case 'Q': case 'q':
 		{
-			exit(0);
-			return;
+			exit(0);		// Terminates the program immediately, if the user wants to quit
 		}
 		break;
 		default: 
 		{
-			wrongInputMainMenu(awardFunctionCall, allQuestions);
+			wrongInputMainMenu(awardFunctionCall, allQuestions);	// Lets the user pick a valid option
 		}
 	}
 }
 void wrongInputMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	system("CLS");
+	clear();		// If an invalid symbol has been picked, shows this screen, which is a transition to the main menu
 	space1();
 	border();
 	space2();
@@ -393,7 +368,7 @@ void wrongInputMainMenu(static unsigned int& awardFunctionCall, vector<int>& all
 }
 void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	system("CLS");
+	clear();	// Again, a transition to the main menu, in case invalid category is picked
 	space1();
 	border();
 	space2();
@@ -414,7 +389,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 		if (_kbhit())        // the _kbhit() function from the conio.h library checks if a key is being pressed
 		{
 			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
-			system("CLS");	
+			clear();	
 			primaryScreen();			// next screen, in this case, the Main menu.
 			optionSelect(awardFunctionCall);
 			break;
@@ -425,7 +400,7 @@ void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQues
 
 void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	++awardFunctionCall;
+	++awardFunctionCall;	// Depending on what the value of the static variable is, we increment the award
 	int reward = 0;
 	switch (awardFunctionCall)
 	{
@@ -484,7 +459,7 @@ void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestio
 	rewardText += to_string(reward);
 	rewardText += '$';
 	string won = "You've won ";
-	system("CLS");
+	clear();
 	space1();
 	border();
 	space2();
@@ -496,14 +471,14 @@ void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestio
 	space2();
 	border();
 	space1();
-	if (awardFunctionCall == 10)
+	if (awardFunctionCall == 10) // In case the user has won the game
 	{
 		WinnerScreen(awardFunctionCall, allQuestions);
 	}
 }
 void defeatScreen1_1()
 {
-	system("CLS");
+	clear();	// Gets printed if the user has chosen a wrong answer while playing
 	space1();
 	border();
 	space2();
@@ -513,17 +488,17 @@ void defeatScreen1_1()
 }
 void defeatScreen1_2(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	cout << endl;
+	cout << endl;	// A transition to the main menu
 	centerText1("Press any key to go back to the main menu...");
 	cout << endl;
 	border();
 	space1();
 	backToMainMenu(awardFunctionCall, allQuestions);
 }
-void nextQuesionScreen(void)
+void nextQuesionScreen()
 {
 	char press;
-	while (true)
+	while (true)	// Lets the user move to the next question
 	{
 		if (_kbhit())
 		{
@@ -534,8 +509,8 @@ void nextQuesionScreen(void)
 }
 void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-		nextQuesionScreen();
-		system("CLS");
+		nextQuesionScreen();	// This screen shows at the end of the game
+		clear();				// also is a transition to the main menu
 		space1();
 		border();
 		space2();
@@ -549,8 +524,6 @@ void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 }
 void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	
-
 	categoriesMenu();
 	char categoryPick;
 	cin >> categoryPick; 
@@ -562,7 +535,7 @@ void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 						
 			int start = 0;
 			int randIndex = 0;
-
+			// Below we get the question corresponding to the topic and the level
 			history1(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 			history2(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
 			history3(allQuestions, start, randIndex, awardFunctionCall, allQuestions);
@@ -671,7 +644,7 @@ void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 		}
 			break;
 		default: 
-		{
+		{	// Wrong input case - brings the user to the main menu through a transition
 			wrongInputCategoryScreen(awardFunctionCall, allQuestions);
 		}
 	}
@@ -744,6 +717,7 @@ void readQuestionAndAnswer(ifstream& file, int start, static unsigned int& award
 }
 void answerToQuestionStandart(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter)
 {
+	// If a lifeline has been used once in a game, it cannot be used again
 	(useFifty_Fifty == 0 || useCall_A_Friend == 0 || useAsk_The_Audience == 0) ?
 		(cout << " " << "Current lifelines: " << endl) : (cout << endl);
 	(useFifty_Fifty == 0) ? (cout << " " << "50/50 (Press X)" << endl) : (cout << endl);
@@ -759,18 +733,18 @@ void answerToQuestionStandart(ifstream& file, int start, static unsigned int& aw
 		++awardTimes;
 		awardScreen(awardFunctionCall, allQuestions);
 	}
-	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0)
+	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0) // The 50/50 lifeline
 	{
 		LifelineFifty_Fifty(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		++useFifty_Fifty;
 	}
-	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' && useCall_A_Friend == 0)
+	else if (chooseAns[0] == 'Y' || chooseAns[0] == 'y' && useCall_A_Friend == 0) // The "Phone a friend" lifeline
 	{
 		LifelinePhone_A_Friend(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		++useCall_A_Friend;
 		
 	}
-	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z' && useAsk_The_Audience == 0)
+	else if (chooseAns[0] == 'Z' || chooseAns[0] == 'z' && useAsk_The_Audience == 0) // The "Ask the audience" lifeline
 	{
 		LifelineAsk_The_Audience(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		++useAsk_The_Audience;
@@ -778,7 +752,7 @@ void answerToQuestionStandart(ifstream& file, int start, static unsigned int& aw
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32) // If the user picks the wrong answer
 	{
-		awardFunctionCall = 0;
+		awardFunctionCall = 0;	// Making our static variables equal to 0 means we restart the game
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		useFifty_Fifty = 0;
@@ -790,20 +764,20 @@ void answerToQuestionStandart(ifstream& file, int start, static unsigned int& aw
 }
 void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	static unsigned int awardTimes = 0;
-	static unsigned int useFifty_Fifty = 0;
+	static unsigned int awardTimes = 0; // Just like the awardFunctionCall variable, we use it to tell what the game progress is
+	static unsigned int useFifty_Fifty = 0; // This one and the other two below tell if the lifelines have been used
 	static unsigned int useCall_A_Friend = 0;
 	static unsigned int useAsk_The_Audience = 0;
-	system("CLS");
+	clear();
 	space2();
 	border();
 	space2();
-	
+	// Printing the question
 	readQuestionAndAnswer(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-
 }
 void readQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
 {
+	// This function finds the question int the file and reads it
 	if (!file.is_open())
 	{
 		cout << "A mistake occured." << endl;

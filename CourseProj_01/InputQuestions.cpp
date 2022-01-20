@@ -4,7 +4,7 @@
 #include "Lifelines.h"
 #include "InputQuestions.h"
 
-int numLength(int num)
+int numLength(int num) // Finds the length of a number (the number of digits)
 {
 	int result = 1;
 	while (num > 9)
@@ -24,7 +24,7 @@ void backToInputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& 
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			inputQuesScreen(awardFunctionCall, allQuestions);
 		}
 	}
@@ -37,7 +37,7 @@ void backToInputAnsScreen(static unsigned int& awardFunctionCall, string& inpQue
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions);
 		}
 	}
@@ -50,7 +50,7 @@ void backToChooseCorrect(static unsigned int& awardFunctionCall, string& inpQues
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
 		}
 	}
@@ -63,7 +63,7 @@ void backToChooseLevel(static unsigned int& awardFunctionCall, string& inpQuesti
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
 		}
 	}
@@ -76,15 +76,16 @@ void backToChooseCategory(static unsigned int& awardFunctionCall, string& inpQue
 		if (_kbhit())
 		{
 			press = _getch();
-			system("CLS");
+			clear();
 			chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
 		}
 	}
 }
-//TODO
+
 void inputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
 {
-	system("CLS");
+	// This function lets the user type in their suggested question
+	clear();
 	space2();
 	border();
 	space2();
@@ -111,7 +112,8 @@ void inputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQue
 }
 void inputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions)
 {
-	system("CLS");
+	// Lets the user choose possible answers
+	clear();
 	space2();
 	border();
 	space2();
@@ -155,6 +157,7 @@ void inputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion,
 }
 void formatQuestion(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID)
 {
+	// Here we genarate our unique serial number and attach it to the question
 	makeID += 1; // We add 1 to the number, because we don't want it to end with 00
 	for (int i = 0; i < allQuestions.size(); ++i)
 	{
@@ -195,6 +198,7 @@ void formatAnswers1(static unsigned int& awardFunctionCall, string& ansA, string
 }
 void formatAnswers2(static unsigned int& awardFunctionCall, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
 {
+	// Formatting the text according to our text formatting algorithm
 	if (ansA.length() == ansB.length())	// We add four space bars of length between A) and C), also between B) and D),
 	{									// because they will share rows
 		ansA += "    ";
@@ -225,8 +229,9 @@ void formatAnswers2(static unsigned int& awardFunctionCall, string& ansA, string
 }
 void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
 {
+	// Lets the user choose the answer that is going to be correct
 	formatAnswers2(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
-	system("CLS");
+	clear();
 	space1();
 	border();
 	space2();
@@ -271,7 +276,8 @@ void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, 
 }
 void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
 {
-	system("CLS");
+	// Lets the user pick a level of difficulty (1-10)
+	clear();
 	space1();
 	border();
 	space2();
@@ -349,7 +355,8 @@ void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, st
 }
 void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
 {
-	system("CLS");
+	// Lets the user choose the category for the question
+	clear();
 	space2();
 	border();
 	space2();
@@ -401,6 +408,7 @@ void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion,
 }
 void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
 {
+	// Adds the question to the corresponding text file
 	ansA += ansC;
 	ansB += ansD;
 	ofstream file;
@@ -475,7 +483,8 @@ void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, stri
 }
 void addedQuesMessageScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID)
 {
-	system("CLS");
+	// Informs the user their question has been added successfully
+	clear();
 	space1();
 	border();
 	space2();
