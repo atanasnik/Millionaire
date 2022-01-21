@@ -6,84 +6,84 @@
 
 
 
-void Question1(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question2(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question3(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question4(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question5(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question6(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question7(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question8(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question9(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void Question10(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void Question1(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question2(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question3(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question4(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question5(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question6(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question7(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question8(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question9(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void Question10(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
 
 
 
-void history1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void history10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void history1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void history10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void geography1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void geography10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void geography1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void geography10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void science1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void science10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void science1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void science10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void literature1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void literature10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void literature1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void literature10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void funFacts1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void funFacts10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void funFacts1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void funFacts10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void topicMix1(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix2(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix3(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix4(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix5(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix6(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix7(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix8(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix9(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void topicMix10(vector<int>& allQues, int start, int randIndex, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void topicMix1(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix2(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix3(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix4(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix5(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix6(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix7(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix8(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix9(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void topicMix10(int start, int randIndex, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
 #endif

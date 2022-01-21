@@ -9,34 +9,34 @@ void primaryScreen(void);		// have in our slides and the wrapped functions that 
 void categories(void);
 void categoriesMenu(void);
 
-void findQuestions(static unsigned int& awardFunctionCall, vector<int>& allQuestions, ifstream& file);
-void SearchQuesLevel1(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel2(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel3(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel4(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel5(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel6(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel7(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel8(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel9(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel10(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void findQuestions(int& awardFunctionCall, vector<int>& allQuestions, ifstream& file);
+void SearchQuesLevel1(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel2(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel3(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel4(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel5(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel6(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel7(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel8(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel9(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesLevel10(int& awardFunctionCall, vector<int>& allQuestions);
 
-void FirstStage(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void FirstStage(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
-void WinnerScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void awardScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void WinnerScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void awardScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 void defeatScreen1_1(void);
-void defeatScreen1_2(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void defeatScreen1_2(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
 
-void optionSelect(static unsigned int& awardFunctionCall);
-void wrongInputMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void wrongInputCategoryScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void backToMainMenu(static unsigned int& awardFunctionCall, vector<int>& allQuestions);
+void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void wrongInputMainMenu(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void wrongInputCategoryScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void backToMainMenu(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 void nextQuesionScreen(void);
 
-void playQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions);
-void readQuestionAndAnswer(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
-void readQuestion(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes);
-void answerToQuestionStandart(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter);
+void playQuestion(ifstream& file, int start,int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void readQuestionAndAnswer(ifstream& file, int start,int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void readQuestion(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes, string& ansLetter);
 #endif

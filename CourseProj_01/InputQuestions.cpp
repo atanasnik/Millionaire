@@ -16,7 +16,7 @@ int numLength(int num) // Finds the length of a number (the number of digits)
 }
 
 // These functions let the user try again, if the input is wrong
-void backToInputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void backToInputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
 	while (true)
@@ -25,11 +25,11 @@ void backToInputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& 
 		{
 			press = _getch();
 			clear();
-			inputQuesScreen(awardFunctionCall, allQuestions);
+			inputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
-void backToInputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions)
+void backToInputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
 	while (true)
@@ -38,11 +38,11 @@ void backToInputAnsScreen(static unsigned int& awardFunctionCall, string& inpQue
 		{
 			press = _getch();
 			clear();
-			inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions);
+			inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
-void backToChooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void backToChooseCorrect(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
 	while (true)
@@ -51,11 +51,11 @@ void backToChooseCorrect(static unsigned int& awardFunctionCall, string& inpQues
 		{
 			press = _getch();
 			clear();
-			chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+			chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
-void backToChooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void backToChooseLevel(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
 	while (true)
@@ -64,11 +64,11 @@ void backToChooseLevel(static unsigned int& awardFunctionCall, string& inpQuesti
 		{
 			press = _getch();
 			clear();
-			chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+			chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
-void backToChooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
+void backToChooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
 	while (true)
@@ -77,12 +77,12 @@ void backToChooseCategory(static unsigned int& awardFunctionCall, string& inpQue
 		{
 			press = _getch();
 			clear();
-			chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
+			chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
 
-void inputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void inputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This function lets the user type in their suggested question
 	clear();
@@ -100,17 +100,17 @@ void inputQuesScreen(static unsigned int& awardFunctionCall, vector<int>& allQue
 	const int SIZE_QUES = 70;
 	if (inpQuestion.length() <= SIZE_QUES) //If the question has 70 characters or less, it's extracted.
 	{
-		inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions);
+		inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 
 	}
 	else
 	{
 		centerText1("This question is too long. Please try typing in a shorter one.");
 		centerText1("Press any button for another try...");
-		backToInputQuesScreen(awardFunctionCall, allQuestions);
+		backToInputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void inputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions)
+void inputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user choose possible answers
 	clear();
@@ -145,25 +145,24 @@ void inputAnsScreen(static unsigned int& awardFunctionCall, string& inpQuestion,
 		ansC.length() <= ANS_SIZE ||
 		ansD.length() <= ANS_SIZE)
 	{
-		formatAnswers1(awardFunctionCall, ansA, ansB, ansC, ansD,allQuestions);
-		chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+		formatAnswers1(ansA, ansB, ansC, ansD,allQuestions);
+		chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
 		centerText1("Some of the answers might be too long. Please try typing in shorter ones.");
 		centerText1("Press any button for another try...");
-		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions);
+		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void formatQuestion(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID)
+void formatQuestion(string& inpQuestion, vector<int>& allQuestions, int& makeID)
 {
 	// Here we genarate our unique serial number and attach it to the question
 	makeID += 1; // We add 1 to the number, because we don't want it to end with 00
 	for (int i = 0; i < allQuestions.size(); ++i)
 	{
-		if (makeID == allQuestions[i]) // We check if there is such number in the array that contains all
-									   // serial numbers, and, if so, we increment our number until there is no coincidence
-		{
+		if (makeID == allQuestions[i]) // We check if there is such number in the array that contains all							  
+		{							   // serial numbers, and, if so, we increment our number until there is no coincidence
 			++makeID;
 		}
 	}
@@ -176,7 +175,7 @@ void formatQuestion(static unsigned int& awardFunctionCall, string& inpQuestion,
 	temp /= 10;
 	}
 }
-void formatAnswers1(static unsigned int& awardFunctionCall, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void formatAnswers1(string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
 {
 	ansA.insert(0, 1, ' ');		// Here we put A) /B) /C) /D) in front of every answer 
 	ansA.insert(0, 1, ')');
@@ -196,7 +195,7 @@ void formatAnswers1(static unsigned int& awardFunctionCall, string& ansA, string
 	ansD.insert(0, 1, 'D');
 	ansD += '\t';
 }
-void formatAnswers2(static unsigned int& awardFunctionCall, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void formatAnswers2(string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
 {
 	// Formatting the text according to our text formatting algorithm
 	if (ansA.length() == ansB.length())	// We add four space bars of length between A) and C), also between B) and D),
@@ -227,10 +226,10 @@ void formatAnswers2(static unsigned int& awardFunctionCall, string& ansA, string
 		}
 	}
 }
-void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void chooseCorrect(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user choose the answer that is going to be correct
-	formatAnswers2(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
+	formatAnswers2(ansA, ansB, ansC, ansD, allQuestions);
 	clear();
 	space1();
 	border();
@@ -269,12 +268,12 @@ void chooseCorrect(static unsigned int& awardFunctionCall, string& inpQuestion, 
 		{
 			centerText1("You've entered an invalid symbol.");
 			centerText1("Press any button for another try...");
-			backToChooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+			backToChooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
-	chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+	chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
+void chooseLevel(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user pick a level of difficulty (1-10)
 	clear();
@@ -345,15 +344,15 @@ void chooseLevel(static unsigned int& awardFunctionCall, string& inpQuestion, st
 		{
 			centerText1("You've entered an invalid number.");
 			centerText1("Press any button for another try...");
-			backToChooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions);
+			backToChooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 	int makeID = 0;
 	const int LEVEL_IDENTITY = 1000;
 	makeID = levelNum * LEVEL_IDENTITY;
-	chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
+	chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
+void chooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user choose the category for the question
 	clear();
@@ -399,14 +398,14 @@ void chooseCategory(static unsigned int& awardFunctionCall, string& inpQuestion,
 		{
 			centerText1("You've entered an invalid category sign.");
 			centerText1("Press any button for another try...");
-			backToChooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
+			backToChooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
-	formatQuestion(awardFunctionCall,inpQuestion, allQuestions, makeID);
-	addToFile(awardFunctionCall,inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID);
-	addedQuesMessageScreen(awardFunctionCall, inpQuestion, allQuestions, makeID);
+	formatQuestion(inpQuestion, allQuestions, makeID);
+	addToFile(awardFunctionCall,inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	addedQuesMessageScreen(awardFunctionCall, inpQuestion, allQuestions, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID)
+void addToFile(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Adds the question to the corresponding text file
 	ansA += ansC;
@@ -481,7 +480,7 @@ void addToFile(static unsigned int& awardFunctionCall, string& inpQuestion, stri
 		file.close();
 	}
 }
-void addedQuesMessageScreen(static unsigned int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID)
+void addedQuesMessageScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Informs the user their question has been added successfully
 	clear();
@@ -496,5 +495,5 @@ void addedQuesMessageScreen(static unsigned int& awardFunctionCall, string& inpQ
 	space2();
 	border();
 	space1();
-	backToMainMenu(awardFunctionCall, allQuestions);
+	backToMainMenu(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }

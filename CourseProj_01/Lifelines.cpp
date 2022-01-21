@@ -36,9 +36,13 @@ char audienceAnswersEasy(char ansLetter)
 			break;
 	}
 	srand(time(NULL));
-	char suggestion;
-	int randomize = rand() % answers.size();
+	char suggestion = 0;
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+	randomize = rand() % answers.size();
 	suggestion = answers[randomize];
+	}
 	return suggestion;
 }
 char audienceAnswersNormal(char ansLetter)
@@ -73,9 +77,13 @@ char audienceAnswersNormal(char ansLetter)
 	break;
 	}
 	srand(time(NULL));
-	char suggestion;
-	int randomize = rand() % answers.size();
-	suggestion = answers[randomize];
+	char suggestion = 0;
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+		randomize = rand() % answers.size();
+		suggestion = answers[randomize];
+	}
 	return suggestion;
 }
 char audienceAnswersHard(char ansLetter)
@@ -134,9 +142,13 @@ char audienceAnswersHard(char ansLetter)
 		break;
 		}
 	srand(time(NULL));
-	char suggestion;
-	int randomize = rand() % answers.size();
-	suggestion = answers[randomize];
+	char suggestion = 0;
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+		randomize = rand() % answers.size();
+		suggestion = answers[randomize];
+	}
 	return suggestion;
 }
 void percentages(char suggestion)
@@ -163,7 +175,8 @@ void percentages(char suggestion)
 	int thirdBiggest = 0;
 	int fourthBiggest = 0;
 	int remainingProc = 100 - correctSuggest;
-	vector<int> remainder1(50, 0);					// Then we randomly split the remaining percents into the other three options		
+	const int SIZE = 50;
+	vector<int> remainder1(SIZE, 0);					// Then we randomly split the remaining percents into the other three options		
 	remainder1[0] = 1;
 	for (int i = 1; i < remainingProc; ++i)
 	{
@@ -173,7 +186,7 @@ void percentages(char suggestion)
 	secondBiggest = remainder1[randomize];
 
 	int remainingProc2 = remainingProc - secondBiggest;
-	vector<int> remainder2(50, 0);
+	vector<int> remainder2(SIZE, 0);
 	remainder2[0] = 1;
 	for (int i = 1; i < remainingProc2; ++i)
 	{
@@ -408,7 +421,7 @@ void percentages(char suggestion)
 	}
 }
 
-void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestion)
+void Ask_The_Audience_Answer(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes, string& ansLetter, char& suggestion)
 {
 	// Lets the user pick an answer after they have used this lifeline
 	percentages(suggestion);
@@ -421,7 +434,7 @@ void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, 
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
 		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions);
+		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
@@ -432,7 +445,7 @@ void Ask_The_Audience_Answer(int start, static unsigned int& awardFunctionCall, 
 		awardFunctionCall = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
-		defeatScreen1_2(awardFunctionCall, allQuestions);
+		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
 void Ask_The_Audience_Confirm()
@@ -449,7 +462,7 @@ void Ask_The_Audience_Confirm()
 	space2();
 }
 
-void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This function reads the question from the file as we already know from void readQuestion
 	// The two functions below are similar, but for a different difficulty
@@ -494,9 +507,9 @@ void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static u
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -517,7 +530,7 @@ void readAndAnswerQuestion_Ask_Audience_Easy(ifstream& file, int start, static u
 	char suggestion = audienceAnswersEasy(ansLetter[0]);
 	Ask_The_Audience_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestion);
 }
-void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	if (!file.is_open())
 	{
@@ -560,9 +573,9 @@ void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -583,7 +596,7 @@ void readAndAnswerQuestion_Ask_Audience_Normal(ifstream& file, int start, static
 	char suggestion = audienceAnswersNormal(ansLetter[0]);
 	Ask_The_Audience_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestion);
 }
-void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	if (!file.is_open())
 	{
@@ -626,9 +639,9 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -649,7 +662,7 @@ void readAndAnswerQuestion_Ask_Audience_Hard(ifstream& file, int start, static u
 	char suggestion = audienceAnswersHard(ansLetter[0]);
 	Ask_The_Audience_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestion);
 }
-void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This function wraps up all the work on the lifeline and presents the lifeline to the user
 	ifstream file;
@@ -883,7 +896,7 @@ void LifelineAsk_The_Audience(int start, static unsigned int& awardFunctionCall,
 				file.open("Level10.txt");
 			}
 		}
-		playQuestion(file, start, awardFunctionCall, allQuestions);
+		playQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
@@ -925,9 +938,13 @@ char tellAnswersEasy(char ansLetter)
 		break;
 	}
 	srand(time(NULL));
-	char suggestion;
-	int randomize = rand() % answers.size();
-	suggestion = answers[randomize];
+	char suggestion = 0;
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+		randomize = rand() % answers.size();
+		suggestion = answers[randomize];
+	}
 	return suggestion;
 }
 char tellAnswersNormal(char ansLetter)
@@ -961,7 +978,11 @@ char tellAnswersNormal(char ansLetter)
 	}
 	srand(time(NULL));
 	char suggestion;
-	int randomize = rand() % answers.size();
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+		randomize = rand() % answers.size();
+	}
 	suggestion = answers[randomize];
 	return suggestion;
 }
@@ -1019,9 +1040,13 @@ char tellAnswersHard(char ansLetter)
 	break;
 	}
 	srand(time(NULL));
-	char suggestion;
-	int randomize = rand() % answers.size();
-	suggestion = answers[randomize];
+	char suggestion = 0;
+	int randomize = 0;
+	if (answers.size() != 0)
+	{
+		randomize = rand() % answers.size();
+		suggestion = answers[randomize];
+	}
 	return suggestion;
 }
 
@@ -1038,7 +1063,7 @@ void Phone_A_Friend_Confirm()
 	border();
 	space2();
 }
-void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter, char& suggestionPick)
+void Phone_A_Friend_Answer(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes, string& ansLetter, char& suggestionPick)
 {
 	// Lets the user answer after they have picked this lifeline
 	cout << endl;
@@ -1053,7 +1078,7 @@ void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, ve
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
 		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions);
+		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
@@ -1064,10 +1089,10 @@ void Phone_A_Friend_Answer(int start, static unsigned int& awardFunctionCall, ve
 		awardFunctionCall = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
-		defeatScreen1_2(awardFunctionCall, allQuestions);
+		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Presents the question and lets the user answer while using the lifeline
 	// The other two functions below are for the other two levels of difficulty
@@ -1112,9 +1137,9 @@ void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -1135,7 +1160,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Easy(ifstream& file, int start, static
 	char suggestionPick = tellAnswersEasy(ansLetter[0]);
 	Phone_A_Friend_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestionPick);
 }
-void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	if (!file.is_open())
 	{
@@ -1178,9 +1203,9 @@ void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, stat
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -1201,7 +1226,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Normal(ifstream& file, int start, stat
 	char suggestionPick = tellAnswersNormal(ansLetter[0]);
 	Phone_A_Friend_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestionPick);
 }
-void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	if (!file.is_open())
 	{
@@ -1244,9 +1269,9 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length()); 
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -1267,7 +1292,7 @@ void readAndAnswerQuestion_Phone_A_Friend_Hard(ifstream& file, int start, static
 	char suggestionPick = tellAnswersHard(ansLetter[0]);
 	Phone_A_Friend_Answer(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, ansLetter, suggestionPick);
 }
-void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void LifelinePhone_A_Friend(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This function wraps up the "Phone a friend" work and presents the lifeline
 	ifstream file;
@@ -1502,7 +1527,7 @@ void LifelinePhone_A_Friend(int start, static unsigned int& awardFunctionCall, v
 				file.open("Level10.txt");
 			}
 		}
-		playQuestion(file, start, awardFunctionCall, allQuestions);
+		playQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
@@ -1522,7 +1547,7 @@ void Fifty_Fifty_Confirm()
 	border();
 	space2();
 }
-void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes, string& ansLetter)
+void Fifty_Fifty_Answer(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes, string& ansLetter)
 {
 	// Lets the user answer while using this lifeline
 	space1();
@@ -1534,7 +1559,7 @@ void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vecto
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
 		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions);
+		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
@@ -1545,10 +1570,10 @@ void Fifty_Fifty_Answer(int start, static unsigned int& awardFunctionCall, vecto
 		awardFunctionCall = 0;
 		defeatScreen1_1();
 		centerText1(ansLetter);
-		defeatScreen1_2(awardFunctionCall, allQuestions);
+		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vector<int>& allQuestions, static unsigned int& useFifty_Fifty, static unsigned int& useCall_A_Friend, static unsigned int& useAsk_The_Audience, static unsigned int& awardTimes)
+void LifelineFifty_Fifty(int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This is the "50/50" lifeline functionality, wrapped up
 	{
@@ -1654,9 +1679,9 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 			if (ans != string::npos)
 			{
 				row.erase(ans, correct.length()); 
-				for (int i = ans; row[i + 1] != '\0'; ++i)
+				for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 				{
-					if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+					if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 					{
 						break;
 					}
@@ -1820,9 +1845,9 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 				size_t wrong1 = row.find(wrongLetter1); // Here we find the two wrong answers that we have
 				if (wrong1 != string::npos)				// marked and then we remove them (replace them with white space)
 				{
-					for (int i = wrong1; row[i + 1] != '\0'; ++i)
+					for (int i = wrong1; row[size_t(i) + 1] != '\0'; ++i)
 					{
-						if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+						if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 						{
 							break;
 						}
@@ -1833,9 +1858,9 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 				size_t wrong2 = row.find(wrongLetter2);
 				if (wrong2 != string::npos)
 				{
-					for (int i = wrong2; row[i + 1] != '\0'; ++i)
+					for (int i = wrong2; row[size_t(i) + 1] != '\0'; ++i)
 					{
-						if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+						if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 						{
 							break;
 						}
@@ -1847,9 +1872,9 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 				if (ans != string::npos)
 				{
 					row.erase(ans, correct.length()); 
-					for (int i = ans; row[i + 1] != '\0'; ++i)
+					for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 					{
-						if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+						if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 						{
 							break;
 						}
@@ -1922,7 +1947,7 @@ void LifelineFifty_Fifty(int start, static unsigned int& awardFunctionCall, vect
 				file.open("Level10.txt");
 			}
 		}
-			playQuestion(file, start, awardFunctionCall, allQuestions);
+			playQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 		else
 		{

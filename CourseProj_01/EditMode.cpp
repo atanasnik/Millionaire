@@ -5,7 +5,7 @@
 #include "InputQuestions.h"
 #include "EditMode.h"
 
-void editModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void editModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// This slide includes a brief explaination about how serial numbers work
 	// and how to enter a valid serial number depending on what kind of question we are looking for
@@ -37,7 +37,7 @@ void editModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuest
 	{
 		centerText1("There is no such number, make sure you've read the instructions above.");
 		centerText1("Press any button for another try...");
-		backToEditModeIntro(awardFunctionCall, allQuestions);
+		backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	for (int i = 0; inputID[i] != '\0'; ++i)
 	{
@@ -45,22 +45,22 @@ void editModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuest
 		{
 			centerText1("There is no such number, it should only include digits");
 			centerText1("Press any button for another try...");
-			backToEditModeIntro(awardFunctionCall, allQuestions);
+			backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			break;
 		}
 	}
-	if (quesExists(awardFunctionCall, allQuestions, inputID))
+	if (quesExists(awardFunctionCall, allQuestions, inputID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes))
 	{
-		editModeScreen(awardFunctionCall, allQuestions, inputID);
+		editModeScreen(awardFunctionCall, allQuestions, inputID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
 		centerText1("A question with such number does not currently exist.");
 		centerText1("Press any button for another try...");
-		backToEditModeIntro(awardFunctionCall, allQuestions);
+		backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void backToEditModeIntro(static unsigned int& awardFunctionCall, vector<int>& allQuestions)
+void backToEditModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// If the user has chosen an invalid number, they are given another chance to type in a valid one
 	char press;
@@ -70,11 +70,11 @@ void backToEditModeIntro(static unsigned int& awardFunctionCall, vector<int>& al
 		{
 			press = _getch();
 			clear();
-			editModeIntro(awardFunctionCall, allQuestions);
+			editModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
 }
-void editModeScreen(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
+void editModeScreen(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Adds the necessary space after the presented question
 	clear();
@@ -87,10 +87,10 @@ void editModeScreen(static unsigned int& awardFunctionCall, vector<int>& allQues
 	border();
 	cout << endl;
 	centerText1("Rewrite the question and the answers as desired: ");
-	replaceQues(awardFunctionCall, allQuestions, inputID);
+	replaceQues(awardFunctionCall, allQuestions, inputID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 
 }
-bool quesExists(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
+bool quesExists(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Checks if there is a question with such number
 	int temp = stoi(inputID, nullptr);
@@ -223,9 +223,9 @@ void readQues(string& inputID)
 		if (ans != string::npos)
 		{
 			row.erase(ans, correct.length());
-			for (int i = ans; row[i + 1] != '\0'; ++i)
+			for (int i = ans; row[size_t(i) + 1] != '\0'; ++i)
 			{
-				if (row[i] == ' ' && row[i + 1] == ' ' || row[i] == '\t')
+				if (row[i] == ' ' && row[size_t(i) + 1] == ' ' || row[i] == '\t')
 				{
 					break;
 				}
@@ -488,16 +488,16 @@ void copyFile(string& inputID)
 	break;
 	}
 }
-void replaceQues(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
+void replaceQues(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user rewrite the question
 	indentLeft("Question: ");
 	string inpQuestion;
 	cin.ignore();
 	getline(cin, inpQuestion);
-	replaceAns(awardFunctionCall, allQuestions, inputID, inpQuestion);
+	replaceAns(awardFunctionCall, allQuestions, inputID, inpQuestion, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& inpQuestion)
+void replaceAns(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& inpQuestion, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user change the answers
 	string ansA, ansB, ansC, ansD;
@@ -514,13 +514,13 @@ void replaceAns(static unsigned int& awardFunctionCall, vector<int>& allQuestion
 	indentLeft("D): ");
 	getline(cin, ansD);
 
-	formatAnswers1(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
-	replaceCorrectAns(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion);
+	formatAnswers1(ansA, ansB, ansC, ansD, allQuestions);
+	replaceCorrectAns(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void replaceCorrectAns(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion)
+void replaceCorrectAns(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user change the correct answer
-	formatAnswers2(awardFunctionCall, ansA, ansB, ansC, ansD, allQuestions);
+	formatAnswers2(ansA, ansB, ansC, ansD, allQuestions);
 	centerText1("New correct answer (A, B, C or D):");
 	string pick;
 	while (true)
@@ -557,9 +557,9 @@ void replaceCorrectAns(static unsigned int& awardFunctionCall, vector<int>& allQ
 	}
 	break;
 	}
-	addNumToQues(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion);
+	addNumToQues(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void addNumToQues(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion)
+void addNumToQues(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& ansA, string& ansB, string& ansC, string& ansD, string& inpQuestion, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	int makeID = stoi(inputID, nullptr);
 	int sizeID = numLength(makeID);
@@ -571,10 +571,10 @@ void addNumToQues(static unsigned int& awardFunctionCall, vector<int>& allQuesti
 		temp /= 10;
 	}
 	int levelNumber = makeID / 1000;
-	addToFile(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNumber, makeID);
-	editSuccessfulMessage(awardFunctionCall, allQuestions, inputID);
+	addToFile(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNumber, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	editSuccessfulMessage(awardFunctionCall, allQuestions, inputID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
-void editSuccessfulMessage(static unsigned int& awardFunctionCall, vector<int>& allQuestions, string& inputID)
+void editSuccessfulMessage(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	clear();
 	space1();
@@ -586,5 +586,5 @@ void editSuccessfulMessage(static unsigned int& awardFunctionCall, vector<int>& 
 	space2();
 	border();
 	space1();
-	backToMainMenu(awardFunctionCall, allQuestions);
+	backToMainMenu(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
