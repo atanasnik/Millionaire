@@ -309,7 +309,6 @@ void findQuestions(int& awardFunctionCall, vector<int>& allQuestions, ifstream& 
 void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	vector<int> allQuestions;
-
 	SearchQuesLevel1(awardFunctionCall, allQuestions);
 	SearchQuesLevel2(awardFunctionCall, allQuestions);
 	SearchQuesLevel3(awardFunctionCall, allQuestions);
@@ -320,6 +319,8 @@ void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Fr
 	SearchQuesLevel8(awardFunctionCall, allQuestions);
 	SearchQuesLevel9(awardFunctionCall, allQuestions);
 	SearchQuesLevel10(awardFunctionCall, allQuestions);
+
+	sortVector(allQuestions);
 	int size = allQuestions.size();
 	string optionPick;
 	cin >> optionPick;

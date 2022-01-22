@@ -92,3 +92,27 @@ void centerText3(string textLine, double line)
 	++rowSpace;															// the same point.
 	cout << setw(halfWidth - rowSpace) << textLine << endl;
 }
+void sortVector(vector<int>& vec)
+{
+	int temp = 0;
+	if (vec.size() > 0)
+	{
+		for (int i = 0; i < vec.size(); ++i)
+		{
+			for (int j = i + 1; j < vec.size(); ++j)
+			{
+				if (vec[i] > vec[j])
+				{
+					temp = vec[i];
+					vec[i] = vec[j];
+					vec[j] = temp;
+				}
+			}
+		}
+	}
+	else
+	{
+		cout << "There are currently no questions.";
+			return;
+	}
+}

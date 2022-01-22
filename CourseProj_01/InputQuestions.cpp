@@ -98,14 +98,20 @@ void inputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& use
 	cin.ignore();            // We use cin.ignore() in order to skip the necessary whitespace
 	getline(cin, inpQuestion);
 	const int SIZE_QUES = 70;
-	if (inpQuestion.length() <= SIZE_QUES) //If the question has 70 characters or less, it's extracted.
+	if (inpQuestion.length() <= SIZE_QUES && inpQuestion.length() > 0) //If the question has 70 characters or less, it's extracted.
 	{
 		inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 
 	}
-	else
+	else if (inpQuestion.length() > SIZE_QUES)
 	{
 		centerText1("This question is too long. Please try typing in a shorter one.");
+		centerText1("Press any button for another try...");
+		backToInputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	}
+	else
+	{
+		centerText1("Invalid question.");
 		centerText1("Press any button for another try...");
 		backToInputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
@@ -140,17 +146,30 @@ void inputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& al
 	getline(cin, ansD);
 
 	const int ANS_SIZE = 32;			// The answers are valid if they are less than 32 characters
-	if (ansA.length() <= ANS_SIZE ||
-		ansB.length() <= ANS_SIZE ||
-		ansC.length() <= ANS_SIZE ||
-		ansD.length() <= ANS_SIZE)
+	if (ansA.length() <= ANS_SIZE &&
+		ansB.length() <= ANS_SIZE &&
+		ansC.length() <= ANS_SIZE &&
+		ansD.length() <= ANS_SIZE &&
+		ansA.length() > 0 &&
+		ansB.length() > 0 &&
+		ansC.length() > 0 &&
+		ansD.length() > 0)
 	{
 		formatAnswers1(ansA, ansB, ansC, ansD,allQuestions);
 		chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
-	else
+	else if (ansA.length() > ANS_SIZE ||
+			 ansB.length() > ANS_SIZE ||
+			 ansC.length() > ANS_SIZE ||
+			 ansD.length() > ANS_SIZE)
 	{
 		centerText1("Some of the answers might be too long. Please try typing in shorter ones.");
+		centerText1("Press any button for another try...");
+		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	}
+	else
+	{
+		centerText1("Some of the answers might have no characters. Please try again.");
 		centerText1("Press any button for another try...");
 		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
@@ -159,6 +178,7 @@ void formatQuestion(string& inpQuestion, vector<int>& allQuestions, int& makeID)
 {
 	// Here we genarate our unique serial number and attach it to the question
 	makeID += 1; // We add 1 to the number, because we don't want it to end with 00
+	
 	for (int i = 0; i < allQuestions.size(); ++i)
 	{
 		if (makeID == allQuestions[i]) // We check if there is such number in the array that contains all							  
@@ -468,6 +488,7 @@ void addToFile(int& awardFunctionCall, string& inpQuestion, string& ansA, string
 	{
 		centerText1("A mistake occured.");
 	}
+	file << "\n";
 	file << "\n";					// ...And we add the question and its answers to the file
 	file << inpQuestion;
 	file << "\n";
@@ -475,6 +496,7 @@ void addToFile(int& awardFunctionCall, string& inpQuestion, string& ansA, string
 	file << ansA;
 	file << "\n";
 	file << ansB;
+	file << "\n";
 	if (file.is_open())
 	{
 		file.close();

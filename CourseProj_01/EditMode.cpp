@@ -491,10 +491,18 @@ void copyFile(string& inputID)
 void replaceQues(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	// Lets the user rewrite the question
-	indentLeft("Question: ");
 	string inpQuestion;
+	indentLeft("Question: ");
 	cin.ignore();
+	while (true)
+	{
 	getline(cin, inpQuestion);
+		if (inpQuestion.length() > 0)
+		{
+			break;
+		}
+	}
+	
 	replaceAns(awardFunctionCall, allQuestions, inputID, inpQuestion, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void replaceAns(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, string& inpQuestion, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
@@ -502,17 +510,50 @@ void replaceAns(int& awardFunctionCall, vector<int>& allQuestions, string& input
 	// Lets the user change the answers
 	string ansA, ansB, ansC, ansD;
 	cout << endl;
+
 	indentLeft("A): ");
-	getline(cin, ansA);
+	while (true)
+	{
+		getline(cin, ansA);
+		if (ansA.length() > 0)
+		{
+			break;
+		}
+		indentLeft("Try again: ");
+	}
 
 	indentLeft("B): ");
-	getline(cin, ansB);
+	while (true)
+	{
+		getline(cin, ansB);
+		if (ansB.length() > 0)
+		{
+			break;
+		}
+		indentLeft("Try again: ");
+	}
 
 	indentLeft("C): ");
-	getline(cin, ansC);
+	while (true)
+	{
+		getline(cin, ansC);
+		if (ansC.length() > 0)
+		{
+			break;
+		}
+		indentLeft("Try again: ");
+	}
 
 	indentLeft("D): ");
-	getline(cin, ansD);
+	while (true)
+	{
+		getline(cin, ansD);
+		if (ansD.length() > 0)
+		{
+			break;
+		}
+		indentLeft("Try again: ");
+	}
 
 	formatAnswers1(ansA, ansB, ansC, ansD, allQuestions);
 	replaceCorrectAns(awardFunctionCall, allQuestions, inputID, ansA, ansB, ansC, ansD, inpQuestion, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
@@ -533,6 +574,7 @@ void replaceCorrectAns(int& awardFunctionCall, vector<int>& allQuestions, string
 		{
 			break;
 		}
+		indentLeft("Try again: ");
 	}
 	switch (pick[0])
 	{
