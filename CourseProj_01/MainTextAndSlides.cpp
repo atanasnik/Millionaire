@@ -126,164 +126,27 @@ void categoriesMenu()
 	space2();
 }
 
-void SearchQuesLevel1(int& awardFunctionCall, vector<int>& allQuestions)
+void SearchQuesInFiles(int& awardFunctionCall, vector<int>& allQuestions)
 {
-	ifstream file;					// Looks for questions in the mentioned text file
-	file.open("Level1.txt");
-	if (!file.is_open())
+	const int LEVELS = 10;
+	for (int i = 1; i < LEVELS + 1; ++i)
 	{
-		centerText1("An error occured.");
-	}
+		ifstream file;
+		string fileName = "Level";				// Looks for questions in the given text file
+		fileName += to_string(i);
+		fileName += ".txt";
+		file.open(fileName);
+		if (!file.is_open())
+		{
+			centerText1("An error occured.");
+		}
 
-	findQuestions(awardFunctionCall, allQuestions, file);
+		findQuestions(awardFunctionCall, allQuestions, file);
 
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel2(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level2.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel3(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level3.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel4(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level4.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel5(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level5.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel6(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level6.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel7(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level7.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel8(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level8.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel9(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level9.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
-	}
-}
-void SearchQuesLevel10(int& awardFunctionCall, vector<int>& allQuestions)
-{
-	ifstream file;
-	file.open("Level10.txt");
-	if (!file.is_open())
-	{
-		centerText1("An error occured.");
-	}
-
-	findQuestions(awardFunctionCall, allQuestions, file);
-
-	if (file.is_open())
-	{
-		file.close();
+		if (file.is_open())
+		{
+			file.close();
+		}
 	}
 }
 void findQuestions(int& awardFunctionCall, vector<int>& allQuestions, ifstream& file)
@@ -309,17 +172,8 @@ void findQuestions(int& awardFunctionCall, vector<int>& allQuestions, ifstream& 
 void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	vector<int> allQuestions;
-	SearchQuesLevel1(awardFunctionCall, allQuestions);
-	SearchQuesLevel2(awardFunctionCall, allQuestions);
-	SearchQuesLevel3(awardFunctionCall, allQuestions);
-	SearchQuesLevel4(awardFunctionCall, allQuestions);
-	SearchQuesLevel5(awardFunctionCall, allQuestions);
-	SearchQuesLevel6(awardFunctionCall, allQuestions);
-	SearchQuesLevel7(awardFunctionCall, allQuestions);
-	SearchQuesLevel8(awardFunctionCall, allQuestions);
-	SearchQuesLevel9(awardFunctionCall, allQuestions);
-	SearchQuesLevel10(awardFunctionCall, allQuestions);
-
+	SearchQuesInFiles(awardFunctionCall, allQuestions);
+	
 	sortVector(allQuestions);
 	int size = allQuestions.size();
 	string optionPick;
@@ -510,145 +364,57 @@ void nextQuesionScreen()
 }
 void WinnerScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
-		nextQuesionScreen();	// This screen shows at the end of the game
-		clear();				// also is a transition to the main menu
-		space1();
-		border();
-		space2();
-		centerText1("Good job!");
-		centerText1("You won the game!");
-		centerText1("Press any key to go back to main menu...");
-		cout << endl;
-		border();
-		space1();
-		backToMainMenu(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	awardFunctionCall = 0;	// Restarting the game
+	useCall_A_Friend = 0;
+	useAsk_The_Audience = 0;
+	useFifty_Fifty = 0;
+	awardTimes = 0;
+
+	nextQuesionScreen();	// This screen shows at the end of the game
+	clear();				// also is a transition to the main menu
+	space1();
+	border();
+	space2();
+	centerText1("Good job!");
+	centerText1("You won the game!");
+	centerText1("Press any key to go back to main menu...");
+	cout << endl;
+	border();
+	space1();
+	backToMainMenu(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void FirstStage(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	categoriesMenu();
+	const int LEVELS = 10;
 	char categoryPick;
 	cin >> categoryPick; 
-	switch (categoryPick)
+
+	if (categoryPick >= '1' && categoryPick <= '6')
 	{
-		case '1':
+		srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
+
+		int start = 0;
+		int randIndex = 0;
+		// Below we get the question corresponding to the topic and the level
+		for (int i = 1; i < LEVELS + 1; ++i)
 		{
-			srand(time(NULL)); // Using the stdlib.h and the time.h libraries, we pick a random element from an array by its index
-						
-			int start = 0;
-			int randIndex = 0;
-			// Below we get the question corresponding to the topic and the level
-			history1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			history10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		case '2': //same applies for the cases below:
-		{
-			srand(time(NULL));
 
-			int start = 0;
-			int randIndex = 0;
+			if (i > 1)
+			{
+				nextQuesionScreen();
+			}
 
-			geography1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			geography10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		case '3':
-		{
-			srand(time(NULL));
-
-			int start = 0;
-			int randIndex = 0;
-
-			science1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			science10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		case '4':
-		{
-			srand(time(NULL));
-
-			int start = 0;
-			int randIndex = 0;
-
-			literature1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			literature10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		case '5':
-		{
-			srand(time(NULL));
-
-			int start = 0;
-			int randIndex = 0;
-
-			funFacts1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			funFacts10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		case '6':
-		{
-			srand(time(NULL));
-
-			int start = 0;
-			int randIndex = 0;
-
-			topicMix1(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix2(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix3(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix4(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix5(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix6(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix7(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix8(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix9(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-			topicMix10(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
-		}
-			break;
-		default: 
-		{	// Wrong input case - brings the user to the main menu through a transition
-			wrongInputCategoryScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			Category(start, randIndex, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes, categoryPick);
+			++awardTimes;
+			awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
+	else
+	{	// Wrong input case - brings the user to the main menu through a transition
+		wrongInputCategoryScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+	}
+		
 }
 
 void readQuestionAndAnswer(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
@@ -731,8 +497,9 @@ void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall,
 	cin >> chooseAns;
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
-		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		return;
+		/*++awardTimes;
+		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);*/
 	}
 	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0) // The 50/50 lifeline
 	{
@@ -765,10 +532,6 @@ void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall,
 }
 void playQuestion(ifstream& file, int start, int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
-	//int awardTimes = 0; // Just like the awardFunctionCall variable, we use it to tell what the game progress is
-	//int useFifty_Fifty = 0; // This one and the other two below tell if the lifelines have been used
-	//int useCall_A_Friend = 0;
-	//int useAsk_The_Audience = 0;
 	clear();
 	space2();
 	border();

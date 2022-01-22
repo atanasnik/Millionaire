@@ -10,16 +10,7 @@ void categories(void);
 void categoriesMenu(void);
 
 void findQuestions(int& awardFunctionCall, vector<int>& allQuestions, ifstream& file);
-void SearchQuesLevel1(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel2(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel3(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel4(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel5(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel6(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel7(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel8(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel9(int& awardFunctionCall, vector<int>& allQuestions);
-void SearchQuesLevel10(int& awardFunctionCall, vector<int>& allQuestions);
+void SearchQuesInFiles(int& awardFunctionCall, vector<int>& allQuestions);
 
 void FirstStage(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 

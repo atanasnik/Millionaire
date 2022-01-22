@@ -433,8 +433,7 @@ void Ask_The_Audience_Answer(int start, int& awardFunctionCall, vector<int>& all
 	cin >> chooseAns;
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
-		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		return;
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
@@ -1077,8 +1076,7 @@ void Phone_A_Friend_Answer(int start, int& awardFunctionCall, vector<int>& allQu
 	cin >> chooseAns;
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
-		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		return;
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
@@ -1558,8 +1556,7 @@ void Fifty_Fifty_Answer(int start, int& awardFunctionCall, vector<int>& allQuest
 	cin >> chooseAns;
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32)
 	{
-		++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		return;
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
