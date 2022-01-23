@@ -175,7 +175,7 @@ void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Fr
 	SearchQuesInFiles(awardFunctionCall, allQuestions);
 	
 	sortVector(allQuestions);
-	int size = allQuestions.size();
+	
 	string optionPick;
 	cin >> optionPick;
 
@@ -215,7 +215,7 @@ void wrongInputMainMenu(int& awardFunctionCall, vector<int>& allQuestions, int& 
 	space2();
 	centerText1("You didn't pick an option!");
 	cout << endl;
-	centerText1("Press any key to try again...");
+	centerText1("Press \"R\" to retry");
 	space2();
 	border();
 	space1();
@@ -229,7 +229,7 @@ void wrongInputCategoryScreen(int& awardFunctionCall, vector<int>& allQuestions,
 	space2();
 	centerText1("You didn't pick a category!");
 	cout << endl;
-	centerText1("Press any key to return to the main menu...");
+	centerText1("Press \"R\" to return to the main menu...");
 	space2();
 	border();
 	space1();
@@ -239,17 +239,19 @@ void wrongInputCategoryScreen(int& awardFunctionCall, vector<int>& allQuestions,
 void backToMainMenu(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())        // the _kbhit() function from the conio.h library checks if a key is being pressed
+		cin >> press;
+		if (press == 'r' || press == 'R')
 		{
-			press = _getch(); // if so, the _getch() function reads the pressed character and then we can proceed to the
-			clear();	
-			primaryScreen();			// next screen, in this case, the Main menu.
-			optionSelect(awardFunctionCall, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			break;
 		}
+		indentLeft("You need to press \"R\":");
 	}
+	clear();
+	primaryScreen();			// next screen, in this case, the Main menu.
+	optionSelect(awardFunctionCall, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 
 
@@ -322,7 +324,7 @@ void awardScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFift
 	centerText1("You've won ");
 	centerText2(rewardText, won.length()/2);
 	cout << endl;
-	centerText1("Press any key to proceed...");
+	centerText1("Press \"P\" to proceed...");
 	space2();
 	border();
 	space1();
@@ -344,7 +346,7 @@ void defeatScreen1_1()
 void defeatScreen1_2(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	cout << endl;	// A transition to the main menu
-	centerText1("Press any key to go back to the main menu...");
+	centerText1("Press \"R\" to go back to the main menu...");
 	cout << endl;
 	border();
 	space1();
@@ -353,13 +355,15 @@ void defeatScreen1_2(int& awardFunctionCall, vector<int>& allQuestions, int& use
 void nextQuesionScreen()
 {
 	char press;
-	while (true)	// Lets the user move to the next question
+
+	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 'P' || press == 'p')
 		{
-			press = _getch();
 			break;
 		}
+		indentLeft("You need to press \"P\":");
 	}
 }
 void WinnerScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
@@ -377,7 +381,7 @@ void WinnerScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFif
 	space2();
 	centerText1("Good job!");
 	centerText1("You won the game!");
-	centerText1("Press any key to go back to main menu...");
+	centerText1("Press \"R\" to go back to main menu...");
 	cout << endl;
 	border();
 	space1();
@@ -498,8 +502,6 @@ void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall,
 	if (chooseAns[0] == ansLetter[0] || chooseAns[0] == char(ansLetter[0]) + 32) // If the user picks the right answer
 	{
 		return;
-		/*++awardTimes;
-		awardScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);*/
 	}
 	else if (chooseAns[0] == 'X' || chooseAns[0] == 'x' && useFifty_Fifty == 0) // The 50/50 lifeline
 	{

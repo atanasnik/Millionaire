@@ -36,7 +36,7 @@ void editModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int& useFi
 	if (inputID.length() > MAX_ID_SIZE)
 	{
 		centerText1("There is no such number, make sure you've read the instructions above.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	for (int i = 0; inputID[i] != '\0'; ++i)
@@ -44,7 +44,7 @@ void editModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int& useFi
 		if (inputID[i] < '0' || inputID[i] > '9')
 		{
 			centerText1("There is no such number, it should only include digits");
-			centerText1("Press any button for another try...");
+			centerText1("Press \"T\" to try again...");
 			backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			break;
 		}
@@ -56,7 +56,7 @@ void editModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int& useFi
 	else
 	{
 		centerText1("A question with such number does not currently exist.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToEditModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
@@ -64,15 +64,18 @@ void backToEditModeIntro(int& awardFunctionCall, vector<int>& allQuestions, int&
 {
 	// If the user has chosen an invalid number, they are given another chance to type in a valid one
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			editModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();
+	editModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void editModeScreen(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
@@ -496,7 +499,7 @@ void replaceQues(int& awardFunctionCall, vector<int>& allQuestions, string& inpu
 	cin.ignore();
 	while (true)
 	{
-	getline(cin, inpQuestion);
+		getline(cin, inpQuestion);
 		if (inpQuestion.length() > 0)
 		{
 			break;
@@ -624,7 +627,7 @@ void editSuccessfulMessage(int& awardFunctionCall, vector<int>& allQuestions, st
 	space2();
 	cout << endl;
 	centerText1("This question has been changed successfully!");
-	centerText1("Press any key to go back to main menu...");
+	centerText1("Press \"R\" to return to main menu...");
 	space2();
 	border();
 	space1();

@@ -1,16 +1,16 @@
-#include <windows.h>		// In this header file, which is the first among our header files, we include the libraries we need
-#include <iomanip>			// for the project and also the "using namespace std" directive.
+// In this header file, which is the first among our header files, we include the libraries we need
+#include <iomanip>					// for the project and also the "using namespace std" directive.
 #include <iostream>
 
 #include <fstream>
+
 #include <string>
-
-#include <stdlib.h>
-#include <time.h>
-
-#include <conio.h>
 #include <vector>
 
+#include <stdlib.h> // randomizing
+#include <time.h>
+
+#include <cstdio> // std::rename
 #include <algorithm> // std::remove
 
 using namespace std;

@@ -19,67 +19,83 @@ int numLength(int num) // Finds the length of a number (the number of digits)
 void backToInputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			inputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();
+	inputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void backToInputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();	
+	inputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void backToChooseCorrect(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();
+	chooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void backToChooseLevel(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();
+	
+	chooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 void backToChooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
 	char press;
+
 	while (true)
 	{
-		if (_kbhit())
+		cin >> press;
+		if (press == 't' || press == 'T')
 		{
-			press = _getch();
-			clear();
-			chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+			break;
 		}
+		indentLeft("You need to press \"T\":");
 	}
+	clear();
+	chooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 }
 
 void inputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
@@ -106,13 +122,13 @@ void inputQuesScreen(int& awardFunctionCall, vector<int>& allQuestions, int& use
 	else if (inpQuestion.length() > SIZE_QUES)
 	{
 		centerText1("This question is too long. Please try typing in a shorter one.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToInputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
 		centerText1("Invalid question.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToInputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
@@ -131,6 +147,7 @@ void inputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& al
 
 	string ansA, ansB, ansC, ansD;
 	indentLeft("A): ");
+	cin.ignore();
 	getline(cin, ansA);
 	cout << endl;
 
@@ -164,13 +181,13 @@ void inputAnsScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& al
 			 ansD.length() > ANS_SIZE)
 	{
 		centerText1("Some of the answers might be too long. Please try typing in shorter ones.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 	else
 	{
 		centerText1("Some of the answers might have no characters. Please try again.");
-		centerText1("Press any button for another try...");
+		centerText1("Press \"T\" to try again...");
 		backToInputAnsScreen(awardFunctionCall, inpQuestion, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
@@ -287,7 +304,7 @@ void chooseCorrect(int& awardFunctionCall, string& inpQuestion, string& ansA, st
 		default:
 		{
 			centerText1("You've entered an invalid symbol.");
-			centerText1("Press any button for another try...");
+			centerText1("Press \"T\" to try again...");
 			backToChooseCorrect(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
@@ -363,7 +380,7 @@ void chooseLevel(int& awardFunctionCall, string& inpQuestion, string& ansA, stri
 		default:
 		{
 			centerText1("You've entered an invalid number.");
-			centerText1("Press any button for another try...");
+			centerText1("Press \"T\" to try again...");
 			backToChooseLevel(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
@@ -417,7 +434,7 @@ void chooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, s
 		default:
 		{
 			centerText1("You've entered an invalid category sign.");
-			centerText1("Press any button for another try...");
+			centerText1("Press \"T\" to try again...");
 			backToChooseCategory(awardFunctionCall, inpQuestion, ansA, ansB, ansC, ansD, allQuestions, levelNum, makeID, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 	}
@@ -513,7 +530,7 @@ void addedQuesMessageScreen(int& awardFunctionCall, string& inpQuestion, vector<
 	centerText1("Your question has been added successfully:");
 	centerText1NoEndline("Unique question number: ");
 	cout << makeID << endl;
-	centerText1("Press any key to go back to main menu...");
+	centerText1("Press \"R\" to return to main menu...");
 	space2();
 	border();
 	space1();
