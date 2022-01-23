@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .h type that contains the declarations of the functions in Lifelines.cpp>
+*
+*/
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"

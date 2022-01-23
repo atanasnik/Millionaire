@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .cpp type that contains all lifelines functionalities>
+*
+*/
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
@@ -18,30 +33,30 @@ char audienceAnswersEasy(char ansLetter)
 		{
 			answers += {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D'};
 		}
-			break;
+		break;
 		case 'B':
 		{
 			answers += {'A', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'D'};
 		}
-			break;
+		break;
 		case 'C':
 		{
 			answers += {'A', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'D'};
 		}
-			break;
+		break;
 		case 'D':
 		{
 			answers += {'A', 'B', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D'};
 		}
-			break;
+		break;
 	}
 	srand(time(NULL));
 	char suggestion = 0;
 	int randomize = 0;
 	if (answers.size() != 0)
 	{
-	randomize = rand() % answers.size();
-	suggestion = answers[randomize];
+		randomize = rand() % answers.size();
+		suggestion = answers[randomize];
 	}
 	return suggestion;
 }
@@ -140,7 +155,7 @@ char audienceAnswersHard(char ansLetter)
 			};
 		}
 		break;
-		}
+	}
 	srand(time(NULL));
 	char suggestion = 0;
 	int randomize = 0;
@@ -437,7 +452,7 @@ void Ask_The_Audience_Answer(int start, int& awardFunctionCall, vector<int>& all
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		//awardTimes = 0;
+		
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
@@ -672,47 +687,47 @@ void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& al
 		{
 			file.open("Level1.txt");
 		}
-			break;
+		break;
 		case 1:
 		{
 			file.open("Level2.txt");
 		}
-			break;
+		break;
 		case 2:
 		{
 			file.open("Level3.txt");
 		}
-			break;
+		break;
 		case 3:
 		{
 			file.open("Level4.txt");
 		}
-			break;
+		break;
 		case 4:
 		{
 			file.open("Level5.txt");
 		}
-			break;
+		break;
 		case 5:
 		{
 			file.open("Level6.txt");
 		}
-			break;
+		break;
 		case 6:
 		{
 			file.open("Level7.txt");
 		}
-			break;
+		break;
 		case 7:
 		{
 			file.open("Level8.txt");
 		}
-			break;
+		break;
 		case 8:
 		{
 			file.open("Level9.txt");
 		}
-			break;
+		break;
 		case 9:
 		{
 			file.open("Level10.txt");
@@ -737,47 +752,47 @@ void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& al
 			{
 				file.open("Level1.txt");
 			}
-				break;
+			break;
 			case 1:
 			{
 				file.open("Level2.txt");
 			}
-				break;
+			break;
 			case 2:
 			{
 				file.open("Level3.txt");
 			}
-				break;
+			break;
 			case 3:
 			{
 				file.open("Level4.txt");
 			}
-				break;
+			break;
 			case 4:
 			{
 				file.open("Level5.txt");
 			}
-				break;
+			break;
 			case 5:
 			{
 				file.open("Level6.txt");
 			}
-				break;
+			break;
 			case 6:
 			{
 				file.open("Level7.txt");
 			}
-				break;
+			break;
 			case 7:
 			{
 				file.open("Level8.txt");
 			}
-				break;
+			break;
 			case 8:
 			{
 				file.open("Level9.txt");
 			}
-				break;
+			break;
 			case 9:
 			{
 				file.open("Level10.txt");
@@ -793,47 +808,47 @@ void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& al
 			{
 				readAndAnswerQuestion_Ask_Audience_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 1:
 			{
 				readAndAnswerQuestion_Ask_Audience_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 2:
 			{
 				readAndAnswerQuestion_Ask_Audience_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 3:
 			{
 				readAndAnswerQuestion_Ask_Audience_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 4:
 			{
 				readAndAnswerQuestion_Ask_Audience_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 5:
 			{
 				readAndAnswerQuestion_Ask_Audience_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 6:
 			{
 				readAndAnswerQuestion_Ask_Audience_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 7:
 			{
 				readAndAnswerQuestion_Ask_Audience_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 8:
 			{
 				readAndAnswerQuestion_Ask_Audience_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 9:
 			{
 				readAndAnswerQuestion_Ask_Audience_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
@@ -849,47 +864,47 @@ void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& al
 			{
 				file.open("Level1.txt");
 			}
-				break;
+			break;
 			case 1:
 			{
 				file.open("Level2.txt");
 			}
-				break;
+			break;
 			case 2:
 			{
 				file.open("Level3.txt");
 			}
-				break;
+			break;
 			case 3:
 			{
 				file.open("Level4.txt");
 			}
-				break;
+			break;
 			case 4:
 			{
 				file.open("Level5.txt");
 			}
-				break;
+			break;
 			case 5:
 			{
 				file.open("Level6.txt");
 			}
-				break;
+			break;
 			case 6:
 			{
 				file.open("Level7.txt");
 			}
-				break;
+			break;
 			case 7:
 			{
 				file.open("Level8.txt");
 			}
-				break;
+			break;
 			case 8:
 			{
 				file.open("Level9.txt");
 			}
-				break;
+			break;
 			case 9:
 			{
 				file.open("Level10.txt");
@@ -899,7 +914,7 @@ void LifelineAsk_The_Audience(int start, int& awardFunctionCall, vector<int>& al
 	}
 	else
 	{
-	LifelineAsk_The_Audience(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
+		LifelineAsk_The_Audience(start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
 
@@ -919,22 +934,22 @@ char tellAnswersEasy(char ansLetter)
 	{
 		answers += {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D'}; 
 	}
-		break;
+	break;
 	case 'B':
 	{
 		answers += {'A', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'D'};
 	}
-		break;
+	break;
 	case 'C':
 	{
 		answers += {'A', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'D'};
 	}
-		break;
+	break;
 	case 'D': 
 	{
 		answers += {'A', 'B', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D'};
 	}
-		break;
+	break;
 	}
 	srand(time(NULL));
 	char suggestion = 0;
@@ -1080,7 +1095,7 @@ void Phone_A_Friend_Answer(int start, int& awardFunctionCall, vector<int>& allQu
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		//awardTimes = 0;
+		
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
@@ -1367,47 +1382,47 @@ void LifelinePhone_A_Friend(int start, int& awardFunctionCall, vector<int>& allQ
 			{
 				file.open("Level1.txt");
 			}
-				break;
+			break;
 			case 1:
 			{
 				file.open("Level2.txt");
 			}
-				break;
+			break;
 			case 2:
 			{
 				file.open("Level3.txt");
 			}
-				break;
+			break;
 			case 3:
 			{
 				file.open("Level4.txt");
 			}
-				break;
+			break;
 			case 4:
 			{
 				file.open("Level5.txt");
 			}
-				break;
+			break;
 			case 5:
 			{
 				file.open("Level6.txt");
 			}
-				break;
+			break;
 			case 6:
 			{
 				file.open("Level7.txt");
 			}
-				break;
+			break;
 			case 7:
 			{
 				file.open("Level8.txt");
 			}
-				break;
+			break;
 			case 8:
 			{
 				file.open("Level9.txt");
 			}
-				break;
+			break;
 			case 9:
 			{
 				file.open("Level10.txt");
@@ -1423,47 +1438,47 @@ void LifelinePhone_A_Friend(int start, int& awardFunctionCall, vector<int>& allQ
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 1:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 2:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Easy(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 3:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 4:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 5:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Normal(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 6:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 7:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 8:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 			}
-				break;
+			break;
 			case 9:
 			{
 				readAndAnswerQuestion_Phone_A_Friend_Hard(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
@@ -1479,47 +1494,47 @@ void LifelinePhone_A_Friend(int start, int& awardFunctionCall, vector<int>& allQ
 			{
 				file.open("Level1.txt");
 			}
-				break;
+			break;
 			case 1:
 			{
 				file.open("Level2.txt");
 			}
-				break;
+			break;
 			case 2:
 			{
 				file.open("Level3.txt");
 			}
-				break;
+			break;
 			case 3:
 			{
 				file.open("Level4.txt");
 			}
-				break;
+			break;
 			case 4:
 			{
 				file.open("Level5.txt");
 			}
-				break;
+			break;
 			case 5:
 			{
 				file.open("Level6.txt");
 			}
-				break;
+			break;
 			case 6:
 			{
 				file.open("Level7.txt");
 			}
-				break;
+			break;
 			case 7:
 			{
 				file.open("Level8.txt");
 			}
-				break;
+			break;
 			case 8:
 			{
 				file.open("Level9.txt");
 			}
-				break;
+			break;
 			case 9:
 			{
 				file.open("Level10.txt");
@@ -1560,7 +1575,7 @@ void Fifty_Fifty_Answer(int start, int& awardFunctionCall, vector<int>& allQuest
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		//awardTimes = 0;
+		
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
@@ -1582,47 +1597,47 @@ void LifelineFifty_Fifty(int start, int& awardFunctionCall, vector<int>& allQues
 			{
 				file.open("Level1.txt");
 			}
-				break;
+			break;
 			case 1:
 			{
 				file.open("Level2.txt");
 			}
-				break;
+			break;
 			case 2:
 			{
 				file.open("Level3.txt");
 			}
-				break;
+			break;
 			case 3:
 			{
 				file.open("Level4.txt");
 			}
-				break;
+			break;
 			case 4:
 			{
 				file.open("Level5.txt");
 			}
-				break;
+			break;
 			case 5:
 			{
 				file.open("Level6.txt");
 			}
-				break;
+			break;
 			case 6:
 			{
 				file.open("Level7.txt");
 			}
-				break;
+			break;
 			case 7:
 			{
 				file.open("Level8.txt");
 			}
-				break;
+			break;
 			case 8:
 			{
 				file.open("Level9.txt");
 			}
-				break;
+			break;
 			case 9:
 			{
 				file.open("Level10.txt");
@@ -1688,13 +1703,13 @@ void LifelineFifty_Fifty(int start, int& awardFunctionCall, vector<int>& allQues
 				switch (ansLetter[0])	// Here we extract the wrong answers from the question
 				{
 				case 'A': wrongAns1 = "B)", wrongAns2 = "C)", wrongAns3 = "D)";
-					break;
+				break;
 				case 'B': wrongAns1 = "A)", wrongAns2 = "C)", wrongAns3 = "D)";
-					break;
+				break;
 				case 'C': wrongAns1 = "A)", wrongAns2 = "B)", wrongAns3 = "D)";
-					break;
+				break;
 				case 'D': wrongAns1 = "A)", wrongAns2 = "B)", wrongAns3 = "C)";
-					break;
+				break;
 				}
 			}
 
@@ -1748,47 +1763,47 @@ void LifelineFifty_Fifty(int start, int& awardFunctionCall, vector<int>& allQues
 				{
 					file.open("Level1.txt");
 				}
-					break;
+				break;
 				case 1:
 				{
 					file.open("Level2.txt");
 				}
-					break;
+				break;
 				case 2:
 				{
 					file.open("Level3.txt");
 				}
-					break;
+				break;
 				case 3:
 				{
 					file.open("Level4.txt");
 				}
-					break;
+				break;
 				case 4:
 				{
 					file.open("Level5.txt");
 				}
-					break;
+				break;
 				case 5:
 				{
 					file.open("Level6.txt");
 				}
-					break;
+				break;
 				case 6:
 				{
 					file.open("Level7.txt");
 				}
-					break;
+				break;
 				case 7:
 				{
 					file.open("Level8.txt");
 				}
-					break;
+				break;
 				case 8:
 				{
 					file.open("Level9.txt");
 				}
-					break;
+				break;
 				case 9:
 				{
 					file.open("Level10.txt");
@@ -1891,59 +1906,59 @@ void LifelineFifty_Fifty(int start, int& awardFunctionCall, vector<int>& allQues
 		}
 		else if (confirm[0] == 'n' || confirm[0] == 'N') // If the user wants to go back, they are being shown the same question again
 		{
-		ifstream file;
-		switch (awardTimes)
-		{
-			case 0:
+			ifstream file;
+			switch (awardTimes)
 			{
-				file.open("Level1.txt");
-			}
+				case 0:
+				{
+					file.open("Level1.txt");
+				}
 				break;
-			case 1:
-			{
-				file.open("Level2.txt");
-			}
+				case 1:
+				{
+					file.open("Level2.txt");
+				}
 				break;
-			case 2:
-			{
-				file.open("Level3.txt");
-			}
+				case 2:
+				{
+					file.open("Level3.txt");
+				}
 				break;
-			case 3:
-			{
-				file.open("Level4.txt");
-			}
+				case 3:
+				{
+					file.open("Level4.txt");
+				}
 				break;
-			case 4:
-			{
-				file.open("Level5.txt");
-			}
+				case 4:
+				{
+					file.open("Level5.txt");
+				}
 				break;
-			case 5:
-			{
-				file.open("Level6.txt");
-			}
+				case 5:
+				{
+					file.open("Level6.txt");
+				}
 				break;
-			case 6:
-			{
-				file.open("Level7.txt");
-			}
+				case 6:
+				{
+					file.open("Level7.txt");
+				}
 				break;
-			case 7:
-			{
-				file.open("Level8.txt");
-			}
+				case 7:
+				{
+					file.open("Level8.txt");
+				}
 				break;
-			case 8:
-			{
-				file.open("Level9.txt");
-			}
+				case 8:
+				{
+					file.open("Level9.txt");
+				}
 				break;
-			case 9:
-			{
-				file.open("Level10.txt");
+				case 9:
+				{
+					file.open("Level10.txt");
+				}
 			}
-		}
 			playQuestion(file, start, awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 		}
 		else

@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .cpp type that contains all of the create mode logic>
+*
+*/
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
@@ -208,8 +223,8 @@ void formatQuestion(string& inpQuestion, vector<int>& allQuestions, int& makeID)
 	int temp = makeID;
 	for (int i = 0; i < sizeID; ++i)
 	{
-	inpQuestion.insert(0, 1, temp % 10 + '0');
-	temp /= 10;
+		inpQuestion.insert(0, 1, temp % 10 + '0');
+		temp /= 10;
 	}
 }
 void formatAnswers1(string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions)
@@ -285,22 +300,22 @@ void chooseCorrect(int& awardFunctionCall, string& inpQuestion, string& ansA, st
 		{
 			ansA.insert(2, 2, '$');
 		}						
-			break;
+		break;
 		case 'B': case 'b':
 		{
 			ansB.insert(2, 2, '$');
 		}
-			break;
+		break;
 		case 'C': case 'c':
 		{
 			ansC.insert(2, 2, '$');
 		}
-			break;
+		break;
 		case 'D': case 'd':
 		{
 			ansD.insert(2, 2, '$');
 		}
-			break;
+		break;
 		default:
 		{
 			centerText1("You've entered an invalid symbol.");
@@ -336,47 +351,47 @@ void chooseLevel(int& awardFunctionCall, string& inpQuestion, string& ansA, stri
 				levelNum = 10;
 			}
 		}
-			break;
+		break;
 		case '2':
 		{
 			levelNum = 2;
 		}
-			break; 
+		break; 
 		case '3':
 		{
 			levelNum = 3;
 		}
-			break;
+		break;
 		case '4':
 		{
 			levelNum = 4;
 		}
-			break;
+		break;
 		case '5':
 		{
 			levelNum = 5;
 		}
-			break;
+		break;
 		case '6':
 		{
 			levelNum = 6;
 		}
-			break;
+		break;
 		case '7':
 		{
 			levelNum = 7;
 		}
-			break;
+		break;
 		case '8':
 		{
 			levelNum = 8;
 		}
-			break;
+		break;
 		case '9':
 		{
 			levelNum = 9;
 		}
-			break;
+		break;
 		default:
 		{
 			centerText1("You've entered an invalid number.");
@@ -410,27 +425,27 @@ void chooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, s
 		{
 			makeID += 1 * CATEGORY_IDENTITY;
 		}
-			break;
+		break;
 		case 'G': case'g':
 		{
 			makeID += 2 * CATEGORY_IDENTITY;
 		}
-			break;
+		break;
 		case 'S': case's':
 		{
 			makeID += 3 * CATEGORY_IDENTITY;
 		}
-			break;
+		break;
 		case 'L': case'l':
 		{
 			makeID += 4 * CATEGORY_IDENTITY;
 		}
-			break;
+		break;
 		case 'F': case'f':
 		{
 			makeID += 5 * CATEGORY_IDENTITY;
 		}
-			break;
+		break;
 		default:
 		{
 			centerText1("You've entered an invalid category sign.");
@@ -454,52 +469,52 @@ void addToFile(int& awardFunctionCall, string& inpQuestion, string& ansA, string
 		{
 			file.open("Level1.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 2:
 		{
 			file.open("Level2.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 3:
 		{
 			file.open("Level3.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 4:
 		{
 			file.open("Level4.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 5:
 		{
 			file.open("Level5.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 6:
 		{
 			file.open("Level6.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 7:
 		{
 			file.open("Level7.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 8:
 		{
 			file.open("Level8.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 9:
 		{
 			file.open("Level9.txt", ofstream::app);
 		}
-			break;
+		break;
 		case 10:
 		{
 			file.open("Level10.txt", ofstream::app);
 		}
-			break;
+		break;
 	}
 	if (!file.is_open())
 	{

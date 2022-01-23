@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .h type that contains all of the declarations of the functions in InputQuestions.cpp>
+*
+*/
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
@@ -26,4 +41,5 @@ void chooseCategory(int& awardFunctionCall, string& inpQuestion, string& ansA, s
 void addToFile(int& awardFunctionCall, string& inpQuestion, string& ansA, string& ansB, string& ansC, string& ansD, vector<int>& allQuestions, int& levelNum, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
 void addedQuesMessageScreen(int& awardFunctionCall, string& inpQuestion, vector<int>& allQuestions, int& makeID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
+
 #endif

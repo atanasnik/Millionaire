@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .cpp type that contains text alignment and layout functionalities>
+*
+*/
+
 #include "MainLayout.h"
 
 

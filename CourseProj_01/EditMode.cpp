@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .cpp type that contains all of the edit mode logic>
+*
+*/
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
@@ -123,7 +138,7 @@ void readQues(string& inputID)
 				file.open("Level1.txt");
 			}
 		}
-			break;
+		break;
 		case '2':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -131,7 +146,7 @@ void readQues(string& inputID)
 				file.open("Level2.txt");
 			}
 		}
-			break;
+		break;
 		case '3':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -139,7 +154,7 @@ void readQues(string& inputID)
 				file.open("Level3.txt");
 			}
 		}
-			break;
+		break;
 		case '4':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -147,7 +162,7 @@ void readQues(string& inputID)
 				file.open("Level4.txt");
 			}
 		}
-			break;
+		break;
 		case '5':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -155,7 +170,7 @@ void readQues(string& inputID)
 				file.open("Level5.txt");
 			}
 		}
-			break;
+		break;
 		case '6':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -163,7 +178,7 @@ void readQues(string& inputID)
 				file.open("Level6.txt");
 			}
 		}
-			break;
+		break;
 		case '7':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -171,7 +186,7 @@ void readQues(string& inputID)
 				file.open("Level17txt");
 			}
 		}
-			break;
+		break;
 		case '8':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -179,7 +194,7 @@ void readQues(string& inputID)
 				file.open("Level8.txt");
 			}
 		}
-			break;
+		break;
 		case '9':
 		{
 			if (inputID[1] != '0' && inputID.length() == 4)
@@ -187,8 +202,9 @@ void readQues(string& inputID)
 				file.open("Level9.txt");
 			}
 		}
-			break;
-		}
+		break;
+	}
+
 	if (!file.is_open())
 	{
 		centerText1("A mistake occured.");
@@ -373,122 +389,122 @@ void copyFile(string& inputID)
 	}
 	switch (inputID[0])
 	{
-	case '1':
-	{
-		if (inputID[1] == '0' && inputID.length() == 5) 
+		case '1':
 		{
-			remove("Level10.txt");
-			if (rename("copy.txt", "Level10.txt"))
+			if (inputID[1] == '0' && inputID.length() == 5) 
 			{
-				indentLeft("There was a file error");
+				remove("Level10.txt");
+				if (rename("copy.txt", "Level10.txt"))
+				{
+					indentLeft("There was a file error");
+				}
+			}
+			else if (inputID[1] != '0' && inputID.length() == 4)
+			{
+				remove("Level1.txt");
+				if (rename("copy.txt", "Level1.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-		else if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '2':
 		{
-			remove("Level1.txt");
-			if (rename("copy.txt", "Level1.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level2.txt");
+				if (rename("copy.txt", "Level2.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '2':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '3':
 		{
-			remove("Level2.txt");
-			if (rename("copy.txt", "Level2.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level3.txt");
+				if (rename("copy.txt", "Level3.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '3':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '4':
 		{
-			remove("Level3.txt");
-			if (rename("copy.txt", "Level3.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level4.txt");
+				if (rename("copy.txt", "Level4.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '4':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '5':
 		{
-			remove("Level4.txt");
-			if (rename("copy.txt", "Level4.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level5.txt");
+				if (rename("copy.txt", "Level5.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '5':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '6':
 		{
-			remove("Level5.txt");
-			if (rename("copy.txt", "Level5.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level6.txt");
+				if (rename("copy.txt", "Level6.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '6':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '7':
 		{
-			remove("Level6.txt");
-			if (rename("copy.txt", "Level6.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level7.txt");
+				if (rename("copy.txt", "Level7.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '7':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '8':
 		{
-			remove("Level7.txt");
-			if (rename("copy.txt", "Level7.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level8.txt");
+				if (rename("copy.txt", "Level8.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '8':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
+		break;
+		case '9':
 		{
-			remove("Level8.txt");
-			if (rename("copy.txt", "Level8.txt"))
+			if (inputID[1] != '0' && inputID.length() == 4)
 			{
-				indentLeft("There was a file error");
+				remove("Level9.txt");
+				if (rename("copy.txt", "Level9.txt"))
+				{
+					indentLeft("There was a file error");
+				}
 			}
 		}
-	}
-	break;
-	case '9':
-	{
-		if (inputID[1] != '0' && inputID.length() == 4)
-		{
-			remove("Level9.txt");
-			if (rename("copy.txt", "Level9.txt"))
-			{
-				indentLeft("There was a file error");
-			}
-		}
-	}
-	break;
+		break;
 	}
 }
 void replaceQues(int& awardFunctionCall, vector<int>& allQuestions, string& inputID, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)

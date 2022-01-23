@@ -1,3 +1,19 @@
+/**
+*
+* Solution to course project # 5
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2021/2022
+*
+* @author Atanas Nikov
+* @idnumber 3MI0600006
+* @compiler VC
+*
+* <File of .cpp type that contains main game mode logic>
+*
+*/
+
+
 #include "MainLayout.h"
 #include "MainTextAndSlides.h"
 #include "OutputQuestions.h"
@@ -19,11 +35,11 @@ void primaryText()
 		switch (i)
 		{
 		case 0: option = "Press \"N\" to start a new game."; 
-			break;	// These will be the lines of text in our first slide.
+		break;	// These will be the lines of text in our first slide.
 		case 1: option = "Press \"C\" to create a new question."; 
-			break;
+		break;
 		case 2: option = "Press \"E\" to edit an existing question."; 
-			break;
+		break;
 		case 3: option = "Press \"Q\" to quit the game.";
 		}
 		centerText1(option);
@@ -64,53 +80,53 @@ void categories()
 		{
 			category = "Choose a category: ";
 		}
-			break;                            // These will be the lines of text in our category menu.
+		break;                            // These will be the lines of text in our category menu.
 		case 1: 
 		{
 			category = "1. History";
 			cout << endl;
 		}
-			break;
+		break;
 		case 2: 
 		{
 			category = "2. Geography";
 		}
-			break;
+		break;
 		case 3: 
 		{
 			category = "3. Science";
 		}
-			break;
+		break;
 		case 4: 
 		{
 			category = 
 			"4. Literature";
 		}
-			break;
+		break;
 		case 5: 
 		{
 			category = "5. Fun facts";
 		}
-			break;
+		break;
 		case 6:
 		{
 			cout << endl;
 			category = "6. Random";
 		}
-			break;
+		break;
 		case 7:
 		{
 			cout << endl;
 			category = "Pick a number: ";
 		}
-			break;
+		break;
 		}
 		switch (i)
 		{
 		case 0: case 7: centerText1(category); 
-			break;
+		break;
 		case 1: centerText2(category, halfFirstLine); 
-			break;
+		break;
 		default: centerText3(category, line);
 		}
 	}
@@ -185,17 +201,17 @@ void optionSelect(int& awardFunctionCall, int& useFifty_Fifty, int& useCall_A_Fr
 		{
 			FirstStage(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes); // Leads to the game mode
 		}
-			break;
+		break;
 		case 'C': case 'c':
 		{
 			inputQuesScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes); // Leads to the create mode
 		}
-			break;
+		break;
 		case 'E': case 'e':
 		{
 			editModeIntro(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);		// Leads to the edit mode
 		}
-			break;
+		break;
 		case 'Q': case 'q':
 		{
 			exit(0);		// Terminates the program immediately, if the user wants to quit
@@ -265,52 +281,52 @@ void awardScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFift
 		{
 			reward = 1000;
 		}
-			break;
+		break;
 		case 2: 
 		{
 			reward = 2500;
 		}
-			break;
+		break;
 		case 3: 
 		{
 			reward = 5000;
 		}
-			break;
+		break;
 		case 4:
 		{
 			reward = 10000;
 		}
-			break;
+		break;
 		case 5: 
 		{
 			reward = 25000;
 		}
-			break;
+		break;
 		case 6: 
 		{
 			reward = 50000;
 		}
-			break;
+		break;
 		case 7: 
 		{
 			reward = 100000;
 		}
-			break;
+		break;
 		case 8: 
 		{
 			reward = 250000;
 		}
-			break;
+		break;
 		case 9: 
 		{
 			reward = 500000;
 		}
-			break;
+		break;
 		case 10: 
 		{
 			reward = 1000000;
 		}
-			break;
+		break;
 	}
 	string rewardText;
 	rewardText += to_string(reward);
@@ -587,7 +603,7 @@ void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall,
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		useFifty_Fifty = 0;
-		//awardTimes = 0;
+		
 		defeatScreen1_1(awardTimes);
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
