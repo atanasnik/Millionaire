@@ -333,15 +333,76 @@ void awardScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFift
 		WinnerScreen(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
 }
-void defeatScreen1_1()
+void defeatScreen1_1(int& awardTimes)
 {
 	clear();	// Gets printed if the user has chosen a wrong answer while playing
 	space1();
 	border();
 	space2();
-	centerText1("Wrong answer!");
+	centerText1("Invalid answer!");
 	cout << endl;
+	int reward = 0;
+	switch (awardTimes)
+	{
+	case 0:
+	{
+		centerText1("You've earned no money!");
+	}
+	break;
+	case 1:
+	{
+		reward = 1000;
+	}
+	break;
+	case 2:
+	{
+		reward = 2500;
+	}
+	break;
+	case 3:
+	{
+		reward = 5000;
+	}
+	break;
+	case 4:
+	{
+		reward = 10000;
+	}
+	break;
+	case 5:
+	{
+		reward = 25000;
+	}
+	break;
+	case 6:
+	{
+		reward = 50000;
+	}
+	break;
+	case 7:
+	{
+		reward = 100000;
+	}
+	break;
+	case 8:
+	{
+		reward = 250000;
+	}
+	break;
+	case 9:
+	{
+		reward = 500000;
+	}
+	break;
+	}
+	if (awardTimes > 0 && awardTimes < 10)
+	{
+		centerText1NoEndline("You've earned a total sum of ");
+		cout << reward << "$" << endl;
+	}
 	centerText1("The right answer was ");
+
+	awardTimes = 0;
 }
 void defeatScreen1_2(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes)
 {
@@ -526,8 +587,8 @@ void answerToQuestionStandart(ifstream& file, int start, int& awardFunctionCall,
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		useFifty_Fifty = 0;
-		awardTimes = 0;
-		defeatScreen1_1();
+		//awardTimes = 0;
+		defeatScreen1_1(awardTimes);
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}

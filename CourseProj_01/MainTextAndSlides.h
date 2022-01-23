@@ -16,7 +16,7 @@ void FirstStage(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty
 
 void WinnerScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 void awardScreen(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
-void defeatScreen1_1(void);
+void defeatScreen1_1(int& awardTimes);
 void defeatScreen1_2(int& awardFunctionCall, vector<int>& allQuestions, int& useFifty_Fifty, int& useCall_A_Friend, int& useAsk_The_Audience, int& awardTimes);
 
 

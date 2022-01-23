@@ -437,12 +437,12 @@ void Ask_The_Audience_Answer(int start, int& awardFunctionCall, vector<int>& all
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		awardTimes = 0;
+		//awardTimes = 0;
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		awardFunctionCall = 0;
-		defeatScreen1_1();
+		defeatScreen1_1(awardTimes);
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
@@ -1080,12 +1080,12 @@ void Phone_A_Friend_Answer(int start, int& awardFunctionCall, vector<int>& allQu
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		awardTimes = 0;
+		//awardTimes = 0;
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		awardFunctionCall = 0;
-		defeatScreen1_1();
+		defeatScreen1_1(awardTimes);
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
@@ -1560,12 +1560,12 @@ void Fifty_Fifty_Answer(int start, int& awardFunctionCall, vector<int>& allQuest
 	}
 	else if (chooseAns[0] != ansLetter[0] && chooseAns[0] != char(ansLetter[0]) + 32)
 	{
-		awardTimes = 0;
+		//awardTimes = 0;
 		useFifty_Fifty = 0;
 		useCall_A_Friend = 0;
 		useAsk_The_Audience = 0;
 		awardFunctionCall = 0;
-		defeatScreen1_1();
+		defeatScreen1_1(awardTimes);
 		centerText1(ansLetter);
 		defeatScreen1_2(awardFunctionCall, allQuestions, useFifty_Fifty, useCall_A_Friend, useAsk_The_Audience, awardTimes);
 	}
