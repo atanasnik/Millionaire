@@ -1,5 +1,5 @@
 # Millionaire
-### A basic "Who wants to be a millionaire" game
+### A basic "Who wants to be a millionaire" game for my Introduction to programming course.
 
 ## Necessary:
 In order to run the game, you need to have installed VS (Visual Studio Community 2019) on Windows OS. To open directly in VS, choose and open the .sln file.
